@@ -12,6 +12,8 @@ import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.ResultSet;
 import org.apache.jena.rdf.model.Model;
 
+import guiInterface.ResultObject;
+
 public class SPARQLUtils {
 	
 	public static  ArrayList<HashMap<String, String>> executeSparqlQuery(Model model, String sparqlQuery) {
@@ -38,4 +40,12 @@ public class SPARQLUtils {
  		return list;
     }
 
+	public  static ResultObject getObjectByURI(ArrayList<ResultObject> list, String targetURI) {
+        for (ResultObject obj : list) {
+            if (obj.getURI().equals(targetURI)) {
+                return obj;
+            }
+        }
+        return null; // Object not found
+    }
 }

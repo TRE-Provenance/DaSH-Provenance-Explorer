@@ -29,10 +29,31 @@ public class JsonLdProcessor {
     public ArrayList<HashMap<String, String>> getActivityData () {
     	
     	// Execute SPARQL query
-    	ArrayList<HashMap<String, String>>  list = SPARQLUtils.executeSparqlQuery(model, Constants.PREFIXES + " SELECT DISTINCT ?activity ?activityL ?input ?output ?inputL ?agent ?outputL  WHERE {?activity a <http://schema.org/CreateAction>; rdfs:label ?activityL; <http://schema.org/agent> ?agent;  <http://schema.org/object> ?input; <http://schema.org/result> ?output. ?input rdfs:label ?inputL. ?output rdfs:label ?outputL. }");    	
+    	ArrayList<HashMap<String, String>>  list = SPARQLUtils.executeSparqlQuery(model, Constants.PREFIXES + " SELECT DISTINCT ?activity ?activityL   WHERE {?activity a <http://schema.org/CreateAction>; rdfs:label ?activityL. }");    	
     	
 		return list;
     }
+    
+ public ArrayList<HashMap<String, String>> getActivityInputs (String activityURI) {
+    	
+    	// Execute SPARQL query
+    	ArrayList<HashMap<String, String>>  list = SPARQLUtils.executeSparqlQuery(model, Constants.PREFIXES + " SELECT DISTINCT  ?activityL ?input  ?inputL   WHERE {<"+activityURI+"> a <http://schema.org/CreateAction>; rdfs:label ?activityL;  <http://schema.org/object> ?input.  ?input rdfs:label ?inputL.  }");    	   	
+		return list;
+    }
+ 
+ public ArrayList<HashMap<String, String>> getActivityOutputs (String activityURI) {
+ 	
+ 	// Execute SPARQL query
+ 	ArrayList<HashMap<String, String>>  list = SPARQLUtils.executeSparqlQuery(model, Constants.PREFIXES + " SELECT DISTINCT  ?activityL ?output  ?outputL   WHERE {<"+activityURI+"> a <http://schema.org/CreateAction>; rdfs:label ?activityL;  <http://schema.org/result> ?output.  ?output rdfs:label ?outptuL.  }");    	   	
+		return list;
+ }
+ 
+ public ArrayList<HashMap<String, String>> getActivityAgents (String activityURI) {
+	 	
+	 	// Execute SPARQL query
+	 	ArrayList<HashMap<String, String>>  list = SPARQLUtils.executeSparqlQuery(model, Constants.PREFIXES + " SELECT DISTINCT  ?activityL ?agent     WHERE {<"+activityURI+"> a <http://schema.org/CreateAction>; rdfs:label ?activityL;  <http://schema.org/agent> ?agent.  }");    	   	
+			return list;
+	 }
     
     
 public ArrayList<HashMap<String, String>> getVariablesInFile (String fileIRI) {

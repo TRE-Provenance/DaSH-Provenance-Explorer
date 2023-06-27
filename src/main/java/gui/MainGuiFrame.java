@@ -5,6 +5,8 @@ import javax.swing.event.HyperlinkEvent;
 
 import Utils.GuiUtils;
 import Utils.ValidationUtils;
+import guiComponentImpl.ActivityListImpl;
+import guiInterface.ActivityListInterface;
 import semantic.parser.JsonLdProcessor;
 import validation.CheckForSensitiveVariablesInFile;
 
@@ -17,11 +19,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 
-public class ClickableIFrame extends JFrame {
+public class MainGuiFrame extends JFrame {
 	
 	JsonLdProcessor dataProcessor;
 
-    public ClickableIFrame() {
+    public MainGuiFrame() {
     	setTitle("Provenance Report");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(800, 800);
@@ -29,10 +31,32 @@ public class ClickableIFrame extends JFrame {
 
         
         JPanel appPanel = new JPanel(new BorderLayout());
-        appPanel.add(new JLabel("Project Details:"), BorderLayout.NORTH);
-        
+         
       
+        JPanel topPanel = new JPanel();
+        topPanel.setLayout(new BoxLayout(topPanel, BoxLayout.PAGE_AXIS));
         
+        JMenuBar menuBar = new JMenuBar();
+        JMenu menu = new JMenu("App");
+        menuBar.add(menu);
+        
+        JMenuItem aboutItem = new JMenuItem("About");
+        menu.add(aboutItem);
+        
+        setJMenuBar(menuBar);
+        topPanel.add(GuiUtils.wrapTextWithLabelNoColor("Project Details:","Project description goes here"));
+        topPanel.add(GuiUtils.wrapButtonWithLabelNoColor("Variable Specification:", new JButton ("inspect")));
+        topPanel.add(GuiUtils.wrapTextWithLabel("Released Files:","List of file names goes here?", Color.magenta));
+        appPanel.add(topPanel, BorderLayout.NORTH);
+        
+        JPanel appCenter = new JPanel(new BorderLayout ());
+        
+        
+        
+        ActivityListInterface listComp = new ActivityListImpl ();
+        
+       
+       
         
         JPanel activityListPanel = new JPanel();
        
@@ -61,8 +85,8 @@ public class ClickableIFrame extends JFrame {
 		    
 		    
 		    
-		    activityPanel.add(GuiUtils.wrapValueWithLabel("Activity: ",list.get(i).get("activityL"),null));
-		    activityPanel.add(GuiUtils.wrapValueWithLabel("Responsible Person: ",list.get(i).get("agent"),null));
+		    activityPanel.add(GuiUtils.wrapTextWithLabel("Activity: ",list.get(i).get("activityL"),null));
+		    activityPanel.add(GuiUtils.wrapTextWithLabel("Responsible Person: ",list.get(i).get("agent"),null));
 		    
 		    activityPanel.add(new JSeparator(JSeparator.HORIZONTAL),
 		            BorderLayout.LINE_START);
@@ -138,7 +162,11 @@ public class ClickableIFrame extends JFrame {
       
 		JScrollPane activityListScrolPane = new JScrollPane (activityListPanel);
 		 // activityListScrolPane.add(activityListPanel);
-		appPanel.add(activityListScrolPane,BorderLayout.CENTER);
+		
+		
+		appCenter.add(listComp.getActivityList(), BorderLayout.WEST);
+		appCenter.add(activityListScrolPane, BorderLayout.CENTER);
+		appPanel.add(appCenter,BorderLayout.CENTER);
 
         getContentPane().add(appPanel);
     }
@@ -185,8 +213,8 @@ public class ClickableIFrame extends JFrame {
             
             ArrayList<HashMap<String, String>> summaryStats = dataProcessor.getSummaryStatsForFile(fileIRI);
             
-            mainInfo.add(GuiUtils.wrapValueWithLabel ("Description: ", summaryStats.get(0).get("description"),null));
-            mainInfo.add(GuiUtils.wrapValueWithLabel ("Row Count: ", summaryStats.get(0).get("rowCount"),null));
+            mainInfo.add(GuiUtils.wrapTextWithLabel ("Description: ", summaryStats.get(0).get("description"),null));
+            mainInfo.add(GuiUtils.wrapTextWithLabel ("Row Count: ", summaryStats.get(0).get("rowCount"),null));
             mainInfo.add (new JLabel ("Dataset Variables"));
             panel.add(mainInfo, BorderLayout.CENTER);
             
@@ -274,7 +302,7 @@ public class ClickableIFrame extends JFrame {
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
-        	ClickableIFrame frame = new ClickableIFrame();
+        	MainGuiFrame frame = new MainGuiFrame();
             frame.setVisible(true);
         });
     }
