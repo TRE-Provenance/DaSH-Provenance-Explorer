@@ -44,7 +44,7 @@ public class JsonLdProcessor {
  public ArrayList<HashMap<String, String>> getActivityOutputs (String activityURI) {
  	
  	// Execute SPARQL query
- 	ArrayList<HashMap<String, String>>  list = SPARQLUtils.executeSparqlQuery(model, Constants.PREFIXES + " SELECT DISTINCT  ?activityL ?output  ?outputL   WHERE {<"+activityURI+"> a <http://schema.org/CreateAction>; rdfs:label ?activityL;  <http://schema.org/result> ?output.  ?output rdfs:label ?outptuL.  }");    	   	
+ 	ArrayList<HashMap<String, String>>  list = SPARQLUtils.executeSparqlQuery(model, Constants.PREFIXES + " SELECT DISTINCT  ?activityL ?output  ?outputL   WHERE {<"+activityURI+"> a <http://schema.org/CreateAction>; rdfs:label ?activityL;  <http://schema.org/result> ?output.  ?output rdfs:label ?outputL.  }");    	   	
 		return list;
  }
  

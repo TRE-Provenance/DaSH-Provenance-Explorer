@@ -26,7 +26,7 @@ public class MainGuiFrame extends JFrame {
     public MainGuiFrame() {
     	setTitle("Provenance Report");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(800, 800);
+        setSize(800, 600);
         setLocationRelativeTo(null);
 
         
@@ -47,23 +47,25 @@ public class MainGuiFrame extends JFrame {
         topPanel.add(GuiUtils.wrapTextWithLabelNoColor("Project Details:","Project description goes here"));
         topPanel.add(GuiUtils.wrapButtonWithLabelNoColor("Variable Specification:", new JButton ("inspect")));
         topPanel.add(GuiUtils.wrapTextWithLabel("Released Files:","List of file names goes here?", Color.magenta));
+        topPanel.add(new JSeparator(JSeparator.HORIZONTAL),
+	            BorderLayout.LINE_START);
         appPanel.add(topPanel, BorderLayout.NORTH);
         
-        JPanel appCenter = new JPanel(new BorderLayout ());
+        JPanel activityViewer = new JPanel();
+        activityViewer.setLayout(new FlowLayout(FlowLayout.LEFT));
+            
         
-        
-        
-        ActivityListInterface listComp = new ActivityListImpl ();
-        
-       
-       
+        ActivityListInterface listComp = new ActivityListImpl (activityViewer);
         
         JPanel activityListPanel = new JPanel();
        
       
         activityListPanel.setLayout(new BoxLayout(activityListPanel, BoxLayout.Y_AXIS));
-       
-         dataProcessor = new JsonLdProcessor ();
+        //activityListPanel.add(activityViewer);
+       // appPanel.add(activityListPanel, BorderLayout.CENTER);
+        
+        /*
+        dataProcessor = new JsonLdProcessor ();
         
         ArrayList<HashMap<String, String>> list = dataProcessor.getActivityData();
 
@@ -162,11 +164,12 @@ public class MainGuiFrame extends JFrame {
       
 		JScrollPane activityListScrolPane = new JScrollPane (activityListPanel);
 		 // activityListScrolPane.add(activityListPanel);
-		
-		
-		appCenter.add(listComp.getActivityList(), BorderLayout.WEST);
 		appCenter.add(activityListScrolPane, BorderLayout.CENTER);
 		appPanel.add(appCenter,BorderLayout.CENTER);
+		*/
+        
+        appPanel.add(listComp.getActivityList(), BorderLayout.WEST);
+        appPanel.add(activityViewer, BorderLayout.CENTER);
 
         getContentPane().add(appPanel);
     }
@@ -184,122 +187,7 @@ public class MainGuiFrame extends JFrame {
         return panel;
     }
 
-    private class ClickListener extends MouseAdapter {
-        private String fileIRI;
-        
-
-        public ClickListener(String fileIRI) {
-        	
-            this.fileIRI = fileIRI;
-		}
-
-		@Override
-        public void mouseClicked(MouseEvent e) {
-            showValueFrame(fileIRI);
-        }
-
-        private void showValueFrame(String fileIRI) {
-            JFrame valueFrame = new JFrame(fileIRI);
-            valueFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-            valueFrame.setSize(600, 400);
-            valueFrame.setLocationRelativeTo(null);
-
-            JPanel panel = new JPanel(new BorderLayout());
-
-            
-            JPanel mainInfo = new JPanel();
-            mainInfo.setLayout(new BoxLayout(mainInfo, BoxLayout.Y_AXIS));
-            mainInfo.setPreferredSize(new Dimension(800, 400));
-            
-            ArrayList<HashMap<String, String>> summaryStats = dataProcessor.getSummaryStatsForFile(fileIRI);
-            
-            mainInfo.add(GuiUtils.wrapTextWithLabel ("Description: ", summaryStats.get(0).get("description"),null));
-            mainInfo.add(GuiUtils.wrapTextWithLabel ("Row Count: ", summaryStats.get(0).get("rowCount"),null));
-            mainInfo.add (new JLabel ("Dataset Variables"));
-            panel.add(mainInfo, BorderLayout.CENTER);
-            
-            
-            //validations 
-            
-            JPanel fileValidation = new JPanel();
-            fileValidation.setLayout(new BoxLayout(fileValidation, BoxLayout.Y_AXIS));
-            fileValidation.add (new JLabel ("Validation Checks"));
-            JPanel fileValidationWrapper = new JPanel();
-            fileValidationWrapper.add(new JSeparator(JSeparator.VERTICAL),
-		            BorderLayout.BEFORE_FIRST_LINE);
-            fileValidationWrapper.add(fileValidation);
-            panel.add(fileValidationWrapper, BorderLayout.EAST);
-            
-            
-            ArrayList<HashMap<String, String>> sensitiveVariablesFound =  CheckForSensitiveVariablesInFile.checkFile(fileIRI, dataProcessor.getModel());
-            String result = "";
-
-            if (sensitiveVariablesFound.size()>0) {
-            	
-            	for (int i =0; i <sensitiveVariablesFound.size();i++ ) {
-            		result = result + sensitiveVariablesFound.get(i).get("variableL");
-            		
-            		if (i+1!=sensitiveVariablesFound.size()) {
-            			result = result +",";
-                	}
-            	}
-            	
-            }
-            
-            ValidationUtils.simpleResult("Sensitive Variables", fileValidation, result);
-            ValidationUtils.simpleResult("Variable range  exceeds Spec", fileValidation, "not implemented");
-            ValidationUtils.simpleResult("What Else", fileValidation, "not implemented");
-           
-            
-            
-            
-            
-            
-            ArrayList<HashMap<String, String>> variables = dataProcessor.getVariablesInFile(fileIRI);
-            //keep the first column empty
-            Object[] columnNames = new Object [variables.size()+1];
-            columnNames[0] = "";
-            
-            for (int i =0; i<variables.size();i++ ) {
-            	columnNames[i+1] = variables.get(i).get("variableL");
-            }
-            
-            
-            ArrayList<HashMap<String, String>> variableStats = dataProcessor.getVariableStatsForFile(fileIRI);
-            
-            int NUMB_STATS_DISPLAYED = 2;
-           
-            Object[][] rowData = new Object[NUMB_STATS_DISPLAYED][variables.size()+1];
-            
-            
-            
-            rowData [0][0] = "minValue";
-            rowData [1][0] = "maxValue";
-             	
-            	for (int j = 0 ; j < variableStats.size(); j ++ ) {
-            		String variableLabel = variableStats.get(j).get("variableL");
-            		System.out.println (variableLabel);
-            		System.out.println (variableLabel);
-            		int columnIndex = Arrays.asList(columnNames).indexOf(variableLabel) ;
-            		rowData [0][columnIndex] = variableStats.get(j).get("minValue");
-            		rowData [1][columnIndex] = variableStats.get(j).get("maxValue");
-            	}	
-            	   
-
-            JTable table = new JTable(rowData, columnNames);
-            table.setEnabled(false);
-            JScrollPane scrollPane = new JScrollPane(table);
-            scrollPane.setPreferredSize(new Dimension(600, 200));
-            
-            
-            
-            panel.add(scrollPane, BorderLayout.SOUTH);
-
-            valueFrame.add(panel);
-            valueFrame.setVisible(true);
-        }
-    }
-
+    
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
         	MainGuiFrame frame = new MainGuiFrame();

@@ -19,6 +19,7 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
 import guiInterface.ActivityListInterface;
+import guiInterface.ActivityView;
 import guiInterface.ResultObject;
 import semantic.parser.Activity;
 import semantic.parser.Agent;
@@ -29,6 +30,11 @@ public class ActivityListImpl implements ActivityListInterface {
 	
 	private DefaultListModel<IconTextItem> listModel;
     private JList<IconTextItem> jList;
+    private JPanel activityViewer;
+
+	public ActivityListImpl(JPanel activityViewer) {
+		this.activityViewer = activityViewer;
+	}
 
 	@Override
 	public JPanel getActivityList() {
@@ -59,6 +65,10 @@ public class ActivityListImpl implements ActivityListInterface {
                     if (selectedIndex != -1) {
                         IconTextItem selectedItem = listModel.getElementAt(selectedIndex);
                         System.out.println("Selected Item: " + selectedItem.getText());
+                        activityViewer.removeAll();
+                        ActivityView view =  new ActivityViewImpl (selectedItem.getActivity());
+                        activityViewer.add(view.getActivityView());
+                        activityViewer.revalidate();
                     }
                 }
             }
@@ -109,13 +119,15 @@ public class ActivityListImpl implements ActivityListInterface {
 				 dataset.setDatasetL(outputs.get(j).get("outputL"));
 				 newact.getOutputs().add(dataset);
 			 }
+			 
+			 
 
 			 ArrayList<HashMap<String, String>> agents = dataProcessor.getActivityAgents(activityURI);
 			
 			 for (int j=0;j<agents.size();j++) {
 				 Agent agent = new Agent (agents.get(j).get("agent")); 
 				 
-				 newact.getOutputs().add(agent);
+				 newact.getAgents().add(agent);
 			 }
 	
 			
@@ -130,7 +142,7 @@ public class ActivityListImpl implements ActivityListInterface {
 	
 	private void addItem(Activity act, boolean hasIcon) {
         // Add text to the list model
-        listModel.addElement(new IconTextItem(act.getActivityType(), hasIcon));
+        listModel.addElement(new IconTextItem(act, hasIcon));
 
         // Get the index of the newly added item
         int index = listModel.getSize() - 1;
@@ -147,12 +159,18 @@ public class ActivityListImpl implements ActivityListInterface {
     private static class IconTextItem {
         private final String text;
         private Icon icon;
+        private Activity activity;
 
-        public IconTextItem(String text, boolean hasIcon) {
-            this.text = text;
+        public IconTextItem(Activity act, boolean hasIcon) {
+        	this.activity = act;
+            this.text = act.getActivityType();
             if (hasIcon) {
                 this.icon = new ImageIcon(ActivityListImpl.class.getClassLoader().getResource("warning.png")); // Replace with your own icon path
             }
+        }
+        
+        public Activity getActivity() {
+        	return activity;
         }
 
         public String getText() {

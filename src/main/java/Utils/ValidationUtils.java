@@ -7,12 +7,12 @@ import javax.swing.JPanel;
 public class ValidationUtils {
 
 	
-	public static void simpleResult (String validationName, JPanel panel, String result) {
+	public static JPanel simpleResult (String validationName,  String result) {
 		 if (result.equals("")) {
-			 panel.add(GuiUtils.wrapTextWithLabel (validationName+": ", "OK", Color.GREEN));
+			 return GuiUtils.wrapTextWithLabel (validationName+": ", "OK", Color.BLACK);
          }
          else {
-        	 panel.add(GuiUtils.wrapTextWithLabel (validationName+": ", result, Color.RED));
+        	 return GuiUtils.wrapTextWithLabel (validationName+": ", result, Color.RED);
          }
 	}
 }

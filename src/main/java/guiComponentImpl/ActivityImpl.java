@@ -3,8 +3,11 @@ package guiComponentImpl;
 import javax.swing.JPanel;
 
 import guiInterface.ActivityInterface;
+import semantic.parser.Activity;
 
 public class ActivityImpl implements ActivityInterface {
+
+	
 
 	@Override
 	public JPanel getActivityType() {
