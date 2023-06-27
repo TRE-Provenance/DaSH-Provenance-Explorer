@@ -1,0 +1,47 @@
+{"@context":["https://w3id.org/ro/crate/1.1/context", {"label": "http://www.w3.org/2000/01/rdf-schema#label", "shp_SelectedVariables":"https://w3id.org/shp#SelectedVariables", "hadMember": "http://www.w3.org/ns/prov#hadMember", "shp_Variable": "https://w3id.org/shp#Variable", "shp_EntityCharacteristic": "https://w3id.org/shp#EntityCharacteristic", "shp_rowCount": "https://w3id.org/shp#rowCount",  "shp_maxValue": "https://w3id.org/shp#maxValue",  "shp_minValue": "https://w3id.org/shp#minValue",  "shp_targetFile": "https://w3id.org/shp#targetFile",  "shp_targetFeature": "https://w3id.org/shp#targetFeature"} ],
+"@graph":[
+{"@id":"https://www.example.com/DisclosureCheck1","@type":["CreateAction"],
+"label" : "Disclosure Check",
+"agent":{"@id":"https://www.abdn.ac.uk/people/katherine.osullivan/"},
+"object":{"@id":"https://example.com/import/data.csv"},
+"result":[
+{"@id":"https://example.com/DisclosureCheckReport.csv"},{"@id":"https://example.com/import_processed/data.csv"}]},
+
+{"@id":"https://example.com/DisclosureCheckReport.csv",
+"@type":["File"],"description":"This report contains...", "label":"DisclosureCheckReport.csv"},
+
+{"@id":"https://example.com/import/data.csv",
+"@type":["File"],"description":"This is dataset about cats.", "label":"data.csv" ,
+"exifData":[
+{"@id":"https://example.com/import/data.csv#selectedVariables", "@type":["shp_SelectedVariables"],"hadMember":[{"@id":"https://example.com/variable/gender"},{"@id":"https://example.com/variable/height"}]},
+{"@id":"https://example.com/import/data.csv#variableStats1", "@type":["shp_EntityCharacteristic"],"shp_minValue":"2","shp_maxValue":"100", "shp_targetFile":{"@id":"https://example.com/import/data.csv"},"shp_targetFeature":{"@id":"https://example.com/variable/height"}}, 
+{"@id":"https://example.com/import/data.csv#variableStats2", "@type":["shp_EntityCharacteristic"],"shp_minValue":"F","shp_maxValue":"M", "shp_targetFile":{"@id":"https://example.com/import/data.csv"},"shp_targetFeature":{"@id":"https://example.com/variable/gender"}}, 
+{"@id":"https://example.com/import/data.csv#summaryStats", "@type":["shp_EntityCharacteristic"],"shp_rowCount":"200", "shp_targetFile":{"@id":"https://example.com/import/data.csv"}}]
+},
+
+{"@id":"https://example.com/import_processed/data.csv",
+"@type":["File"],"description":"This is dataset about cats after second round of anonymisation.", "label":"data.csv",
+"exifData":[
+{"@id":"https://example.com/import_processed/data.csv#selectedVariables", "@type":["shp_SelectedVariables"],"hadMember":[{"@id":"https://example.com/variable/gender"},{"@id":"https://example.com/variable/height"},{"@id":"https://example.com/variable/chi"}]},
+{"@id":"https://example.com/import_processed/data.csv#variableStats1", "@type":["shp_EntityCharacteristic"],"shp_minValue":"2","shp_maxValue":"100", "shp_targetFile":{"@id":"https://example.com/import_processed/data.csv"},"shp_targetFeature":{"@id":"https://example.com/variable/height"}}, 
+{"@id":"https://example.com/import_processed/data.csv#variableStats2", "@type":["shp_EntityCharacteristic"],"shp_minValue":"F","shp_maxValue":"M", "shp_targetFile":{"@id":"https://example.com/import_processed/data.csv"},"shp_targetFeature":{"@id":"https://example.com/variable/gender"}}, 
+{"@id":"https://example.com/import_processed/data.csv#variableStats3", "@type":["shp_EntityCharacteristic"],"shp_minValue":"0001","shp_maxValue":"00342", "shp_targetFile":{"@id":"https://example.com/import_processed/data.csv"},"shp_targetFeature":{"@id":"https://example.com/variable/chi"}}, 
+{"@id":"https://example.com/import_processed/data.csv#summaryStats", "@type":["shp_EntityCharacteristic"],"shp_rowCount":"198", "shp_targetFile":{"@id":"https://example.com/import_processed/data.csv"}}]
+},
+
+{"@id":"https://www.example.com/DatasetRelease","@type":["CreateAction"],
+"agent":{"@id":"https://www.abdn.ac.uk/people/milan.markovic/"},
+"label" : "Dataset Release",
+"object":{"@id":"https://example.com/import_processed/data.csv"},
+"result":[
+{"@id":"https://example.com/released/data.csv"}]},
+
+{"@id":"https://example.com/released/data.csv",
+"@type":["File"],"description":"This is released dataset about cats.", "label":"data.csv",
+"exifData":[
+{"@id":"https://example.com/released/data.csv#selectedVariables", "@type":["shp_SelectedVariables"],"hadMember":[{"@id":"https://example.com/variable/gender"},{"@id":"https://example.com/variable/height"}]},
+{"@id":"https://example.com/released/data.csv#variableStats1", "@type":["shp_EntityCharacteristic"],"shp_minValue":"2","shp_maxValue":"100", "shp_targetFile":{"@id":"https://example.com/released/data.csv"},"shp_targetFeature":{"@id":"https://example.com/variable/height"}}, 
+{"@id":"https://example.com/released/data.csv#variableStats2", "@type":["shp_EntityCharacteristic"],"shp_minValue":"F","shp_maxValue":"M", "shp_targetFile":{"@id":"https://example.com/released/data.csv"},"shp_targetFeature":{"@id":"https://example.com/variable/gender"}}, 
+{"@id":"https://example.com/released/data.csv#summaryStats", "@type":["shp_EntityCharacteristic"],"shp_rowCount":"200", "shp_targetFile":{"@id":"https://example.com/released/data.csv"}}]
+}
+]}
