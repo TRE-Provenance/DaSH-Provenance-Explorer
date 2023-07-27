@@ -7,6 +7,7 @@ import Utils.GuiUtils;
 import Utils.ValidationUtils;
 import guiComponentImpl.ActivityListImpl;
 import guiInterface.ActivityListInterface;
+import semantic.parser.Constants;
 import semantic.parser.JsonLdProcessor;
 import validation.CheckForSensitiveVariablesInFile;
 
@@ -28,7 +29,7 @@ public class MainGuiFrame extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(800, 600);
         setLocationRelativeTo(null);
-
+        openFile();
         
         JPanel appPanel = new JPanel(new BorderLayout());
          
@@ -45,7 +46,14 @@ public class MainGuiFrame extends JFrame {
         
         setJMenuBar(menuBar);
         topPanel.add(GuiUtils.wrapTextWithLabelNoColor("Project Details:","Project description goes here"));
-        topPanel.add(GuiUtils.wrapButtonWithLabelNoColor("Variable Specification:", new JButton ("inspect")));
+        JButton inspect = new JButton ("Inspect");
+        inspect.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new LinkagePlanFrame ();
+            }
+        });
+        topPanel.add(GuiUtils.wrapButtonWithLabelNoColor("Variable Specification:", inspect ));
         topPanel.add(GuiUtils.wrapTextWithLabel("Released Files:","List of file names goes here?", Color.magenta));
         topPanel.add(new JSeparator(JSeparator.HORIZONTAL),
 	            BorderLayout.LINE_START);
@@ -187,6 +195,24 @@ public class MainGuiFrame extends JFrame {
         return panel;
     }
 
+    private void openFile() {
+    	FileDialog fileDialog = new FileDialog(this, "Open File", FileDialog.LOAD);
+        fileDialog.setFilenameFilter((dir, name) -> name.endsWith(".jsonld")); // Optional: Filter only .txt files
+        
+        fileDialog.setVisible(true);
+        
+        String directory = fileDialog.getDirectory();
+        String filename = fileDialog.getFile();
+        
+        if (directory != null && filename != null) {
+        	Constants.PROVENANCE_FILE = directory + filename;
+        	//Constants.PROVENANCE_FILE = fileChooser.getSelectedFile().getPath();
+            
+        } else {
+            JOptionPane.showMessageDialog(this, "No file selected.", "Error", JOptionPane.ERROR_MESSAGE);
+            System.exit(0);
+        }
+    }
     
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
