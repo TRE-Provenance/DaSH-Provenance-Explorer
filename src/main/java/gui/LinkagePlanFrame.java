@@ -62,8 +62,8 @@ public 	LinkagePlanFrame () {
     	
     	for (int j = 0 ; j < variables.size(); j ++ ) {
     		
-    		rowData [j][0] = variables.get(j).get("variableL");
-    		rowData [j][1] = variables.get(j).get("sourceL");
+    		rowData [j][0] = variables.get(j).get("sourceL");
+    		rowData [j][1] = variables.get(j).get("variableL");
     		rowData [0][2] = "not implemented";
     		rowData [0][3] = "not implemented";
     		
