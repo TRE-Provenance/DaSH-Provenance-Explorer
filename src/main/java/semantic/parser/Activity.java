@@ -18,8 +18,8 @@ public class Activity implements ResultObject {
 	public Activity (String URI) {
 		
 		setURI (URI);
-		setOutputs(new ArrayList <Dataset>());
-		setInputs(new ArrayList <Dataset>());
+		setOutputs(new ArrayList ());
+		setInputs(new ArrayList ());
 		setAgents(new ArrayList <Agent>());
 	}
 	
@@ -33,7 +33,7 @@ public class Activity implements ResultObject {
 		URI = uRI;
 	}
 
-	public ArrayList getInputs() {
+	public ArrayList <Entity> getInputs() {
 		return inputs;
 	}
 

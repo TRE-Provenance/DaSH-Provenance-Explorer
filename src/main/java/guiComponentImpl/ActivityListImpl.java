@@ -25,6 +25,7 @@ import semantic.parser.Activity;
 import semantic.parser.Agent;
 import semantic.parser.Dataset;
 import semantic.parser.JsonLdProcessor;
+import semantic.parser.LinkagePlan;
 
 public class ActivityListImpl implements ActivityListInterface {
 	
@@ -105,9 +106,31 @@ public class ActivityListImpl implements ActivityListInterface {
 			 
 			 for (int j=0;j<inputs.size();j++) {
 				 
+				 System.out.println (inputs.get(j).get("inputType"));
+				 
+				 if (inputs.get(j).get("inputType").contains("Dataset")) {
+				 
 				 Dataset dataset = new Dataset (inputs.get(j).get("input")); 
-				 dataset.setDatasetL(inputs.get(j).get("inputL"));
+				 dataset.setEntityL(inputs.get(j).get("inputL"));
 				 newact.getInputs().add(dataset);
+				 }
+				 
+				 if (inputs.get(j).get("inputType").contains("DataLinkagePlan")) {
+					 
+					 LinkagePlan plan = new LinkagePlan (inputs.get(j).get("input")); 
+					 plan.setEntityL(inputs.get(j).get("inputL"));
+					 
+					
+					 
+					 newact.getInputs().add(plan);
+				 }
+				 
+                 if (inputs.get(j).get("inputType").contains("Database")) {
+					 
+					 Dataset dataset = new Dataset (inputs.get(j).get("input")); 
+					 dataset.setEntityL(inputs.get(j).get("inputL"));
+					 newact.getInputs().add(dataset);
+				 }
 			 }
 			 
 			 ArrayList<HashMap<String, String>> outputs = dataProcessor.getActivityOutputs(activityURI);

@@ -41,7 +41,7 @@ public class JsonLdProcessor {
  public ArrayList<HashMap<String, String>> getActivityInputs (String activityURI) {
     	
     	// Execute SPARQL query
-    	ArrayList<HashMap<String, String>>  list = SPARQLUtils.executeSparqlQuery(model, Constants.PREFIXES + " SELECT DISTINCT  ?activityL ?input  ?inputL   WHERE {<"+activityURI+"> a <http://schema.org/CreateAction>; rdfs:label ?activityL;  <http://schema.org/object> ?input.  ?input rdfs:label ?inputL.  }");    	   	
+    	ArrayList<HashMap<String, String>>  list = SPARQLUtils.executeSparqlQuery(model, Constants.PREFIXES + " SELECT DISTINCT  ?activityL ?input  ?inputL  ?inputType  WHERE {<"+activityURI+"> a <http://schema.org/CreateAction>; rdfs:label ?activityL;  <http://schema.org/object> ?input.  ?input rdfs:label ?inputL; a ?inputType. FILTER(regex(str(?inputType), \"https://w3id.org/shp#\"))  }");    	   	
 		System.out.println(list.size());
     	return list;
     }

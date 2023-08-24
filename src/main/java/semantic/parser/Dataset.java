@@ -1,6 +1,6 @@
 package semantic.parser;
 
-public class Dataset {
+public class Dataset extends Entity {
 
 	private String datasetL, description, URI;
 	

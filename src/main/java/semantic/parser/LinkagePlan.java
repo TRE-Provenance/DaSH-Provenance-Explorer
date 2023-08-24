@@ -1,6 +1,6 @@
 package semantic.parser;
 
-public class LinkagePlan {
+public class LinkagePlan extends Entity{
 	
 	private String planL, description, URI;
 	

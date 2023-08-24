@@ -13,8 +13,11 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import gui.DatasetFrame;
+import gui.LinkagePlanFrame;
 import semantic.parser.Agent;
 import semantic.parser.Dataset;
+import semantic.parser.Entity;
+import semantic.parser.LinkagePlan;
 
 public class GuiUtils {
 	
@@ -59,7 +62,7 @@ public class GuiUtils {
     	return panel;
     }
 	
-	public static  JPanel wrapParameterListWithLabelNoColor (String labelText, ArrayList <Dataset> list) {
+	public static  JPanel wrapParameterListWithLabelNoColor (String labelText, ArrayList <Entity> list) {
     	JPanel panel = new JPanel (); 
     	panel.setLayout(new FlowLayout(FlowLayout.LEFT));
     	JLabel label = new JLabel (labelText);
@@ -87,8 +90,13 @@ public class GuiUtils {
     	return panel;
     }
 	
-	private static JLabel createLinkLabel( Dataset dataset) {
-        JLabel label = new JLabel(dataset.getDatasetL());
+	private static JLabel createLinkLabel( Entity obj) {
+		JLabel label=  new JLabel(obj.getEntityL());
+		
+		System.out.println("Class"+obj.getClass());
+		
+		if (obj.getClass() == Dataset.class) {
+		 
        
         label.setForeground(Color.BLUE);
         label.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -97,7 +105,7 @@ public class GuiUtils {
         label.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-               new DatasetFrame (dataset);
+               new DatasetFrame ((Dataset) obj);
             }
 
             @Override
@@ -110,9 +118,67 @@ public class GuiUtils {
                 label.setForeground(Color.BLUE);
             }
         });
+        
+		}
+		
+		if (obj.getClass() == LinkagePlan.class) {
+			 
+		       
+	        label.setForeground(Color.GREEN);
+	        label.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+
+	        // Add a MouseListener to handle click events
+	        label.addMouseListener(new MouseAdapter() {
+	            @Override
+	            public void mouseClicked(MouseEvent e) {
+	            	 new LinkagePlanFrame ();
+	            }
+
+	            @Override
+	            public void mouseEntered(MouseEvent e) {
+	                label.setForeground(Color.RED);
+	            }
+
+	            @Override
+	            public void mouseExited(MouseEvent e) {
+	                label.setForeground(Color.GREEN);
+	            }
+	        });
+	        
+			}
+
+       
+		return label;
+    }
+	
+	
+	private static JLabel createLinkLabel( LinkagePlan plan) {
+        JLabel label = new JLabel(plan.getDatasetL());
+       
+        label.setForeground(Color.GREEN);
+        label.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+
+        // Add a MouseListener to handle click events
+        label.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+               new LinkagePlanFrame ();
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                label.setForeground(Color.RED);
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                label.setForeground(Color.GREEN);
+            }
+        });
 
         return label;
     }
+	
 	
 	public static JLabel addLabel(String text) {
 	    JLabel label = new JLabel(text, JLabel.CENTER);
