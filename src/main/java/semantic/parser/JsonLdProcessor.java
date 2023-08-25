@@ -33,7 +33,7 @@ public class JsonLdProcessor {
     public ArrayList<HashMap<String, String>> getActivityData () {
     	
     	// Execute SPARQL query
-    	ArrayList<HashMap<String, String>>  list = SPARQLUtils.executeSparqlQuery(model, Constants.PREFIXES + " SELECT DISTINCT ?activity ?activityL   WHERE {?activity a <http://schema.org/CreateAction>; rdfs:label ?activityL. }");    	
+    	ArrayList<HashMap<String, String>>  list = SPARQLUtils.executeSparqlQuery(model, Constants.PREFIXES + " SELECT DISTINCT ?activity ?activityL ?activityEndTime   WHERE {?activity a <http://schema.org/CreateAction>; rdfs:label ?activityL; <http://schema.org/endTime> ?activityEndTime. } ORDER BY ASC(?activityEndTime) ");    	
     	
 		return list;
     }
@@ -49,9 +49,16 @@ public class JsonLdProcessor {
  public ArrayList<HashMap<String, String>> getActivityOutputs (String activityURI) {
  	
  	// Execute SPARQL query
- 	ArrayList<HashMap<String, String>>  list = SPARQLUtils.executeSparqlQuery(model, Constants.PREFIXES + " SELECT DISTINCT  ?activityL ?output  ?outputL   WHERE {<"+activityURI+"> a <http://schema.org/CreateAction>; rdfs:label ?activityL;  <http://schema.org/result> ?output.  ?output rdfs:label ?outputL.  }");    	   	
+ 	ArrayList<HashMap<String, String>>  list = SPARQLUtils.executeSparqlQuery(model, Constants.PREFIXES + " SELECT DISTINCT  ?activityL ?output  ?outputL ?outputType  WHERE {<"+activityURI+"> a <http://schema.org/CreateAction>; rdfs:label ?activityL;  <http://schema.org/result> ?output.  ?output rdfs:label ?outputL; a ?outputType.  FILTER(regex(str(?outputType), \"https://w3id.org/shp#\")) }");    	   	
 		return list;
  }
+ 
+ public ArrayList<HashMap<String, String>> getReleasedFilesActivityIRI () {
+	 	
+	 	// Execute SPARQL query
+	 	ArrayList<HashMap<String, String>>  list = SPARQLUtils.executeSparqlQuery(model, Constants.PREFIXES + " SELECT DISTINCT  ?activity   WHERE {?activity a shp:DatasetRelease  }");    	   	
+			return list;
+	 }
  
  public ArrayList<HashMap<String, String>> getActivityAgents (String activityURI) {
 	 	
@@ -101,9 +108,6 @@ public ArrayList<HashMap<String, String>>  getSummaryStatsForFile(String fileIRI
 	System.out.println (query);
 	// Execute SPARQL query
 	ArrayList<HashMap<String, String>>  list = SPARQLUtils.executeSparqlQuery(model, query);    	
-	
-	
-	
 	return list;
 }
 

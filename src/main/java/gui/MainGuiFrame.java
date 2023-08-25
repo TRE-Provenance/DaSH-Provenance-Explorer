@@ -4,10 +4,13 @@ import javax.swing.*;
 import javax.swing.event.HyperlinkEvent;
 
 import Utils.GuiUtils;
+import Utils.IconTextItem;
 import Utils.ValidationUtils;
 import guiComponentImpl.ActivityListImpl;
 import guiInterface.ActivityListInterface;
+import semantic.parser.Activity;
 import semantic.parser.Constants;
+import semantic.parser.Entity;
 import semantic.parser.JsonLdProcessor;
 import validation.CheckForSensitiveVariablesInFile;
 
@@ -18,6 +21,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Enumeration;
 import java.util.HashMap;
 
 public class MainGuiFrame extends JFrame {
@@ -53,17 +57,57 @@ public class MainGuiFrame extends JFrame {
                 new LinkagePlanFrame ();
             }
         });
+        
+        JPanel activityViewer = new JPanel();
+        activityViewer.setLayout(new FlowLayout(FlowLayout.LEFT));
+        
+        ActivityListInterface listComp = new ActivityListImpl (activityViewer);
+        JPanel listPanel = listComp.getActivityList();
+        listComp.loadActivities();
+        
+  
+        
         topPanel.add(GuiUtils.wrapButtonWithLabelNoColor("Variable Specification:", inspect ));
-        topPanel.add(GuiUtils.wrapTextWithLabel("Released Files:","List of file names goes here?", Color.magenta));
+        
+        JsonLdProcessor dataProcessor = new JsonLdProcessor ();     
+        ArrayList<HashMap<String, String>> activityIRIs = dataProcessor.getReleasedFilesActivityIRI(); 
+        
+        if (activityIRIs.size()<1) {
+        	 topPanel.add(GuiUtils.wrapTextWithLabel("Released Files:","No files released", Color.BLACK));
+        }
+        else {
+        	
+        	
+        	ArrayList <Entity> allReleased = new ArrayList <Entity> ();
+        	
+        	Enumeration <IconTextItem> activities = listComp.getListModel().elements();
+        	while (activities.hasMoreElements()) {
+                Activity activity = activities.nextElement().getActivity();
+                
+                String activityIRI = activity.getURI();
+                
+                for (HashMap<String, String> activityIRIMap : activityIRIs) {
+                    String iriFromHashMap = activityIRIMap.get("activity");
+                    if (activityIRI.equals(iriFromHashMap)) {
+                        
+                        allReleased.addAll(activity.getOutputs());
+                    }
+            }
+               
+        }
+        	 topPanel.add(GuiUtils.wrapParameterListWithLabelNoColor ("Released Files: ", allReleased));
+         	
+        }
+        
+       
         topPanel.add(new JSeparator(JSeparator.HORIZONTAL),
 	            BorderLayout.LINE_START);
         appPanel.add(topPanel, BorderLayout.NORTH);
         
-        JPanel activityViewer = new JPanel();
-        activityViewer.setLayout(new FlowLayout(FlowLayout.LEFT));
+        
             
         
-        ActivityListInterface listComp = new ActivityListImpl (activityViewer);
+       
         
         JPanel activityListPanel = new JPanel();
        
@@ -176,7 +220,7 @@ public class MainGuiFrame extends JFrame {
 		appPanel.add(appCenter,BorderLayout.CENTER);
 		*/
         
-        appPanel.add(listComp.getActivityList(), BorderLayout.WEST);
+        appPanel.add(listPanel, BorderLayout.WEST);
         appPanel.add(activityViewer, BorderLayout.CENTER);
 
         getContentPane().add(appPanel);

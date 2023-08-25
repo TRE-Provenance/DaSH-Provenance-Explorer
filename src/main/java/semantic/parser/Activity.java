@@ -41,7 +41,7 @@ public class Activity implements ResultObject {
 		this.inputs = inputs;
 	}
 
-	public ArrayList getOutputs() {
+	public ArrayList <Entity>  getOutputs() {
 		return outputs;
 	}
 

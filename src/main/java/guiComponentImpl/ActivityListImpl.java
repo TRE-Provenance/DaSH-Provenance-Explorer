@@ -18,9 +18,11 @@ import javax.swing.JScrollPane;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
+import Utils.IconTextItem;
+import Utils.IconTextListRenderer;
 import guiInterface.ActivityListInterface;
 import guiInterface.ActivityView;
-import guiInterface.ResultObject;
+
 import semantic.parser.Activity;
 import semantic.parser.Agent;
 import semantic.parser.Dataset;
@@ -79,13 +81,14 @@ public class ActivityListImpl implements ActivityListInterface {
         JScrollPane scrollPane = new JScrollPane(jList);
         panel.add(scrollPane);
 
-        loadActivities ();
+        
        
 		return panel;
 	}
 	
 	// we assume that we only have one agent responsible 
-	private void loadActivities () {
+	@Override
+	public void loadActivities () {
 		 
 		 ArrayList <Activity> list = new ArrayList <Activity> ();
 		
@@ -106,9 +109,8 @@ public class ActivityListImpl implements ActivityListInterface {
 			 
 			 for (int j=0;j<inputs.size();j++) {
 				 
-				 System.out.println (inputs.get(j).get("inputType"));
-				 
-				 if (inputs.get(j).get("inputType").contains("Dataset")) {
+				
+				 if (inputs.get(j).get("inputType").contains("DataSet")) {
 				 
 				 Dataset dataset = new Dataset (inputs.get(j).get("input")); 
 				 dataset.setEntityL(inputs.get(j).get("inputL"));
@@ -138,9 +140,36 @@ public class ActivityListImpl implements ActivityListInterface {
 			
 			 
 			 for (int j=0;j<outputs.size();j++) {
-				 Dataset dataset = new Dataset (outputs.get(j).get("output")); 
-				 dataset.setDatasetL(outputs.get(j).get("outputL"));
-				 newact.getOutputs().add(dataset);
+			 
+			 
+				 if (outputs.get(j).get("outputType").contains("DataSet")) {
+					 
+					 Dataset dataset = new Dataset (outputs.get(j).get("output")); 
+					 dataset.setEntityL(outputs.get(j).get("outputL"));
+					 newact.getOutputs().add(dataset);
+					 }
+					 
+					 if (outputs.get(j).get("outputType").contains("DataLinkagePlan")) {
+						 
+						 LinkagePlan plan = new LinkagePlan (outputs.get(j).get("output")); 
+						 plan.setEntityL(outputs.get(j).get("outputL"));
+						 
+ 
+						 newact.getOutputs().add(plan);
+					 }
+					 
+	                 if (outputs.get(j).get("outputType").contains("Database")) {
+						 
+						 Dataset dataset = new Dataset (outputs.get(j).get("output")); 
+						 dataset.setEntityL(outputs.get(j).get("outputL"));
+						 newact.getOutputs().add(dataset);
+					 }
+			 
+			 
+			 
+			 
+			 
+			 
 			 }
 			 
 			 
@@ -178,81 +207,11 @@ public class ActivityListImpl implements ActivityListInterface {
     }
 	
 	
-	// Custom class to hold the icon and text for an item
-    private static class IconTextItem {
-        private final String text;
-        private Icon icon;
-        private Activity activity;
-
-        public IconTextItem(Activity act, boolean hasIcon) {
-        	this.activity = act;
-            this.text = act.getActivityType();
-            if (hasIcon) {
-                this.icon = new ImageIcon(ActivityListImpl.class.getClassLoader().getResource("warning.png")); // Replace with your own icon path
-            }
-        }
-        
-        public Activity getActivity() {
-        	return activity;
-        }
-
-        public String getText() {
-            return text;
-        }
-
-        public Icon getIcon() {
-            return icon;
-        }
-
-        public void setIcon(Icon icon) {
-            this.icon = icon;
-        }
-
-        @Override
-        public String toString() {
-            return text;
-        }
-    }
-
-    // Custom list cell renderer to display icons and text
-    private static class IconTextListRenderer extends DefaultListCellRenderer {
-        @Override
-        public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected,
-                                                      boolean cellHasFocus) {
-        	JPanel panel = new JPanel(new BorderLayout());
-
-            if (value instanceof IconTextItem) {
-                IconTextItem item = (IconTextItem) value;
-
-                // Create a label for the text
-                JLabel textLabel = new JLabel(item.getText());
-
-                // Set the icon on the left side of the text
-                if (item.getIcon() != null) {
-                    JLabel iconLabel = new JLabel(item.getIcon());
-                    iconLabel.setBorder(BorderFactory.createEmptyBorder(0, 10, 0, 0));
-                    panel.add(iconLabel, BorderLayout.EAST);
-                }
-                
-                panel.setBorder(BorderFactory.createEmptyBorder(2, 10, 2, 10));
-                panel.add(textLabel, BorderLayout.CENTER);
-
-                // Set the background and selection color
-                if (isSelected) {
-                    panel.setBackground(list.getSelectionBackground());
-                    panel.setForeground(list.getSelectionForeground());
-                } else {
-                    panel.setBackground(list.getBackground());
-                    panel.setForeground(list.getForeground());
-                }
-
-                panel.setEnabled(list.isEnabled());
-                panel.setFont(list.getFont());
-                panel.setOpaque(true);
-            }
-
-            return panel;
-        }
-    }
+	
+	@Override
+	public DefaultListModel getListModel() {
+		
+		return listModel;
+	}
 
 }
