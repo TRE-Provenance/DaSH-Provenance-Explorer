@@ -25,6 +25,7 @@ import guiInterface.ActivityView;
 
 import semantic.parser.Activity;
 import semantic.parser.Agent;
+import semantic.parser.CommentsJsonLdProcessor;
 import semantic.parser.Dataset;
 import semantic.parser.JsonLdProcessor;
 import semantic.parser.LinkagePlan;
@@ -34,9 +35,11 @@ public class ActivityListImpl implements ActivityListInterface {
 	private DefaultListModel<IconTextItem> listModel;
     private JList<IconTextItem> jList;
     private JPanel activityViewer;
+	private CommentsJsonLdProcessor commentsJsonLdProcessor;
 
-	public ActivityListImpl(JPanel activityViewer) {
+	public ActivityListImpl(JPanel activityViewer, CommentsJsonLdProcessor commentsJsonLdProcessor) {
 		this.activityViewer = activityViewer;
+		this.commentsJsonLdProcessor = commentsJsonLdProcessor;
 	}
 
 	@Override
@@ -69,7 +72,7 @@ public class ActivityListImpl implements ActivityListInterface {
                         IconTextItem selectedItem = listModel.getElementAt(selectedIndex);
                         System.out.println("Selected Item: " + selectedItem.getText());
                         activityViewer.removeAll();
-                        ActivityView view =  new ActivityViewImpl (selectedItem.getActivity());
+                        ActivityView view =  new ActivityViewImpl (selectedItem.getActivity(), commentsJsonLdProcessor);
                         activityViewer.add(view.getActivityView());
                         activityViewer.revalidate();
                     }
@@ -102,6 +105,8 @@ public class ActivityListImpl implements ActivityListInterface {
 			 Activity newact = new Activity (activityURI);
 			 
 			 newact.setActivityL(resultList.get(i).get("activityL"));
+			 
+			 newact.setActivityEndDate(resultList.get(i).get("activityEndTime"));
 			 
 			 ArrayList<HashMap<String, String>> inputs = dataProcessor.getActivityInputs(activityURI);
 			 
@@ -188,6 +193,10 @@ public class ActivityListImpl implements ActivityListInterface {
 			 
 		 }
 		 
+		 if (jList.getSelectedIndex()<0 && listModel.size()>0) {
+	        	jList.setSelectedIndex(0);
+	        }
+		 
 		
 	}
 	
@@ -195,6 +204,8 @@ public class ActivityListImpl implements ActivityListInterface {
 	private void addItem(Activity act, boolean hasIcon) {
         // Add text to the list model
         listModel.addElement(new IconTextItem(act, hasIcon));
+        
+        
 
         // Get the index of the newly added item
         int index = listModel.getSize() - 1;

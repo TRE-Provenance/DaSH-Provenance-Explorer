@@ -3,6 +3,7 @@ package Utils;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ import javax.swing.JTextField;
 import gui.DatasetFrame;
 import gui.LinkagePlanFrame;
 import semantic.parser.Agent;
+import semantic.parser.CommentsJsonLdProcessor;
 import semantic.parser.Dataset;
 import semantic.parser.Entity;
 import semantic.parser.LinkagePlan;
@@ -26,6 +28,9 @@ public class GuiUtils {
     	FlowLayout layout = new FlowLayout(FlowLayout.LEFT);
     	panel.setLayout(layout);
     	JLabel label = new JLabel (labelText);
+    	Font boldFont = new Font(label.getFont().getName(), Font.BOLD, label.getFont().getSize());
+        label.setFont(boldFont);
+        
     	JLabel textField = new JLabel(value);
     	
     	if (color != null) {
@@ -43,6 +48,9 @@ public class GuiUtils {
     	JPanel panel = new JPanel (); 
     	panel.setLayout(new FlowLayout(FlowLayout.LEFT));
     	JLabel label = new JLabel (labelText);
+    	Font boldFont = new Font(label.getFont().getName(), Font.BOLD, label.getFont().getSize());
+        label.setFont(boldFont);
+        
     	JTextField textField = new JTextField(value);
 
     	textField.setBackground(Color.gray);
@@ -56,20 +64,25 @@ public class GuiUtils {
     	JPanel panel = new JPanel (); 
     	panel.setLayout(new FlowLayout(FlowLayout.LEFT));
     	JLabel label = new JLabel (labelText);
+    	Font boldFont = new Font(label.getFont().getName(), Font.BOLD, label.getFont().getSize());
+        label.setFont(boldFont);
+        
     	panel.add(label);
     	panel.add(button);
     	
     	return panel;
     }
 	
-	public static  JPanel wrapParameterListWithLabelNoColor (String labelText, ArrayList <Entity> list) {
+	public static  JPanel wrapParameterListWithLabelNoColor (String labelText, ArrayList <Entity> list,CommentsJsonLdProcessor commentsJsonLdProcessor) {
     	JPanel panel = new JPanel (); 
     	panel.setLayout(new FlowLayout(FlowLayout.LEFT));
     	JLabel label = new JLabel (labelText);
     	panel.add(label);
+    	Font boldFont = new Font(label.getFont().getName(), Font.BOLD, label.getFont().getSize());
+        label.setFont(boldFont);
     	
     	for (int i=0;i<list.size();i++) {
-    		panel.add(createLinkLabel(list.get(i)));
+    		panel.add(createLinkLabel(list.get(i),commentsJsonLdProcessor));
     	}
     	
     	
@@ -81,6 +94,8 @@ public class GuiUtils {
     	panel.setLayout(new FlowLayout(FlowLayout.LEFT));
     	JLabel label = new JLabel (labelText);
     	panel.add(label);
+    	Font boldFont = new Font(label.getFont().getName(), Font.BOLD, label.getFont().getSize());
+        label.setFont(boldFont);
     	
     	for (int i=0;i<list.size();i++) {
     		panel.add(new JLabel (list.get(i).getURI()));
@@ -90,7 +105,7 @@ public class GuiUtils {
     	return panel;
     }
 	
-	private static JLabel createLinkLabel( Entity obj) {
+	private static JLabel createLinkLabel( Entity obj, CommentsJsonLdProcessor commentsJsonLdProcessor) {
 		JLabel label=  new JLabel(obj.getEntityL());
 		
 		System.out.println("Class"+obj.getClass());
@@ -105,7 +120,7 @@ public class GuiUtils {
         label.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-               new DatasetFrame ((Dataset) obj);
+               new DatasetFrame ((Dataset) obj,commentsJsonLdProcessor);
             }
 
             @Override

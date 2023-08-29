@@ -16,16 +16,24 @@ import javax.swing.JTable;
 
 import Utils.GuiUtils;
 import Utils.ValidationUtils;
+import guiComponentImpl.CommentListImpl;
+import guiInterface.CommentListInterface;
+import semantic.parser.CommentsJsonLdProcessor;
 import semantic.parser.Dataset;
 import semantic.parser.JsonLdProcessor;
 import validation.CheckForSensitiveVariablesInFile;
 
 public class DatasetFrame extends JFrame {
 	
-public 	DatasetFrame (Dataset dataset) {
+	private CommentsJsonLdProcessor commentsJsonLdProcessor;
+	
+public 	DatasetFrame (Dataset dataset,CommentsJsonLdProcessor commentsJsonLdProcessor) {
+	
+	this.commentsJsonLdProcessor  = commentsJsonLdProcessor; 
+	
 	setTitle (dataset.getURI());
     setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-    setSize(600, 400);
+    setSize(700, 400);
     setLocationRelativeTo(null);
 
     JPanel panel = new JPanel(new BorderLayout());
@@ -68,7 +76,7 @@ public 	DatasetFrame (Dataset dataset) {
     mainInfo.add(new JSeparator(JSeparator.HORIZONTAL),
             BorderLayout.LINE_START);
     
-    mainInfo.add(GuiUtils.addLabel ("Dataset Variables Statistics"));
+   
     panel.add(mainInfo, BorderLayout.NORTH);
     
     
@@ -119,9 +127,31 @@ public 	DatasetFrame (Dataset dataset) {
     scrollPane.setPreferredSize(new Dimension(600, 200));
     
     
+    JPanel scrollPanelWrapper = new JPanel ();
+    scrollPanelWrapper.setLayout(new BoxLayout(scrollPanelWrapper, BoxLayout.PAGE_AXIS));
     
-    panel.add(scrollPane, BorderLayout.CENTER);
-
+   
+    scrollPanelWrapper.add(GuiUtils.addLabel ("Dataset Variables Statistics"));
+    
+    scrollPanelWrapper.add(scrollPane);
+    
+    
+    CommentListInterface comments = new CommentListImpl (dataset.getURI(),commentsJsonLdProcessor);
+	
+    JPanel panelWrapper = new JPanel ();
+    panelWrapper.setLayout(new BoxLayout(panelWrapper, BoxLayout.PAGE_AXIS));
+	
+    panelWrapper.add(new JLabel ("Comments"));
+    
+    panelWrapper.add(comments.getCommentList());
+    
+    panel.add(panelWrapper, BorderLayout.EAST);
+   
+    
+    panel.add(scrollPanelWrapper, BorderLayout.CENTER);
+    
+    
+    
     add(panel);
     setVisible(true);
     

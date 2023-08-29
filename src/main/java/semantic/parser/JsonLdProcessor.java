@@ -22,7 +22,7 @@ public class JsonLdProcessor {
 	
     public JsonLdProcessor () {
         // Load JSON-LD file from Resources directory
-        model = loadJsonLdFromDiskFile(Constants.PROVENANCE_FILE);
+        model = SPARQLUtils.loadJsonLdFromDiskFile(Constants.PROVENANCE_FILE);
         model.add(loadJsonLdFromFile("variables.jsonld"));
     }
     
@@ -136,37 +136,7 @@ public ArrayList<HashMap<String, String>>  getSummaryStatsForFile(String fileIRI
     }
     
   
-    private static  Model loadJsonLdFromDiskFile(String filePath) {
-        Model model = ModelFactory.createDefaultModel();
-
-        
-        	 InputStream inputStream;
-			try {
-				inputStream = new FileInputStream ( filePath );
-				if (inputStream == null) {
-		            System.err.println("File not found: " + filePath);
-		            return model;
-		        }
-
-		        // Read the JSON-LD file into the model
-		        model.read(inputStream, null, "JSON-LD");
-
-		        // Close the input stream
-		        try {
-		            inputStream.close();
-		        } catch (Exception e) {
-		            e.printStackTrace();
-		        }
-			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-        
-        
-        
-        return model;
-    }
-    
+   
    
     
     

@@ -23,7 +23,7 @@ public   class IconTextItem {
 
     public IconTextItem(Activity act, boolean hasIcon) {
     	this.activity = act;
-        this.text = act.getActivityType();
+        this.text = "("+act.setActivityEndDate()+") - " + act.getActivityType();
         if (hasIcon) {
             this.icon = new ImageIcon(ActivityListImpl.class.getClassLoader().getResource("warning.png")); // Replace with your own icon path
         }

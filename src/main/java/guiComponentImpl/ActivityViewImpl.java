@@ -13,7 +13,9 @@ import javax.swing.SwingConstants;
 import Utils.GuiUtils;
 import Utils.ValidationUtils;
 import guiInterface.ActivityView;
+import guiInterface.CommentListInterface;
 import semantic.parser.Activity;
+import semantic.parser.CommentsJsonLdProcessor;
 import semantic.parser.Dataset;
 import semantic.parser.JsonLdProcessor;
 import validation.CheckForSensitiveVariablesInFile;
@@ -22,26 +24,25 @@ import validation.CheckInpusOutputsRowCountMatches;
 public class ActivityViewImpl implements ActivityView{
 
 	Activity activity;
+	private CommentsJsonLdProcessor commentsJsonLdProcessor;
+	private JPanel activityViewPanel;
 	
-	public ActivityViewImpl(Activity activity) {
+	public ActivityViewImpl(Activity activity, CommentsJsonLdProcessor commentsJsonLdProcessor) {
 		this.activity = activity;
-	}
-	
-	@Override
-	public JPanel getActivityView() {
+		this.commentsJsonLdProcessor = commentsJsonLdProcessor;
 		
-		JPanel panel = new JPanel ();
-		panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
-		panel.add(GuiUtils.addLabel ("Activity Details"));
-		panel.add(GuiUtils.wrapTextWithLabel("Activity: ",activity.getActivityType(),null));
+		activityViewPanel = new JPanel ();
+		activityViewPanel.setLayout(new BoxLayout(activityViewPanel, BoxLayout.PAGE_AXIS));
+		activityViewPanel.add(GuiUtils.addLabel ("Activity Details"));
+		activityViewPanel.add(GuiUtils.wrapTextWithLabel("Activity: ",activity.getActivityType(),null));
 		//panel.add(GuiUtils.wrapTextWithLabel("Responsible Person(s): ",activity.getAgents().toString(),null));
-		panel.add(GuiUtils.wrapAgentListWithLabelNoColor ("Responsible Person(s): ", activity.getAgents()));
+		activityViewPanel.add(GuiUtils.wrapAgentListWithLabelNoColor ("Responsible Person(s): ", activity.getAgents()));
 		//panel.add(GuiUtils.wrapTextWithLabel("Responsible Person(s): ",activity.getInputs().toString(),null));
-		panel.add(GuiUtils.wrapParameterListWithLabelNoColor ("Inputs: ", activity.getInputs()));
-		panel.add(GuiUtils.wrapParameterListWithLabelNoColor ("Outputs: ", activity.getOutputs()));
-		panel.add(new JSeparator(JSeparator.HORIZONTAL),
+		activityViewPanel.add(GuiUtils.wrapParameterListWithLabelNoColor ("Inputs: ", activity.getInputs(),commentsJsonLdProcessor));
+		activityViewPanel.add(GuiUtils.wrapParameterListWithLabelNoColor ("Outputs: ", activity.getOutputs(),commentsJsonLdProcessor));
+		activityViewPanel.add(new JSeparator(JSeparator.HORIZONTAL),
 	            BorderLayout.LINE_START);
-		panel.add(GuiUtils.addLabel ("Validations"));
+		activityViewPanel.add(GuiUtils.addLabel ("Validations"));
 		
 		String resultMatchingRows = "";
 		
@@ -59,17 +60,28 @@ public class ActivityViewImpl implements ActivityView{
 	    	
 	    }
 	   
-		panel.add(ValidationUtils.simpleResult("Number of Rows input/output", resultMatchingRows));
+	    activityViewPanel.add(ValidationUtils.simpleResult("Number of Rows input/output", resultMatchingRows));
 		
-		panel.add(ValidationUtils.simpleResult("Outputs same as inputs (check hash)", "not implemented"));
+	    activityViewPanel.add(ValidationUtils.simpleResult("Outputs same as inputs (check hash)", "not implemented"));
 		
-		panel.add(new JSeparator(JSeparator.HORIZONTAL),
+	    activityViewPanel.add(new JSeparator(JSeparator.HORIZONTAL),
 	            BorderLayout.LINE_START);
 		
+	    activityViewPanel.add(GuiUtils.addLabel ("Comments"));
+		
+		CommentListInterface comments = new CommentListImpl (activity.getURI(),commentsJsonLdProcessor);
+		
+		activityViewPanel.add(comments.getCommentList());
 		
 		System.out.println(activity.getOutputs());
 		
-		return panel;
+	}
+	
+	@Override
+	public JPanel getActivityView() {
+		
+		
+		return activityViewPanel;
 	}
 
 }

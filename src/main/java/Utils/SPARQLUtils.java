@@ -1,5 +1,8 @@
 package Utils;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -11,6 +14,7 @@ import org.apache.jena.query.QueryFactory;
 import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.ResultSet;
 import org.apache.jena.rdf.model.Model;
+import org.apache.jena.rdf.model.ModelFactory;
 
 import guiInterface.ResultObject;
 
@@ -48,4 +52,40 @@ public class SPARQLUtils {
         }
         return null; // Object not found
     }
+	
+	 public static  Model loadJsonLdFromDiskFile(String filePath) {
+	        Model model = ModelFactory.createDefaultModel();
+
+	        
+	        	 InputStream inputStream;
+				try {
+					inputStream = new FileInputStream ( filePath );
+					if (inputStream == null) {
+			            System.err.println("File not found: " + filePath);
+			            return model;
+			        }
+
+			        // Read the JSON-LD file into the model
+			        model.read(inputStream, null, "JSON-LD");
+
+			        // Close the input stream
+			        try {
+			            inputStream.close();
+			        } catch (Exception e) {
+			            e.printStackTrace();
+			        }
+				} catch (FileNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+	        
+				
+					catch ( org.apache.jena.riot.RiotException ex) {
+						System.out.println ("File is empty or not in JSON-LD format"); 
+				}
+	        
+	        
+	        return model;
+	    }
+	    
 }

@@ -6,7 +6,7 @@ import guiInterface.ResultObject;
 
 public class Activity implements ResultObject {
 
-	private String activityType, description,  URI;
+	private String activityType, description,  URI, activityEndDate;
 	
 	
 
@@ -32,7 +32,7 @@ public class Activity implements ResultObject {
 	public void setURI(String uRI) {
 		URI = uRI;
 	}
-
+	
 	public ArrayList <Entity> getInputs() {
 		return inputs;
 	}
@@ -67,6 +67,14 @@ public class Activity implements ResultObject {
 
 	public String getDescription() {
 		return description;
+	}
+	
+	public void setActivityEndDate(String activityEndDate) {
+		this.activityEndDate = activityEndDate;
+	}
+
+	public String setActivityEndDate() {
+		return activityEndDate;
 	}
 
 	public void setDescription(String description) {

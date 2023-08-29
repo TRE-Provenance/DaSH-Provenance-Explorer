@@ -9,6 +9,7 @@ import Utils.ValidationUtils;
 import guiComponentImpl.ActivityListImpl;
 import guiInterface.ActivityListInterface;
 import semantic.parser.Activity;
+import semantic.parser.CommentsJsonLdProcessor;
 import semantic.parser.Constants;
 import semantic.parser.Entity;
 import semantic.parser.JsonLdProcessor;
@@ -27,11 +28,12 @@ import java.util.HashMap;
 public class MainGuiFrame extends JFrame {
 	
 	JsonLdProcessor dataProcessor;
+	CommentsJsonLdProcessor commentsJsonLdProcessor; 
 
     public MainGuiFrame() {
-    	setTitle("Provenance Report");
+    	setTitle("Provenance Explorer");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(800, 600);
+        setSize(900, 600);
         setLocationRelativeTo(null);
         openFile();
         
@@ -49,7 +51,7 @@ public class MainGuiFrame extends JFrame {
         menu.add(aboutItem);
         
         setJMenuBar(menuBar);
-        topPanel.add(GuiUtils.wrapTextWithLabelNoColor("Project Details:","Project description goes here"));
+        topPanel.add(GuiUtils.wrapTextWithLabel("Project Details:","This is an example project with dummy data for testing.", Color.BLACK));
         JButton inspect = new JButton ("Inspect");
         inspect.addActionListener(new ActionListener() {
             @Override
@@ -61,7 +63,9 @@ public class MainGuiFrame extends JFrame {
         JPanel activityViewer = new JPanel();
         activityViewer.setLayout(new FlowLayout(FlowLayout.LEFT));
         
-        ActivityListInterface listComp = new ActivityListImpl (activityViewer);
+        commentsJsonLdProcessor = new CommentsJsonLdProcessor ();
+        
+        ActivityListInterface listComp = new ActivityListImpl (activityViewer, commentsJsonLdProcessor);
         JPanel listPanel = listComp.getActivityList();
         listComp.loadActivities();
         
@@ -95,7 +99,7 @@ public class MainGuiFrame extends JFrame {
             }
                
         }
-        	 topPanel.add(GuiUtils.wrapParameterListWithLabelNoColor ("Released Files: ", allReleased));
+        	 topPanel.add(GuiUtils.wrapParameterListWithLabelNoColor ("Released Files: ", allReleased,commentsJsonLdProcessor));
          	
         }
         
@@ -113,117 +117,14 @@ public class MainGuiFrame extends JFrame {
        
       
         activityListPanel.setLayout(new BoxLayout(activityListPanel, BoxLayout.Y_AXIS));
-        //activityListPanel.add(activityViewer);
-       // appPanel.add(activityListPanel, BorderLayout.CENTER);
         
-        /*
-        dataProcessor = new JsonLdProcessor ();
-        
-        ArrayList<HashMap<String, String>> list = dataProcessor.getActivityData();
-
-        HashMap <String,JPanel> panelMap = new HashMap <String,JPanel> ();
-       
-		for (int i=0;i< list.size();i++) {
-			if (panelMap.containsKey(list.get(i).get("activity"))) {
-				//complete adding new buttons if more than one output
-			}
-			else {
-		    JPanel main = new JPanel(new BorderLayout());
-		    main.setBackground(Color.WHITE);
-		    main.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-		    
-		    System.out.println ("adding");
-		    JPanel activityPanel = new JPanel ();
-		    activityPanel.setLayout(new BoxLayout(activityPanel, BoxLayout.Y_AXIS));
-		   
-		    
-		    
-		    
-		    activityPanel.add(GuiUtils.wrapTextWithLabel("Activity: ",list.get(i).get("activityL"),null));
-		    activityPanel.add(GuiUtils.wrapTextWithLabel("Responsible Person: ",list.get(i).get("agent"),null));
-		    
-		    activityPanel.add(new JSeparator(JSeparator.HORIZONTAL),
-		            BorderLayout.LINE_START);
-
-		    main.add(activityPanel, BorderLayout.CENTER);
-		    
-		    
-		    //validations 
-		    
-		    
-		    JPanel fileValidation = new JPanel();
-            fileValidation.setLayout(new BoxLayout(fileValidation, BoxLayout.Y_AXIS));
-            fileValidation.add (new JLabel ("Validation Checks"));
-            JPanel fileValidationWrapper = new JPanel();
-            fileValidationWrapper.add(new JSeparator(JSeparator.VERTICAL),
-		            BorderLayout.BEFORE_FIRST_LINE);
-            fileValidationWrapper.add(fileValidation);
-            main.add(fileValidationWrapper, BorderLayout.EAST);
-            
-            
-            ArrayList<HashMap<String, String>> sensitiveVariablesFound =  CheckForSensitiveVariablesInFile.checkFile(list.get(i).get("activity"), dataProcessor.getModel());
-        
-
-         
-            ValidationUtils.simpleResult("Number of Rows input/output", fileValidation, "not implemented");
-            ValidationUtils.simpleResult("What Else", fileValidation, "not implemented");
-		    
-		    //inputs/outputs
-		    
-		    
-		    
-		    
-		    GridLayout layoutButtons = new GridLayout(2, 2); 
-		    layoutButtons.setHgap(2);
-		    layoutButtons.setVgap(2);
-		    
-		    JPanel buttonsPanel = new JPanel();
-		    buttonsPanel.setLayout(layoutButtons);
-		    
-		    JLabel inputLabel = new JLabel ("inputs:");
-		   
-		    
-		    buttonsPanel.add(inputLabel);
-		    
-		    
-		    JButton  input = createClickableElement(list.get(i).get("inputL"));
-            input.addMouseListener(new ClickListener(list.get(i).get("input")));
-            buttonsPanel.add(input);
-            
-            JLabel outputLabel = new JLabel ("outputs:");
-            
-            buttonsPanel.add(outputLabel);
-            
-            JButton  output = createClickableElement(list.get(i).get("outputL"));
-            output.addMouseListener(new ClickListener(list.get(i).get("output")));
-            buttonsPanel.add(output);
-            
-            main.add(buttonsPanel, BorderLayout.SOUTH);
-            
-            panelMap.put(list.get(i).get("activity"), main);
-			}
-            
-        }
-        
-		for (String key : panelMap.keySet()) {
-        System.out.println ("adding");
-            activityListPanel.add(panelMap.get(key));
-        }
-        
-		
-
-        
-      
-		JScrollPane activityListScrolPane = new JScrollPane (activityListPanel);
-		 // activityListScrolPane.add(activityListPanel);
-		appCenter.add(activityListScrolPane, BorderLayout.CENTER);
-		appPanel.add(appCenter,BorderLayout.CENTER);
-		*/
         
         appPanel.add(listPanel, BorderLayout.WEST);
         appPanel.add(activityViewer, BorderLayout.CENTER);
 
         getContentPane().add(appPanel);
+        
+       
     }
     
     
@@ -250,6 +151,7 @@ public class MainGuiFrame extends JFrame {
         
         if (directory != null && filename != null) {
         	Constants.PROVENANCE_FILE = directory + filename;
+        	Constants.PROVENANCE_DIRECTORY = directory;
         	//Constants.PROVENANCE_FILE = fileChooser.getSelectedFile().getPath();
             
         } else {
