@@ -17,6 +17,7 @@ import guiInterface.CommentListInterface;
 import semantic.parser.Activity;
 import semantic.parser.CommentsJsonLdProcessor;
 import semantic.parser.Dataset;
+import semantic.parser.Entity;
 import semantic.parser.JsonLdProcessor;
 import validation.CheckForSensitiveVariablesInFile;
 import validation.CheckInpusOutputsRowCountMatches;
@@ -47,11 +48,13 @@ public class ActivityViewImpl implements ActivityView{
 		String resultMatchingRows = "";
 		
 		JsonLdProcessor dataProcessor = new JsonLdProcessor ();
-		ArrayList<HashMap<String, String>> rowCountDoesntMatch =  CheckInpusOutputsRowCountMatches.checkActivity(activity.getURI(), dataProcessor.getModel());
+	
+		String [] args = {activity.getURI()};
+		ArrayList<Entity> rowCountDoesntMatch =  (ArrayList<Entity>) new CheckInpusOutputsRowCountMatches ().getViolations(args, dataProcessor.getModel());
 	    if (rowCountDoesntMatch.size()>0) {
 	    	
 	    	for (int i =0; i <rowCountDoesntMatch.size();i++ ) {
-	    		resultMatchingRows = resultMatchingRows + rowCountDoesntMatch.get(i).get("datasetL");
+	    		resultMatchingRows = resultMatchingRows + rowCountDoesntMatch.get(i).getEntityL();
 	    		
 	    		if (i+1!=rowCountDoesntMatch.size()) {
 	    			resultMatchingRows = resultMatchingRows +",";
@@ -61,6 +64,8 @@ public class ActivityViewImpl implements ActivityView{
 	    }
 	   
 	    activityViewPanel.add(ValidationUtils.simpleResult("Number of Rows input/output", resultMatchingRows));
+	    
+	    
 		
 	    activityViewPanel.add(ValidationUtils.simpleResult("Outputs same as inputs (check hash)", "not implemented"));
 		
