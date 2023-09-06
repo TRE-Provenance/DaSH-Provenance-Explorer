@@ -29,22 +29,21 @@ import semantic.parser.CommentsJsonLdProcessor;
 import semantic.parser.Dataset;
 import semantic.parser.JsonLdProcessor;
 import semantic.parser.LinkagePlan;
+import semantic.parser.Database;
 
 public class ActivityListImpl implements ActivityListInterface {
 	
 	private DefaultListModel<IconTextItem> listModel;
     private JList<IconTextItem> jList;
-    private JPanel activityViewer;
+    private JPanel activityViewer, panel;
 	private CommentsJsonLdProcessor commentsJsonLdProcessor;
 
+	
 	public ActivityListImpl(JPanel activityViewer, CommentsJsonLdProcessor commentsJsonLdProcessor) {
 		this.activityViewer = activityViewer;
 		this.commentsJsonLdProcessor = commentsJsonLdProcessor;
-	}
-
-	@Override
-	public JPanel getActivityList() {
-		JPanel panel = new JPanel();
+		
+		panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
        
 
@@ -83,14 +82,16 @@ public class ActivityListImpl implements ActivityListInterface {
         // Add the JList to a scroll pane
         JScrollPane scrollPane = new JScrollPane(jList);
         panel.add(scrollPane);
+        loadActivities ();
+	}
 
-        
-       
+	@Override
+	public JPanel getActivityList() {
+
 		return panel;
 	}
 	
-	// we assume that we only have one agent responsible 
-	@Override
+	
 	public void loadActivities () {
 		 
 		 ArrayList <Activity> list = new ArrayList <Activity> ();
@@ -134,9 +135,9 @@ public class ActivityListImpl implements ActivityListInterface {
 				 
                  if (inputs.get(j).get("inputType").contains("Database")) {
 					 
-					 Dataset dataset = new Dataset (inputs.get(j).get("input")); 
-					 dataset.setEntityL(inputs.get(j).get("inputL"));
-					 newact.getInputs().add(dataset);
+                	 Database database = new Database (inputs.get(j).get("input")); 
+                	 database.setEntityL(inputs.get(j).get("inputL"));
+					 newact.getInputs().add(database);
 				 }
 			 }
 			 

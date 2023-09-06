@@ -67,7 +67,7 @@ public class MainGuiFrame extends JFrame {
         
         ActivityListInterface listComp = new ActivityListImpl (activityViewer, commentsJsonLdProcessor);
         JPanel listPanel = listComp.getActivityList();
-        listComp.loadActivities();
+       
         
   
         

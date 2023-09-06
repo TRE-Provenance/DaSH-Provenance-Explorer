@@ -2,7 +2,7 @@ package semantic.parser;
 
 public class Dataset extends Entity {
 
-	private String datasetL, description, URI;
+	private String datasetL, description;
 	
 	public Dataset (String URI) {
 		setURI(URI);
@@ -25,11 +25,5 @@ public class Dataset extends Entity {
 		this.description = description;
 	}
 
-	public String getURI() {
-		return URI;
-	}
-
-	public void setURI(String uRI) {
-		URI = uRI;
-	}
+	
 }

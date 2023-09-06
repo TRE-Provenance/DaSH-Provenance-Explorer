@@ -10,7 +10,6 @@ public interface ActivityListInterface {
 	public JPanel getActivityList ();
 	
 	public DefaultListModel getListModel ();
-	
-	public void loadActivities ();
+
 
 }

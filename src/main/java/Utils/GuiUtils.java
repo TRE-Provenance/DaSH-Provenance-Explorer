@@ -13,10 +13,12 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import gui.DatabaseFrame;
 import gui.DatasetFrame;
 import gui.LinkagePlanFrame;
 import semantic.parser.Agent;
 import semantic.parser.CommentsJsonLdProcessor;
+import semantic.parser.Database;
 import semantic.parser.Dataset;
 import semantic.parser.Entity;
 import semantic.parser.LinkagePlan;
@@ -139,7 +141,7 @@ public class GuiUtils {
 		if (obj.getClass() == LinkagePlan.class) {
 			 
 		       
-	        label.setForeground(Color.GREEN);
+	        label.setForeground(Color.DARK_GRAY);
 	        label.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
 	        // Add a MouseListener to handle click events
@@ -156,7 +158,33 @@ public class GuiUtils {
 
 	            @Override
 	            public void mouseExited(MouseEvent e) {
-	                label.setForeground(Color.GREEN);
+	                label.setForeground(Color.DARK_GRAY);
+	            }
+	        });
+	        
+			}
+		
+		if (obj.getClass() == Database.class) {
+			 
+		       
+	        label.setForeground(Color.BLACK);
+	        label.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+
+	        // Add a MouseListener to handle click events
+	        label.addMouseListener(new MouseAdapter() {
+	            @Override
+	            public void mouseClicked(MouseEvent e) {
+	            	 new DatabaseFrame ((Database) obj,commentsJsonLdProcessor);
+	            }
+
+	            @Override
+	            public void mouseEntered(MouseEvent e) {
+	                label.setForeground(Color.RED);
+	            }
+
+	            @Override
+	            public void mouseExited(MouseEvent e) {
+	                label.setForeground(Color.BLACK);
 	            }
 	        });
 	        
@@ -170,7 +198,7 @@ public class GuiUtils {
 	private static JLabel createLinkLabel( LinkagePlan plan) {
         JLabel label = new JLabel(plan.getDatasetL());
        
-        label.setForeground(Color.GREEN);
+        label.setForeground(Color.DARK_GRAY);
         label.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
         // Add a MouseListener to handle click events
@@ -187,7 +215,7 @@ public class GuiUtils {
 
             @Override
             public void mouseExited(MouseEvent e) {
-                label.setForeground(Color.GREEN);
+                label.setForeground(Color.DARK_GRAY);
             }
         });
 
