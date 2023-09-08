@@ -12,7 +12,11 @@ public class Activity implements ResultObject {
 
 	private boolean failedValidation;
 	
-	private ArrayList inputs, outputs, agents; 
+	private ArrayList inputs, outputs, agents;
+
+
+
+	private String activityL; 
 	
 	
 	public Activity (String URI) {
@@ -60,9 +64,17 @@ public class Activity implements ResultObject {
 	public String getActivityType() {
 		return activityType;
 	}
+	
+	public void setActivityType(String activityType) {
+		this.activityType=activityType;
+	}
 
-	public void setActivityL(String activityType) {
-		this.activityType = activityType;
+	public String getActivityL() {
+		return activityL ;
+	}
+	
+	public void setActivityL(String activityL) {
+		this.activityL = activityL;
 	}
 
 	public String getDescription() {

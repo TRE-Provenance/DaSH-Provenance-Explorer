@@ -107,6 +107,13 @@ public class ActivityListImpl implements ActivityListInterface {
 			 
 			 newact.setActivityL(resultList.get(i).get("activityL"));
 			 
+			 ArrayList<HashMap<String, String>> activityType = dataProcessor.getActivitySHPType(activityURI);
+			 System.out.println ("----->>>>"+ activityType.size());
+			 System.out.println ("----->>>>"+ activityURI);
+			 if (activityType.size()>0) {
+			 newact.setActivityType(activityType.get(0).get("activityType"));
+			 }
+			 
 			 newact.setActivityEndDate(resultList.get(i).get("activityEndTime"));
 			 
 			 ArrayList<HashMap<String, String>> inputs = dataProcessor.getActivityInputs(activityURI);
@@ -137,7 +144,8 @@ public class ActivityListImpl implements ActivityListInterface {
 					 
                 	 Database database = new Database (inputs.get(j).get("input")); 
                 	 database.setEntityL(inputs.get(j).get("inputL"));
-					 newact.getInputs().add(database);
+                	 
+                	 newact.getInputs().add(database);
 				 }
 			 }
 			 
@@ -166,9 +174,11 @@ public class ActivityListImpl implements ActivityListInterface {
 					 
 	                 if (outputs.get(j).get("outputType").contains("Database")) {
 						 
-						 Dataset dataset = new Dataset (outputs.get(j).get("output")); 
-						 dataset.setEntityL(outputs.get(j).get("outputL"));
-						 newact.getOutputs().add(dataset);
+	                	
+	                	 
+	                	 Database database = new Database (outputs.get(j).get("output")); 
+	                	 database.setEntityL(outputs.get(j).get("outputL"));
+						 newact.getOutputs().add(database);
 					 }
 			 
 			 

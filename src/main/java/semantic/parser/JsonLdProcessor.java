@@ -38,6 +38,14 @@ public class JsonLdProcessor {
 		return list;
     }
     
+public ArrayList<HashMap<String, String>> getActivitySHPType (String activityURI) {
+    	
+    	// Execute SPARQL query
+    	ArrayList<HashMap<String, String>>  list = SPARQLUtils.executeSparqlQuery(model, Constants.PREFIXES + " SELECT  ?activityType   WHERE {<"+activityURI+"> a ?activityType. FILTER(regex(str(?activityType), \"https://w3id.org/shp#\")) } ");    	
+    	
+		return list;
+    }
+    
  public ArrayList<HashMap<String, String>> getActivityInputs (String activityURI) {
     	
     	// Execute SPARQL query
@@ -93,6 +101,17 @@ public ArrayList<HashMap<String, String>> getVariablesInPlan () {
 
 public ArrayList<HashMap<String, String>>  getVariableStatsForFile(String fileIRI) {
 	String query = Constants.PREFIXES + " SELECT ?minValue ?maxValue ?variableL   WHERE {<"+fileIRI+"> schema:exifData ?item. ?item a shp:EntityCharacteristic; shp:targetFile <"+fileIRI+">; shp:targetFeature/rdfs:label ?variableL; shp:minValue ?minValue; shp:maxValue ?maxValue. }" ;    	
+	System.out.println (query);
+	// Execute SPARQL query
+	ArrayList<HashMap<String, String>>  list = SPARQLUtils.executeSparqlQuery(model, query);    	
+	
+	
+	
+	return list;
+}
+
+public ArrayList<HashMap<String, String>>  getDatabaseDetails (String databaseIRI) {
+	String query = Constants.PREFIXES + " SELECT DISTINCT *   WHERE {<"+databaseIRI+"> <http://schema.org/description> ?description; shp:abbreviation ?abbreviation; shp:version ?version; shp:dataCustodian ?dataCustodian; shp:contact ?contact; shp:lastKnownUpdate ?lastKnownUpdate;shp:mostRecentRecordDate ?mostRecentRecordDate; shp:oldestRecordDate ?oldestRecordDate; shp:contextualInformationLink  ?contextualInformationLink.  }" ;    	
 	System.out.println (query);
 	// Execute SPARQL query
 	ArrayList<HashMap<String, String>>  list = SPARQLUtils.executeSparqlQuery(model, query);    	

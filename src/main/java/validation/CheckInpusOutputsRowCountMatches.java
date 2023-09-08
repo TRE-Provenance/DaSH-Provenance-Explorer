@@ -4,11 +4,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
 import org.apache.jena.rdf.model.Model;
 
 import Utils.SPARQLUtils;
+import Utils.ValidationUtils;
 import gui.MainGuiFrame;
 import semantic.parser.Constants;
 import semantic.parser.Dataset;
@@ -57,6 +59,29 @@ public List<String> getTargetTypes() {
 	ArrayList <String> list = new ArrayList <String> ();			
 			list.add("http://schema.org/CreateAction");
 	return list ;
+}
+
+@Override
+public JPanel getSimpleResult (String [] args, Model model)  {
+	
+	String resultMatchingRows = "";
+	
+	
+	
+	ArrayList<Entity> rowCountDoesntMatch =  (ArrayList<Entity>) new CheckInpusOutputsRowCountMatches ().getViolations(args, model);
+    if (rowCountDoesntMatch.size()>0) {
+    	
+    	for (int i =0; i <rowCountDoesntMatch.size();i++ ) {
+    		resultMatchingRows = resultMatchingRows + rowCountDoesntMatch.get(i).getEntityL();
+    		
+    		if (i+1!=rowCountDoesntMatch.size()) {
+    			resultMatchingRows = resultMatchingRows +",";
+        	}
+    	}
+    	
+    }
+	
+    return ValidationUtils.simpleResult(getName(), resultMatchingRows);
 }
 
 

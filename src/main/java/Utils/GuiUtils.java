@@ -55,7 +55,8 @@ public class GuiUtils {
         
     	JTextField textField = new JTextField(value);
 
-    	textField.setBackground(Color.gray);
+    	textField.setEditable(false);
+    	textField.setBackground(Color.white);
     	panel.add(label);
     	panel.add(textField);
     	

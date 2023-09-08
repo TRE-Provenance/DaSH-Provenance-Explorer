@@ -2,6 +2,8 @@ package validation;
 
 import java.util.List;
 
+import javax.swing.JPanel;
+
 import org.apache.jena.rdf.model.Model;
 
 import semantic.parser.Entity;
@@ -15,6 +17,8 @@ public interface ValidationRuleInterface<E> {
 	public List <String> getTargetTypes ();
 		
 	public List <E> getViolations (String [] args, Model model);
+
+	public JPanel getSimpleResult(String[] args, Model model);
 	
 	
 }

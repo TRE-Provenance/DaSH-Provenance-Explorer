@@ -1,10 +1,13 @@
 package gui;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import javax.swing.Box;
+import javax.swing.Box.Filler;
 import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -33,19 +36,63 @@ public 	DatabaseFrame (Database database,CommentsJsonLdProcessor commentsJsonLdP
 	
 	setTitle (database.getURI());
     setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-    setSize(700, 400);
+    setSize(800, 500);
     setLocationRelativeTo(null);
 
     JPanel panel = new JPanel(new BorderLayout());
 
     
     JPanel mainInfo = new JPanel();
+ 
+    
     mainInfo.setLayout(new BoxLayout(mainInfo, BoxLayout.PAGE_AXIS));
     mainInfo.add(GuiUtils.addLabel ("Database Details"));
 	JsonLdProcessor dataProcessor = new JsonLdProcessor ();
-    ArrayList<HashMap<String, String>> summaryStats = dataProcessor.getSummaryStatsForFile(database.getURI());
+    ArrayList<HashMap<String, String>> databaseDetails = dataProcessor.getDatabaseDetails(database.getURI());
+   
+    if (databaseDetails.size()>1) {
+    	 mainInfo.add(GuiUtils.wrapTextWithLabel ("Error: ", "Provenance trace includes duplicate entries for the same database",Color.red));
+    }
+    else {
+    database.setAbbreviation(databaseDetails.get(0).get("abbreviation"));
+    database.setVersion(databaseDetails.get(0).get("version"));
+    database.setDataCustodian(databaseDetails.get(0).get("dataCustodian"));
+    database.setDescription(databaseDetails.get(0).get("description"));
+    database.setContact(databaseDetails.get(0).get("contact"));
+    database.setLastKnownUpdate(databaseDetails.get(0).get("lastKnownUpdate"));
+    database.setMostRecentRecordDate(databaseDetails.get(0).get("mostRecentRecordDate"));
+    database.setOldestRecordDate(databaseDetails.get(0).get("oldestRecordDate"));
+    database.setContextualInformationLink(databaseDetails.get(0).get("contextualInformationLink"));
     
-    mainInfo.add(GuiUtils.wrapTextWithLabel ("Description: ", summaryStats.get(0).get("description"),null));
+    mainInfo.add(GuiUtils.wrapTextWithLabelNoColor ("Description: ", database.getDescription() ));
+    mainInfo.add(Box.createVerticalStrut(5));
+    mainInfo.add(GuiUtils.wrapTextWithLabelNoColor ("Abbreviation: ", database.getAbbreviation() ));
+    
+    mainInfo.add(GuiUtils.wrapTextWithLabelNoColor ("Version: ", database.getVersion() ));
+    
+    mainInfo.add(GuiUtils.wrapTextWithLabelNoColor ("Data Custodian: ", database.getDataCustodian() ));
+    
+    mainInfo.add(GuiUtils.wrapTextWithLabelNoColor ("Contact: ", database.getContact() ));
+    
+    mainInfo.add(GuiUtils.wrapTextWithLabelNoColor ("Last Known Update: ", database.getLastKnownUpdate() ));
+    
+    mainInfo.add(GuiUtils.wrapTextWithLabelNoColor ("Most Recent Record Date: ", database.getMostRecentRecordDate() ));
+    
+    mainInfo.add(GuiUtils.wrapTextWithLabelNoColor ("Oldest Record Date: ", database.getOldestRecordDate()));
+    
+    mainInfo.add(GuiUtils.wrapTextWithLabelNoColor ("More Info: ", database.getContextualInformationLink()));
+    
+    Box.Filler glue = (Filler) Box.createVerticalGlue();
+    glue.changeShape(glue.getMinimumSize(), 
+                    new Dimension(0, Short.MAX_VALUE), // make glue greedy
+                    glue.getMaximumSize());
+    
+    
+    
+    mainInfo.add(glue);
+    
+    }
+    
    
     
 

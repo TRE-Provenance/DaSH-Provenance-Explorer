@@ -10,6 +10,8 @@ import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
 
+import org.apache.jena.rdf.model.Model;
+
 import Utils.GuiUtils;
 import Utils.ValidationUtils;
 import guiInterface.ActivityView;
@@ -21,6 +23,8 @@ import semantic.parser.Entity;
 import semantic.parser.JsonLdProcessor;
 import validation.CheckForSensitiveVariablesInFile;
 import validation.CheckInpusOutputsRowCountMatches;
+import validation.ValidationEngine;
+import validation.ValidationRuleInterface;
 
 public class ActivityViewImpl implements ActivityView{
 
@@ -39,35 +43,47 @@ public class ActivityViewImpl implements ActivityView{
 		//panel.add(GuiUtils.wrapTextWithLabel("Responsible Person(s): ",activity.getAgents().toString(),null));
 		activityViewPanel.add(GuiUtils.wrapAgentListWithLabelNoColor ("Responsible Person(s): ", activity.getAgents()));
 		//panel.add(GuiUtils.wrapTextWithLabel("Responsible Person(s): ",activity.getInputs().toString(),null));
-		activityViewPanel.add(GuiUtils.wrapParameterListWithLabelNoColor ("Inputs: ", activity.getInputs(),commentsJsonLdProcessor));
-		activityViewPanel.add(GuiUtils.wrapParameterListWithLabelNoColor ("Outputs: ", activity.getOutputs(),commentsJsonLdProcessor));
+		//activityViewPanel.add(GuiUtils.wrapParameterListWithLabelNoColor ("Inputs: ", activity.getInputs(),commentsJsonLdProcessor));
+		//activityViewPanel.add(GuiUtils.wrapParameterListWithLabelNoColor ("Inputs: ",null);
+		EntityListImpl entityList = new EntityListImpl (activity.getInputs(),commentsJsonLdProcessor); 
+		JPanel listPanel = entityList.getEntityList();
+		activityViewPanel.add(GuiUtils.addLabel ("Inputs (" + entityList.getListModel().getSize() +")" ));
+		activityViewPanel.add(listPanel);
+		
+		entityList = new EntityListImpl (activity.getOutputs(),commentsJsonLdProcessor); 
+		listPanel = entityList.getEntityList();
+		activityViewPanel.add(GuiUtils.addLabel ("Outputs (" + entityList.getListModel().getSize() +")" ));
+		activityViewPanel.add(listPanel);
+		
+		//activityViewPanel.add(GuiUtils.wrapParameterListWithLabelNoColor ("Outputs: ", activity.getOutputs(),commentsJsonLdProcessor));
 		activityViewPanel.add(new JSeparator(JSeparator.HORIZONTAL),
 	            BorderLayout.LINE_START);
 		activityViewPanel.add(GuiUtils.addLabel ("Validations"));
 		
-		String resultMatchingRows = "";
 		
-		JsonLdProcessor dataProcessor = new JsonLdProcessor ();
+		
+	
 	
 		String [] args = {activity.getURI()};
-		ArrayList<Entity> rowCountDoesntMatch =  (ArrayList<Entity>) new CheckInpusOutputsRowCountMatches ().getViolations(args, dataProcessor.getModel());
-	    if (rowCountDoesntMatch.size()>0) {
-	    	
-	    	for (int i =0; i <rowCountDoesntMatch.size();i++ ) {
-	    		resultMatchingRows = resultMatchingRows + rowCountDoesntMatch.get(i).getEntityL();
-	    		
-	    		if (i+1!=rowCountDoesntMatch.size()) {
-	    			resultMatchingRows = resultMatchingRows +",";
-	        	}
-	    	}
-	    	
+		JsonLdProcessor dataProcessor = new JsonLdProcessor ();
+		
+		ValidationEngine engine = new ValidationEngine () ; 
+		
+		ArrayList<ValidationRuleInterface> validations = engine.getSettings().get(activity.getActivityType());
+		
+		System.out.println ("ACTIVITY CLASS ->>>>>> "+ activity.getActivityType());
+	    if (validations!=null) {	
+		for (int i=0; i<validations.size();i++) {
+			
+			 activityViewPanel.add( validations.get(i).getSimpleResult (args, dataProcessor.getModel()));
+			
+		}
 	    }
 	   
-	    activityViewPanel.add(ValidationUtils.simpleResult("Number of Rows input/output", resultMatchingRows));
 	    
 	    
 		
-	    activityViewPanel.add(ValidationUtils.simpleResult("Outputs same as inputs (check hash)", "not implemented"));
+	 //   activityViewPanel.add(ValidationUtils.simpleResult("Outputs same as inputs (check hash)", "not implemented"));
 		
 	    activityViewPanel.add(new JSeparator(JSeparator.HORIZONTAL),
 	            BorderLayout.LINE_START);
