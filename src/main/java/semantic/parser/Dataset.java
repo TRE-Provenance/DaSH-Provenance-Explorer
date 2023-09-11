@@ -3,6 +3,7 @@ package semantic.parser;
 public class Dataset extends Entity {
 
 	private String datasetL, description;
+	private String path = "not available";
 	
 	public Dataset (String URI) {
 		setURI(URI);
@@ -23,6 +24,16 @@ public class Dataset extends Entity {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public void setPath(String path) {
+		this.path = path;
+		
+	}
+	
+	public String getPath() {
+		return path;
+		
 	}
 
 	

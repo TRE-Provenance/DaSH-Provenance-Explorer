@@ -41,7 +41,7 @@ public class ActivityViewImpl implements ActivityView{
 		activityViewPanel.add(GuiUtils.addLabel ("Activity Details"));
 		activityViewPanel.add(GuiUtils.wrapTextWithLabel("Activity: ",activity.getActivityType(),null));
 		//panel.add(GuiUtils.wrapTextWithLabel("Responsible Person(s): ",activity.getAgents().toString(),null));
-		activityViewPanel.add(GuiUtils.wrapAgentListWithLabelNoColor ("Responsible Person(s): ", activity.getAgents()));
+		activityViewPanel.add(GuiUtils.wrapAgentListWithLabelNoColor ("Completed by: ", activity.getAgents()));
 		//panel.add(GuiUtils.wrapTextWithLabel("Responsible Person(s): ",activity.getInputs().toString(),null));
 		//activityViewPanel.add(GuiUtils.wrapParameterListWithLabelNoColor ("Inputs: ", activity.getInputs(),commentsJsonLdProcessor));
 		//activityViewPanel.add(GuiUtils.wrapParameterListWithLabelNoColor ("Inputs: ",null);
@@ -71,7 +71,7 @@ public class ActivityViewImpl implements ActivityView{
 		
 		ArrayList<ValidationRuleInterface> validations = engine.getSettings().get(activity.getActivityType());
 		
-		System.out.println ("ACTIVITY CLASS ->>>>>> "+ activity.getActivityType());
+		
 	    if (validations!=null) {	
 		for (int i=0; i<validations.size();i++) {
 			

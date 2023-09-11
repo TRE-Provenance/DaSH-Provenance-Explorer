@@ -27,6 +27,15 @@ public class ValidationEngine {
 		
 		settings.put("https://w3id.org/shp#SignOff", signoffChecks);
 		
+        ArrayList<ValidationRuleInterface> datasetChecks = new ArrayList <ValidationRuleInterface> ();
+        
+        datasetChecks.add(new CheckMinConstraintsInFile());
+        datasetChecks.add(new CheckMaxConstraintsInFile());
+		
+		
+		
+		settings.put("https://w3id.org/shp#DataSet",datasetChecks);
+		
 		
 	}
 

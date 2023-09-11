@@ -2,6 +2,9 @@ package Utils;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.swing.BorderFactory;
 import javax.swing.DefaultListCellRenderer;
@@ -23,7 +26,26 @@ public   class IconTextItem {
 
     public IconTextItem(Activity act, boolean hasIcon) {
     	this.activity = act;
-        this.text = "("+act.setActivityEndDate()+") - " + act.getActivityL();
+    	
+    	SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssXXX");
+        SimpleDateFormat outputFormat = new SimpleDateFormat("MM/dd/yy HH:mm:ss");
+
+        
+            // Parse the input date and time string into a Date object
+        String formattedDateTime="N/A";
+			try {
+				Date date = inputFormat.parse(act.setActivityEndDate());
+				  formattedDateTime = outputFormat.format(date);
+			} catch (ParseException e) {
+				
+				e.printStackTrace();
+			}
+
+            // Format the date object to the desired format
+           
+    	
+       
+		this.text = "("+formattedDateTime+") - " + act.getActivityL();
         if (hasIcon) {
             this.icon = new ImageIcon(ActivityListImpl.class.getClassLoader().getResource("warning.png")); // Replace with your own icon path
         }

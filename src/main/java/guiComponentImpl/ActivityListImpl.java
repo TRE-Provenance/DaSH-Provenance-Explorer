@@ -127,6 +127,13 @@ public class ActivityListImpl implements ActivityListInterface {
 				 
 				 Dataset dataset = new Dataset (inputs.get(j).get("input")); 
 				 dataset.setEntityL(inputs.get(j).get("inputL"));
+				 
+				 ArrayList<HashMap<String, String>> path = dataProcessor.getFilePath(dataset.getURI());
+				
+				 if (path.size()>0) {
+				 dataset.setPath (path.get(0).get("path"));
+				 }
+				 
 				 newact.getInputs().add(dataset);
 				 }
 				 
@@ -160,6 +167,11 @@ public class ActivityListImpl implements ActivityListInterface {
 					 
 					 Dataset dataset = new Dataset (outputs.get(j).get("output")); 
 					 dataset.setEntityL(outputs.get(j).get("outputL"));
+					 ArrayList<HashMap<String, String>> path = dataProcessor.getFilePath(dataset.getURI());
+						
+					 if (path.size()>0) {
+					 dataset.setPath (path.get(0).get("path"));
+					 }
 					 newact.getOutputs().add(dataset);
 					 }
 					 

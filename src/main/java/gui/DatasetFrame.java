@@ -22,6 +22,8 @@ import semantic.parser.CommentsJsonLdProcessor;
 import semantic.parser.Dataset;
 import semantic.parser.JsonLdProcessor;
 import validation.CheckForSensitiveVariablesInFile;
+import validation.ValidationEngine;
+import validation.ValidationRuleInterface;
 
 public class DatasetFrame extends JFrame {
 	
@@ -46,14 +48,17 @@ public 	DatasetFrame (Dataset dataset,CommentsJsonLdProcessor commentsJsonLdProc
     ArrayList<HashMap<String, String>> summaryStats = dataProcessor.getSummaryStatsForFile(dataset.getURI());
     
     mainInfo.add(GuiUtils.wrapTextWithLabel ("Description: ", summaryStats.get(0).get("description"),null));
+    mainInfo.add(GuiUtils.wrapTextWithLabel ("Path: ", dataset.getPath(),null));
     mainInfo.add(GuiUtils.wrapTextWithLabel ("Row Count: ", summaryStats.get(0).get("rowCount"),null));
+    
+   
   
     mainInfo.add(new JSeparator(JSeparator.HORIZONTAL),
             BorderLayout.LINE_START);
     mainInfo.add(GuiUtils.addLabel ("Validations"));
     
 
-    
+    /*
     ArrayList<HashMap<String, String>> sensitiveVariablesFound =  CheckForSensitiveVariablesInFile.checkFile(dataset.getURI(), dataProcessor.getModel());
     String result = "";
 
@@ -71,7 +76,23 @@ public 	DatasetFrame (Dataset dataset,CommentsJsonLdProcessor commentsJsonLdProc
     
     mainInfo.add ( ValidationUtils.simpleResult("Sensitive Variables", result));
     mainInfo.add (ValidationUtils.simpleResult("Variable range  exceeds Spec", "not implemented"));
+    */
     
+    
+    String [] args = {dataset.getURI()};
+	
+	ValidationEngine engine = new ValidationEngine () ; 
+	
+	ArrayList<ValidationRuleInterface> validations = engine.getSettings().get("https://w3id.org/shp#DataSet");
+	
+	
+    if (validations!=null) {	
+	for (int i=0; i<validations.size();i++) {
+		
+		mainInfo.add( validations.get(i).getSimpleResult (args, dataProcessor.getModel()));
+		
+	}
+    }
    
     mainInfo.add(new JSeparator(JSeparator.HORIZONTAL),
             BorderLayout.LINE_START);

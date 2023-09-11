@@ -88,7 +88,7 @@ public ArrayList<HashMap<String, String>> getVariablesInFile (String fileIRI) {
     }
 
 public ArrayList<HashMap<String, String>> getVariablesInPlan () {
-	String query = Constants.PREFIXES + " SELECT DISTINCT ?variable ?variableL ?sourceL WHERE {?plan a shp:DataLinkagePlan; schema:exifData ?item. ?item a shp:LinkagePlanDataSource; rdfs:label ?sourceL. ?item shp:requestedVariables ?collection. ?collection a shp:RequestedVariables; prov:hadMember ?variable. ?variable rdfs:label ?variableL. }";    	
+	String query = Constants.PREFIXES + " SELECT DISTINCT ?variable ?variableL ?sourceL ?minValue ?maxValue WHERE {?plan a shp:DataLinkagePlan; schema:exifData ?item. ?item a shp:LinkagePlanDataSource; rdfs:label ?sourceL. ?item shp:requestedVariables ?collection. ?collection a shp:RequestedVariables; prov:hadMember ?variable. ?variable rdfs:label ?variableL. OPTIONAL {?item shp:constraint ?constraint. ?constraint shp:minValue ?minValue; shp:maxValue ?maxValue; shp:targetFeature ?variable} }";    	
 	//String query = Constants.PREFIXES + " SELECT DISTINCT ?plan  {?plan a shp:DataLinkagePlan;schema:exifData ?item.?item a shp:LinkagePlanDataSource; rdfs:label ?sourceL.?item shp:requestedVariables ?collection.?collection a shp:RequestedVariables; prov:hadMember ?variable.}";
 	// Execute SPARQL query
 	ArrayList<HashMap<String, String>>  list = SPARQLUtils.executeSparqlQuery(model, query);    	
@@ -121,6 +121,17 @@ public ArrayList<HashMap<String, String>>  getDatabaseDetails (String databaseIR
 	return list;
 }
 
+public ArrayList<HashMap<String, String>>  getDatabaseOriginForFile (String datasetIRI) {
+	String query = Constants.PREFIXES + " SELECT DISTINCT ?database  WHERE {<"+datasetIRI+"> a shp:DataSet; prov:wasDerivedFrom* ?database. ?database shp:Database.  }" ;    	
+	System.out.println (query);
+	// Execute SPARQL query
+	ArrayList<HashMap<String, String>>  list = SPARQLUtils.executeSparqlQuery(model, query);    	
+	
+	
+	
+	return list;
+}
+
 
 public ArrayList<HashMap<String, String>>  getSummaryStatsForFile(String fileIRI) {
 	String query = Constants.PREFIXES + " SELECT ?description ?rowCount  WHERE {<"+fileIRI+"> schema:description ?description. Optional {<"+fileIRI+"> schema:exifData ?item. ?item a shp:EntityCharacteristic; shp:targetFile <"+fileIRI+">; shp:rowCount ?rowCount. NOT EXISTS {?item shp:targetFeature ?feature.} } }" ;    	
@@ -129,6 +140,16 @@ public ArrayList<HashMap<String, String>>  getSummaryStatsForFile(String fileIRI
 	ArrayList<HashMap<String, String>>  list = SPARQLUtils.executeSparqlQuery(model, query);    	
 	return list;
 }
+
+public ArrayList<HashMap<String, String>>  getFilePath(String fileIRI) {
+	String query = Constants.PREFIXES + " SELECT ?path  WHERE {<"+fileIRI+"> schema:contentUrl ?path.  }" ;    	
+	System.out.println (query);
+	// Execute SPARQL query
+	ArrayList<HashMap<String, String>>  list = SPARQLUtils.executeSparqlQuery(model, query);    	
+	return list;
+}
+
+
 
     private static  Model loadJsonLdFromFile(String filename) {
         Model model = ModelFactory.createDefaultModel();
@@ -165,12 +186,12 @@ public ArrayList<HashMap<String, String>>  getSummaryStatsForFile(String fileIRI
 	        // Load JSON-LD file from Resources directory
 	        Model model;
 			
-				model = loadJsonLdFromFile("data.jsonld");
+				model = loadJsonLdFromFile("data2.jsonld");
 			
 
 	        // Execute SPARQL query
 	        String queryStr =  "PREFIX shp: <https://w3id.org/shp#> PREFIX schema: <http://schema.org/> PREFIX time: <http://www.w3.org/2006/time#> PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX peco: <https://w3id.org/peco#> PREFIX ecfo: <https://w3id.org/ecfo#>  PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX owl: <http://www.w3.org/2002/07/owl#> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>  PREFIX prov:<http://www.w3.org/ns/prov#> PREFIX qudt: <http://qudt.org/schema/qudt/> "
-	        		+ "SELECT *  WHERE {<https://example.com/released/data.csv> schema:exifData ?item. ?item a shp:EntityCharacteristic; shp:targetFile <https://example.com/released/data.csv>; shp:targetFeature/rdfs:label ?variableL; shp:minValue ?minValue; shp:maxValue ?maxValue.}";
+	        		+ " SELECT ?path  WHERE {<dash:project1/import/data_v1.1.csv> schema:contentUrl ?path.  }";
 	        		
 
 	        Query query = QueryFactory.create(queryStr);
