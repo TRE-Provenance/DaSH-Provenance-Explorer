@@ -6,8 +6,10 @@ import javax.swing.ImageIcon;
 import guiComponentImpl.ActivityListImpl;
 import semantic.parser.Activity;
 import semantic.parser.Database;
+import semantic.parser.Dataset;
 import semantic.parser.Entity;
 import semantic.parser.LinkagePlan;
+import semantic.parser.Variable;
 
 public class IconTextItemEntity {
 	 private final String text;
@@ -25,8 +27,17 @@ public class IconTextItemEntity {
 	            this.icon = new ImageIcon(IconTextItemEntity.class.getClassLoader().getResource("database.png")); // Replace with your own icon path
 	        	}
 	        	
+	        	
+	        	
+	        	if (en instanceof Variable) {
+		            this.icon = new ImageIcon(IconTextItemEntity.class.getClassLoader().getResource("variable.png")); // Replace with your own icon path
+		        	}
+	        	
+	        	if (en instanceof Dataset) {
+		            this.icon = new ImageIcon(IconTextItemEntity.class.getClassLoader().getResource("dataset.png")); // Replace with your own icon path
+		        	}
 	        	if (en instanceof LinkagePlan) {
-		            this.icon = new ImageIcon(IconTextItemEntity.class.getClassLoader().getResource("plan.png")); // Replace with your own icon path
+		            this.icon = new ImageIcon(IconTextItemEntity.class.getClassLoader().getResource("linkage.png")); // Replace with your own icon path
 		        	}
 	        }
 	    }

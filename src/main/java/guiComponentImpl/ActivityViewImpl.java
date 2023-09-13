@@ -39,7 +39,7 @@ public class ActivityViewImpl implements ActivityView{
 		activityViewPanel = new JPanel ();
 		activityViewPanel.setLayout(new BoxLayout(activityViewPanel, BoxLayout.PAGE_AXIS));
 		activityViewPanel.add(GuiUtils.addLabel ("Activity Details"));
-		activityViewPanel.add(GuiUtils.wrapTextWithLabel("Activity: ",activity.getActivityType(),null));
+		activityViewPanel.add(GuiUtils.wrapTextWithLabel("Activity: ",activity.getDescription(),null));
 		//panel.add(GuiUtils.wrapTextWithLabel("Responsible Person(s): ",activity.getAgents().toString(),null));
 		activityViewPanel.add(GuiUtils.wrapAgentListWithLabelNoColor ("Completed by: ", activity.getAgents()));
 		//panel.add(GuiUtils.wrapTextWithLabel("Responsible Person(s): ",activity.getInputs().toString(),null));
@@ -101,8 +101,9 @@ public class ActivityViewImpl implements ActivityView{
 	@Override
 	public JPanel getActivityView() {
 		
-		
-		return activityViewPanel;
+		JPanel panel = new JPanel (new BorderLayout());
+		panel.add(activityViewPanel,BorderLayout.CENTER);
+		return panel;
 	}
 
 }

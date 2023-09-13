@@ -1,6 +1,7 @@
 package Utils;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Component;
 
 import javax.swing.BorderFactory;
@@ -33,7 +34,8 @@ public class IconTextListRenderer extends DefaultListCellRenderer {
 
             // Set the background and selection color
             if (isSelected) {
-                panel.setBackground(list.getSelectionBackground());
+            	panel.setBackground(new Color(173, 216, 230));
+                //panel.setBackground(list.getSelectionBackground());
                 panel.setForeground(list.getSelectionForeground());
             } else {
                 panel.setBackground(list.getBackground());
@@ -63,7 +65,7 @@ public class IconTextListRenderer extends DefaultListCellRenderer {
 
             // Set the background and selection color
             if (isSelected) {
-                panel.setBackground(list.getSelectionBackground());
+            	panel.setBackground(new Color(173, 216, 230));
                 panel.setForeground(list.getSelectionForeground());
             } else {
                 panel.setBackground(list.getBackground());

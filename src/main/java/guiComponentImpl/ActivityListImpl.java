@@ -44,7 +44,7 @@ public class ActivityListImpl implements ActivityListInterface {
 		this.commentsJsonLdProcessor = commentsJsonLdProcessor;
 		
 		panel = new JPanel();
-        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+        panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
        
 
         // Create a label for the title
@@ -232,12 +232,13 @@ public class ActivityListImpl implements ActivityListInterface {
 
         // Get the index of the newly added item
         int index = listModel.getSize() - 1;
-
+/*
         // If the flag is set to true, add an icon
         if (hasIcon) {
             ImageIcon icon = new ImageIcon(ActivityListImpl.class.getClassLoader().getResource("warning.png"));  // Replace with your own icon path
             listModel.getElementAt(index).setIcon(icon);
         }
+        */
     }
 	
 	

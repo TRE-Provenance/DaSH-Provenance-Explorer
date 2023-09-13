@@ -2,7 +2,7 @@ package semantic.parser;
 
 public class LinkagePlan extends Entity{
 	
-	private String planL, description, URI;
+	private String planL, description;
 	
 	public LinkagePlan (String URI) {
 		setURI(URI);
@@ -25,12 +25,7 @@ public class LinkagePlan extends Entity{
 		this.description = description;
 	}
 
-	public String getURI() {
-		return URI;
-	}
+	
 
-	public void setURI(String uRI) {
-		URI = uRI;
-	}
 
 }

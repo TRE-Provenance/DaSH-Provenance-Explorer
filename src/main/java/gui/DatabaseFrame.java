@@ -106,7 +106,7 @@ public 	DatabaseFrame (Database database,CommentsJsonLdProcessor commentsJsonLdP
     
     
     
-    CommentListInterface comments = new CommentListImpl (database.getURI(),commentsJsonLdProcessor);
+    CommentListInterface comments = new CommentListImpl (database.getURI(),new CommentsJsonLdProcessor());
 	
     JPanel panelWrapper = new JPanel ();
     panelWrapper.setLayout(new BoxLayout(panelWrapper, BoxLayout.PAGE_AXIS));

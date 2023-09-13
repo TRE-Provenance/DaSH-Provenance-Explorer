@@ -35,7 +35,7 @@ public 	DatasetFrame (Dataset dataset,CommentsJsonLdProcessor commentsJsonLdProc
 	
 	setTitle (dataset.getURI());
     setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-    setSize(700, 400);
+    setSize(700, 600);
     setLocationRelativeTo(null);
 
     JPanel panel = new JPanel(new BorderLayout());
@@ -157,7 +157,7 @@ public 	DatasetFrame (Dataset dataset,CommentsJsonLdProcessor commentsJsonLdProc
     scrollPanelWrapper.add(scrollPane);
     
     
-    CommentListInterface comments = new CommentListImpl (dataset.getURI(),commentsJsonLdProcessor);
+    CommentListInterface comments = new CommentListImpl (dataset.getURI(),new CommentsJsonLdProcessor());
 	
     JPanel panelWrapper = new JPanel ();
     panelWrapper.setLayout(new BoxLayout(panelWrapper, BoxLayout.PAGE_AXIS));

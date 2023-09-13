@@ -17,6 +17,6 @@ public class Entity {
 	}
 
 	public void setURI(String uRI) {
-		URI = uRI;
+		this.URI = uRI;
 	}
 }

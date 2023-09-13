@@ -7,20 +7,26 @@ import java.util.HashMap;
 
 import javax.swing.BoxLayout;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
 import Utils.GuiUtils;
+import guiComponentImpl.CommentListImpl;
+import guiInterface.CommentListInterface;
+import semantic.parser.CommentsJsonLdProcessor;
 import semantic.parser.JsonLdProcessor;
 import semantic.parser.LinkagePlan;
+import validation.ValidationEngine;
+import validation.ValidationRuleInterface;
 
 public class LinkagePlanFrame extends JFrame {
 	
 public 	LinkagePlanFrame () {
 	setTitle ("Data Linkage Plan");
     setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-    setSize(600, 400);
+    setSize(800, 800);
     setLocationRelativeTo(null);
 
     JPanel panel = new JPanel(new BorderLayout());
@@ -32,8 +38,29 @@ public 	LinkagePlanFrame () {
 	JsonLdProcessor dataProcessor = new JsonLdProcessor ();
   //  ArrayList<HashMap<String, String>> summaryStats = dataProcessor.getSummaryStatsForFile(dataset.getURI());
     
-    mainInfo.add(GuiUtils.wrapTextWithLabel ("Description: ", "not yet implemented",null));
+	 ArrayList<HashMap<String, String>> result = dataProcessor.getLinkagePlanDetails ();
+	 
+	 LinkagePlan plan = new LinkagePlan (result.get(0).get("linkagePlan"));
+	 plan.setDescription(result.get(0).get("description"));
+	
+    mainInfo.add(GuiUtils.wrapTextWithLabel ("Description: ", plan.getDescription(),null));
    
+    mainInfo.add(GuiUtils.addLabel ("Validations"));
+String [] args = {};
+	
+	ValidationEngine engine = new ValidationEngine () ; 
+	
+	ArrayList<ValidationRuleInterface> validations = engine.getSettings().get("https://w3id.org/shp#DataLinkagePlan");
+	
+	
+    if (validations!=null) {	
+	for (int i=0; i<validations.size();i++) {
+		
+		mainInfo.add( validations.get(i).getSimpleResult (args, dataProcessor.getModel()));
+		
+	}
+    }
+    
     
     mainInfo.add(GuiUtils.addLabel ("Requested Variables"));
     panel.add(mainInfo, BorderLayout.NORTH);
@@ -55,7 +82,7 @@ public 	LinkagePlanFrame () {
    
    // Object[][] rowData = new Object[variables.size()][NUMB_STATS_DISPLAYED];
     
-    Object[][] rowData = new Object[1][NUMB_STATS_DISPLAYED];
+    Object[][] rowData = new Object[variables.size()][NUMB_STATS_DISPLAYED];
     
     System.out.println(rowData);
    
@@ -64,8 +91,8 @@ public 	LinkagePlanFrame () {
     		
     		rowData [j][0] = variables.get(j).get("sourceL");
     		rowData [j][1] = variables.get(j).get("variableL");
-    		rowData [0][2] = (variables.get(j).get("minValue") != null) ? variables.get(j).get("minValue") : "no constraint set";
-    		rowData [0][3] = (variables.get(j).get("maxValue") != null) ? variables.get(j).get("maxValue") : "no constraint set";
+    		rowData [j][2] = (variables.get(j).get("minValue") != null) ? variables.get(j).get("minValue") : "no constraint set";
+    		rowData [j][3] = (variables.get(j).get("maxValue") != null) ? variables.get(j).get("maxValue") : "no constraint set";
     		
     	}	
    	   
@@ -76,7 +103,16 @@ public 	LinkagePlanFrame () {
     JScrollPane scrollPane = new JScrollPane(table);
     scrollPane.setPreferredSize(new Dimension(600, 200));
     
+CommentListInterface comments = new CommentListImpl (plan.getURI(),new CommentsJsonLdProcessor());
+	
+    JPanel panelWrapper = new JPanel ();
+    panelWrapper.setLayout(new BoxLayout(panelWrapper, BoxLayout.PAGE_AXIS));
+	
+    panelWrapper.add(GuiUtils.addLabel("Comments"));
     
+    panelWrapper.add(comments.getCommentList());
+    
+    panel.add(panelWrapper, BorderLayout.SOUTH);
     
     panel.add(scrollPane, BorderLayout.CENTER);
 

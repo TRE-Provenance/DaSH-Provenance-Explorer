@@ -11,6 +11,10 @@
 
 {"@id":"dash:exampleDatabase/variable/postcode",
 "@type":["shp_SensitiveVariable"],"label":"postcode"
+}, 
+
+{"@id":"dash:exampleDatabase2/variable/variableX",
+"@type":["shp_Variable"],"label":"variableX"
 }
 
   ]

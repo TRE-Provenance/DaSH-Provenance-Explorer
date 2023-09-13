@@ -31,10 +31,26 @@ public class ValidationEngine {
         
         datasetChecks.add(new CheckMinConstraintsInFile());
         datasetChecks.add(new CheckMaxConstraintsInFile());
-		
+        datasetChecks.add(new CheckForSensitiveVariablesInFile());
+      
 		
 		
 		settings.put("https://w3id.org/shp#DataSet",datasetChecks);
+		
+		
+		ArrayList<ValidationRuleInterface> linkagePlanChecks = new ArrayList <ValidationRuleInterface> ();
+		
+		linkagePlanChecks.add(new AllDatasourcesUsed());
+		linkagePlanChecks.add(new AllDataSourcesUsedInReleased());
+		linkagePlanChecks.add(new RequestedVariablesNeverUsed());
+		linkagePlanChecks.add(new RequestedVariablesNeverUsedInReleasedFiles());
+		
+		
+		
+		settings.put("https://w3id.org/shp#DataLinkagePlan",linkagePlanChecks);
+		
+		
+		
 		
 		
 	}

@@ -2872,6 +2872,9 @@
       "exifData":[
          {
             "@id":"dash:project1/linkagePlan.csv#DataSource.a35d45fd-cfcf-44d7-96a3-b44de21a9652"
+         },
+         {
+            "@id":"dash:project1/linkagePlan.csv#DataSource.a35d45fd-cfcf-44d7-96a3-b44de21a9653"
          }
       ]
    },
@@ -2892,6 +2895,34 @@
       ]
    },
    {
+      "@id":"dash:project1/linkagePlan.csv#DataSource.a35d45fd-cfcf-44d7-96a3-b44de21a9653",
+      "@type":[
+         "shp_LinkagePlanDataSource"
+      ],
+      "label":"Example Data Source2",
+	  "shp_database":{"@id":"dash:exampleDatabase2"},
+      "shp_requestedVariables":{
+         "@id":"dash:project1/linkagePlan.csv#RequestedVariables.9eedfc96-d26a-45af-8c83-065ccf1d24db"
+      },
+      "shp_constraint":[
+         
+      ]
+   }
+   ,
+   
+   {
+      "@id":"dash:project1/linkagePlan.csv#RequestedVariables.9eedfc96-d26a-45af-8c83-065ccf1d24db",
+      "@type":[
+         "shp_RequestedVariables"
+      ],
+      "hadMember":[
+         {
+            "@id":"dash:exampleDatabase2/variable/variableX"
+         }
+      ]
+   },
+   
+   {
       "@id":"dash:project1/linkagePlan.csv#RequestedVariables.9eedfc96-d26a-45af-8c83-065ccf1d24dc",
       "@type":[
          "shp_RequestedVariables"
@@ -2899,6 +2930,12 @@
       "hadMember":[
          {
             "@id":"dash:exampleDatabase/variable/height"
+         }, 
+         {
+            "@id":"dash:exampleDatabase/variable/postcode"
+         }, 
+         {
+            "@id":"dash:exampleDatabase/variable/gender"
          }
       ]
    },
@@ -3202,6 +3239,24 @@
 			      "shp_oldestRecordDate":"1976-03-24",
 			      "shp_contextualInformationLink":"https://www.abdn.ac.uk/iahs/facilities/dash-datasets.php"
 			 },
+			 
+ 			{
+ 			      "@id":"dash:exampleDatabase2",
+ 			      "@type":[
+ 			         "shp_Database"
+ 			      ],
+ 			      "description":"This  is evil database full of useful information.",
+ 			      "shp_databaseName":"Example Database2",
+ 				  "label":"Example Database2",
+ 			      "shp_abbreviation":"ID",
+ 			      "shp_version":"1.2",
+ 			      "shp_dataCustodian":"Ellon Musk",
+ 			      "shp_contact":"info@example.com",
+ 			      "shp_lastKnownUpdate":"2022-09-24",
+ 			      "shp_mostRecentRecordDate":"2022-03-24",
+ 			      "shp_oldestRecordDate":"1976-03-24",
+ 			      "shp_contextualInformationLink":"https://www.abdn.ac.uk/iahs/facilities/dash-datasets.php"
+ 			 },
 			 
 		     {     "@id":"dash:project1/Export/d4c7c1bb-a4a4-42ca-bdb6-188c4a6fd89g",
 		        "@type":[

@@ -13,6 +13,7 @@ import Utils.ValidationUtils;
 import semantic.parser.Constants;
 import semantic.parser.Dataset;
 import semantic.parser.Entity;
+import semantic.parser.Variable;
 
 public class CheckMinConstraintsInFile implements ValidationRuleInterface{
 
@@ -25,7 +26,7 @@ public class CheckMinConstraintsInFile implements ValidationRuleInterface{
 	@Override
 	public List getTargetTypes() {
 		ArrayList <String> list = new ArrayList <String> ();			
-		list.add("http://schema.org/MediaObject");
+		list.add("https://w3id.org/shp#DataSet");
 		return list;
 	}
 
@@ -39,38 +40,45 @@ public class CheckMinConstraintsInFile implements ValidationRuleInterface{
 
 		// Execute SPARQL query
 		list = SPARQLUtils.executeSparqlQuery(model, query);    	
-		
+		/*
 		ArrayList <String> violations = new ArrayList <String> ();
 		
 		for (int i = 0; i < list.size();i++) {
 			
 			violations.add(list.get(i).get("variableL")+" (min"+list.get(i).get("constraintMin")+")");
 		}
-
+*/
+ArrayList <Variable> violations = new ArrayList <Variable> ();
+	
+		
+		
+		for (int i = 0; i < list.size();i++) {
+			
+			Variable variable = new Variable (list.get(i).get("variable")); 
+			variable.setEntityL(list.get(i).get("variableL")+" (min"+list.get(i).get("constraintMin")+")");
+			
+			violations.add(variable);
+		}
 		return violations; 
 	}
 	
 
 	@Override
 	public JPanel getSimpleResult(String[] args, Model model) {
-		String variables = "";
-		
-		
-		
-		ArrayList<String> variablesList =  (ArrayList<String>) new CheckMinConstraintsInFile ().getViolations(args, model);
-	    if (variablesList.size()>0) {
-	    	
-	    	
-	    	for (int i =0; i <variablesList.size();i++ ) {
-	    		variables = variables + variablesList.get(i);
-	    		
-	    		if (i+1!=variablesList.size()) {
-	    			variables = variables +",";
-	        	}
-	    	}
-	    	
-	    }
-		
-	    return ValidationUtils.simpleResult(getName(), variables);
+		ArrayList<Variable> variablesList =  (ArrayList<Variable>) new CheckMinConstraintsInFile ().getViolations(args, model);
+		ArrayList <Entity> entities= new ArrayList <Entity> (); 
+				
+				if (variablesList.size()>0) {
+			    	
+			    	
+			    	for (int i =0; i <variablesList.size();i++ ) {
+			    		entities.add(variablesList.get(i));
+			    	}
+			    	
+			    }
+			    
+			    
+				
+			    return ValidationUtils.entityResult(getName() + " ("+variablesList.size()+")", entities);
 	}
 }

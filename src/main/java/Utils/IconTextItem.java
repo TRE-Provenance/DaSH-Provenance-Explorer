@@ -47,7 +47,7 @@ public   class IconTextItem {
        
 		this.text = "("+formattedDateTime+") - " + act.getActivityL();
         if (hasIcon) {
-            this.icon = new ImageIcon(ActivityListImpl.class.getClassLoader().getResource("warning.png")); // Replace with your own icon path
+           // this.icon = new ImageIcon(ActivityListImpl.class.getClassLoader().getResource("warning.png")); // Replace with your own icon path
         }
     }
     

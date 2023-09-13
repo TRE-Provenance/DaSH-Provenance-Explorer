@@ -11,53 +11,48 @@ import org.apache.jena.rdf.model.Model;
 import Utils.SPARQLUtils;
 import Utils.ValidationUtils;
 import semantic.parser.Constants;
+import semantic.parser.Database;
 import semantic.parser.Entity;
 import semantic.parser.Variable;
 
-public class CheckMaxConstraintsInFile implements ValidationRuleInterface{
+public class RequestedVariablesNeverUsed implements ValidationRuleInterface{
 
 	@Override
 	public String getName() {
 		// TODO Auto-generated method stub
-		return "Variables Violating Max Constraint";
+		return "Requested Variables Not Found In Any File";
 	}
 
 	@Override
 	public List getTargetTypes() {
 		ArrayList <String> list = new ArrayList <String> ();			
-		list.add("https://w3id.org/shp#DataSet");
+		list.add("https://w3id.org/shp#DataLinkagePlan");
 		return list;
 	}
 
 	@Override
 	public List getViolations(String[] args, Model model) {
-        String fileIRI = args [0];
+      //  String fileIRI = args [0];
 		
 		ArrayList <HashMap<String, String>> list = new ArrayList <HashMap<String, String>> ();
 		
-		String query = Constants.PREFIXES + " SELECT DISTINCT ?variableL ?constraintMax  WHERE {<"+fileIRI+">  prov:wasDerivedFrom* ?database; schema:exifData ?item. ?database a shp:Database. ?linkagePlan a shp:DataLinkagePlan; schema:exifData ?dataSource. ?dataSource shp:database ?database; shp:constraint ?constriant. ?constriant shp:targetFeature ?variable; shp:maxValue ?constraintMax.  ?item shp:targetFeature ?variable; shp:maxValue ?actualMax. ?variable rdfs:label ?variableL FILTER (?constraintMax < ?actualMax)}";
+		String query = Constants.PREFIXES + " SELECT DISTINCT ?variable ?variableL ?databaseL WHERE {?database rdfs:label ?databaseL.  ?database a shp:Database. ?linkagePlan a shp:DataLinkagePlan; schema:exifData ?dataSource. ?dataSource shp:database ?database;shp:requestedVariables ?varCollection. ?varCollection prov:hadMember ?variable. ?variable rdfs:label ?variableL NOT EXISTS { ?file a shp:DataSet; schema:exifData ?selectedVarCollection. ?selectedVarCollection a shp:SelectedVariables; prov:hadMember ?variable. }  }";
 
 		// Execute SPARQL query
 		list = SPARQLUtils.executeSparqlQuery(model, query);    	
-		/*
-		ArrayList <String> violations = new ArrayList <String> ();
 		
-		for (int i = 0; i < list.size();i++) {
-			
-			violations.add(list.get(i).get("variableL")+" (max"+list.get(i).get("constraintMax")+")");
-		}
-*/	
-ArrayList <Variable> violations = new ArrayList <Variable> ();
-	
+		ArrayList <Variable> violations = new ArrayList <Variable> ();
+		
 		
 		
 		for (int i = 0; i < list.size();i++) {
 			
 			Variable variable = new Variable (list.get(i).get("variable")); 
-			variable.setEntityL(list.get(i).get("variableL")+" (max"+list.get(i).get("constraintMax")+")");
+			variable.setEntityL(list.get(i).get("variableL") + " (source db:"+list.get(i).get("databaseL")+")");
 			
 			violations.add(variable);
 		}
+
 		return violations; 
 	}
 	
@@ -68,8 +63,9 @@ ArrayList <Variable> violations = new ArrayList <Variable> ();
 		
 		
 		
-		ArrayList<Variable> variablesList =  (ArrayList<Variable>) new CheckMaxConstraintsInFile ().getViolations(args, model);
-ArrayList <Entity> entities= new ArrayList <Entity> (); 
+		ArrayList<Database> variablesList =  (ArrayList<Database>) new RequestedVariablesNeverUsed ().getViolations(args, model);
+	    
+		ArrayList <Entity> entities= new ArrayList <Entity> (); 
 		
 		if (variablesList.size()>0) {
 	    	
@@ -83,8 +79,7 @@ ArrayList <Entity> entities= new ArrayList <Entity> ();
 	    
 		
 	    return ValidationUtils.entityResult(getName()+ " ("+variablesList.size()+")", entities);
-		
-	   
 	}
 }
+
 

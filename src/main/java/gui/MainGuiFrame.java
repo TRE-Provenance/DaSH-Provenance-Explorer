@@ -33,7 +33,7 @@ public class MainGuiFrame extends JFrame {
     public MainGuiFrame() {
     	setTitle("Provenance Explorer");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(900, 600);
+        setSize(900, 800);
         setLocationRelativeTo(null);
         openFile();
         
@@ -61,7 +61,7 @@ public class MainGuiFrame extends JFrame {
         });
         
         JPanel activityViewer = new JPanel();
-        activityViewer.setLayout(new FlowLayout(FlowLayout.LEFT));
+       // activityViewer.setLayout(new FlowLayout(FlowLayout.LEFT));
         
         commentsJsonLdProcessor = new CommentsJsonLdProcessor ();
         
@@ -99,7 +99,7 @@ public class MainGuiFrame extends JFrame {
             }
                
         }
-        	 topPanel.add(GuiUtils.wrapParameterListWithLabelNoColor ("Released Files: ", allReleased,commentsJsonLdProcessor));
+        	 topPanel.add(ValidationUtils.entityResult("Released Files ("+allReleased.size()+")", allReleased));
          	
         }
         

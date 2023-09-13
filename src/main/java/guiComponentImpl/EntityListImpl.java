@@ -3,7 +3,9 @@ package guiComponentImpl;
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+import java.awt.event.MouseAdapter;
 
 import javax.swing.BoxLayout;
 import javax.swing.DefaultListModel;
@@ -12,6 +14,7 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.SwingUtilities;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
@@ -60,6 +63,34 @@ public class EntityListImpl implements EntityListInterface {
         // Set a custom renderer for the JList to display icons and text
         jList.setCellRenderer(new IconTextListRenderer());
 
+        
+        jList.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (SwingUtilities.isLeftMouseButton(e) && e.getClickCount() == 1) {
+                    int index = jList.locationToIndex(e.getPoint());
+                    if (index >= 0) {
+                    	IconTextItemEntity selectedItem = listModel.getElementAt(index);
+                        System.out.println("Selected Item: " + selectedItem.getText());
+                        
+                        if (selectedItem.getEntity() instanceof Database) {
+                    	   new DatabaseFrame ((Database) selectedItem.getEntity(),commentsJsonLdProcessor);
+                       }
+                        
+                        if (selectedItem.getEntity() instanceof Dataset) {
+                     	   new DatasetFrame ((Dataset) selectedItem.getEntity(),commentsJsonLdProcessor);
+                        }
+                        
+                        if (selectedItem.getEntity() instanceof LinkagePlan) {
+                      	   new LinkagePlanFrame ();
+                         }
+                    }
+                }
+            }
+        });
+
+        
+       /* 
         // Add a selection listener to the JList
         jList.addListSelectionListener(new ListSelectionListener() {
             @Override
@@ -85,7 +116,7 @@ public class EntityListImpl implements EntityListInterface {
                 }
             }
         });
-
+*/
         // Add the JList to a scroll pane
         panel.setMinimumSize(new Dimension(100, 50)); // Set your desired minimum size
         panel.setPreferredSize(new Dimension(100, 50)); // Set your desired minimum size

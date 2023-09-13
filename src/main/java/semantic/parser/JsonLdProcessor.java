@@ -149,6 +149,13 @@ public ArrayList<HashMap<String, String>>  getFilePath(String fileIRI) {
 	return list;
 }
 
+public  ArrayList<HashMap<String, String>> getLinkagePlanDetails() {
+	String query = Constants.PREFIXES + " SELECT ?linkagePlan ?description WHERE {?linkagePlan a shp:DataLinkagePlan; schema:description ?description.   }" ;    	
+	System.out.println (query);
+	// Execute SPARQL query
+	ArrayList<HashMap<String, String>>  list = SPARQLUtils.executeSparqlQuery(model, query); 
+	return list;
+}
 
 
     private static  Model loadJsonLdFromFile(String filename) {
@@ -191,7 +198,7 @@ public ArrayList<HashMap<String, String>>  getFilePath(String fileIRI) {
 
 	        // Execute SPARQL query
 	        String queryStr =  "PREFIX shp: <https://w3id.org/shp#> PREFIX schema: <http://schema.org/> PREFIX time: <http://www.w3.org/2006/time#> PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX peco: <https://w3id.org/peco#> PREFIX ecfo: <https://w3id.org/ecfo#>  PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX owl: <http://www.w3.org/2002/07/owl#> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>  PREFIX prov:<http://www.w3.org/ns/prov#> PREFIX qudt: <http://qudt.org/schema/qudt/> "
-	        		+ " SELECT ?path  WHERE {<dash:project1/import/data_v1.1.csv> schema:contentUrl ?path.  }";
+	        		+ " SELECT DISTINCT * WHERE { ?file a shp:DataSet; schema:exifData ?selectedVarCollection. ?selectedVarCollection a shp:SelectedVariables; prov:hadMember ?variable. ?activity a shp:DatasetRelease;schema:result ?file   }";
 	        		
 
 	        Query query = QueryFactory.create(queryStr);
@@ -201,4 +208,6 @@ public ArrayList<HashMap<String, String>>  getFilePath(String fileIRI) {
 	        }
 	        model.close();
 	    }
+
+	
 }
