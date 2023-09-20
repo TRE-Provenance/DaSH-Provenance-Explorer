@@ -1,14 +1,18 @@
 package guiComponentImpl;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Component;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
+import javax.swing.border.Border;
 
 import org.apache.jena.rdf.model.Model;
 
@@ -37,7 +41,9 @@ public class ActivityViewImpl implements ActivityView{
 		this.commentsJsonLdProcessor = commentsJsonLdProcessor;
 		
 		activityViewPanel = new JPanel ();
-		activityViewPanel.setLayout(new BoxLayout(activityViewPanel, BoxLayout.PAGE_AXIS));
+		// Create a LineBorder with a specified color and thickness
+       		activityViewPanel.setLayout(new BoxLayout(activityViewPanel, BoxLayout.Y_AXIS));
+		//activityViewPanel.setAlignmentX(Component.CENTER_ALIGNMENT);
 		activityViewPanel.add(GuiUtils.addLabel ("Activity Details"));
 		activityViewPanel.add(GuiUtils.wrapTextWithLabel("Activity: ",activity.getDescription(),null));
 		//panel.add(GuiUtils.wrapTextWithLabel("Responsible Person(s): ",activity.getAgents().toString(),null));
@@ -103,7 +109,7 @@ public class ActivityViewImpl implements ActivityView{
 		
 		JPanel panel = new JPanel (new BorderLayout());
 		panel.add(activityViewPanel,BorderLayout.CENTER);
-		return panel;
+		return activityViewPanel;
 	}
 
 }

@@ -36,7 +36,7 @@ public 	DatabaseFrame (Database database,CommentsJsonLdProcessor commentsJsonLdP
 	
 	setTitle (database.getURI());
     setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-    setSize(800, 500);
+    setSize(800, 600);
     setLocationRelativeTo(null);
 
     JPanel panel = new JPanel(new BorderLayout());

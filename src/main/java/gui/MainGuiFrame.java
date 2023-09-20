@@ -1,6 +1,7 @@
 package gui;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 import javax.swing.event.HyperlinkEvent;
 
 import Utils.GuiUtils;
@@ -60,7 +61,8 @@ public class MainGuiFrame extends JFrame {
             }
         });
         
-        JPanel activityViewer = new JPanel();
+        JPanel activityViewer = new JPanel(new BorderLayout ());
+
        // activityViewer.setLayout(new FlowLayout(FlowLayout.LEFT));
         
         commentsJsonLdProcessor = new CommentsJsonLdProcessor ();

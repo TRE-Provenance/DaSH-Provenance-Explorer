@@ -125,6 +125,7 @@ public class EntityListImpl implements EntityListInterface {
         JScrollPane scrollPane = new JScrollPane(jList);
         
         panel.add(scrollPane,  BorderLayout.CENTER);
+        
         loadEntities (entries);
 	}
 

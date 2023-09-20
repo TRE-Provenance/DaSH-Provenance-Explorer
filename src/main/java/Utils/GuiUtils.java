@@ -226,7 +226,7 @@ public class GuiUtils {
 	
 	public static JLabel addLabel(String text) {
 	    JLabel label = new JLabel(text, JLabel.CENTER);
-	    label.setAlignmentX(JLabel.CENTER_ALIGNMENT);
+	    
 	    return (label);
 	}
 

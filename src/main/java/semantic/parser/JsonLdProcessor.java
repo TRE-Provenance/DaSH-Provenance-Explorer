@@ -88,7 +88,7 @@ public ArrayList<HashMap<String, String>> getVariablesInFile (String fileIRI) {
     }
 
 public ArrayList<HashMap<String, String>> getVariablesInPlan () {
-	String query = Constants.PREFIXES + " SELECT DISTINCT ?variable ?variableL ?sourceL ?minValue ?maxValue WHERE {?plan a shp:DataLinkagePlan; schema:exifData ?item. ?item a shp:LinkagePlanDataSource; rdfs:label ?sourceL. ?item shp:requestedVariables ?collection. ?collection a shp:RequestedVariables; prov:hadMember ?variable. ?variable rdfs:label ?variableL. OPTIONAL {?item shp:constraint ?constraint. ?constraint shp:minValue ?minValue; shp:maxValue ?maxValue; shp:targetFeature ?variable} }";    	
+	String query = Constants.PREFIXES + " SELECT DISTINCT ?variable ?variableL ?sourceL ?minValue ?maxValue WHERE {?plan a shp:DataLinkagePlan; schema:exifData ?item. ?item a shp:LinkagePlanDataSource; rdfs:label ?sourceL. ?item shp:requestedVariables ?collection. ?collection a shp:RequestedVariables; prov:hadMember ?variable. ?variable rdfs:label ?variableL. OPTIONAL {?item shp:constraint ?constraint. ?constraint shp:minValue ?minValue; shp:maxValue ?maxValue; shp:targetFeature ?variable} } ORDER BY ?sourceL ?variableL  ";    	
 	//String query = Constants.PREFIXES + " SELECT DISTINCT ?plan  {?plan a shp:DataLinkagePlan;schema:exifData ?item.?item a shp:LinkagePlanDataSource; rdfs:label ?sourceL.?item shp:requestedVariables ?collection.?collection a shp:RequestedVariables; prov:hadMember ?variable.}";
 	// Execute SPARQL query
 	ArrayList<HashMap<String, String>>  list = SPARQLUtils.executeSparqlQuery(model, query);    	
@@ -193,13 +193,14 @@ public  ArrayList<HashMap<String, String>> getLinkagePlanDetails() {
 	        // Load JSON-LD file from Resources directory
 	        Model model;
 			
-				model = loadJsonLdFromFile("data2.jsonld");
+				model = loadJsonLdFromFile("full_example.jsonld");
 			
 
 	        // Execute SPARQL query
 	        String queryStr =  "PREFIX shp: <https://w3id.org/shp#> PREFIX schema: <http://schema.org/> PREFIX time: <http://www.w3.org/2006/time#> PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX peco: <https://w3id.org/peco#> PREFIX ecfo: <https://w3id.org/ecfo#>  PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX owl: <http://www.w3.org/2002/07/owl#> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>  PREFIX prov:<http://www.w3.org/ns/prov#> PREFIX qudt: <http://qudt.org/schema/qudt/> "
-	        		+ " SELECT DISTINCT * WHERE { ?file a shp:DataSet; schema:exifData ?selectedVarCollection. ?selectedVarCollection a shp:SelectedVariables; prov:hadMember ?variable. ?activity a shp:DatasetRelease;schema:result ?file   }";
-	        		
+	        		+ " SELECT DISTINCT * WHERE {?plan  schema:exifData ?item. ?item a shp:LinkagePlanDataSource.  OPTIONAL {?item shp:constraint ?constraint. ?constraint shp:minValue ?minValue; shp:maxValue ?maxValue; shp:targetFeature ?variable} }";
+	        	 
+	        			
 
 	        Query query = QueryFactory.create(queryStr);
 	        try (QueryExecution qexec = QueryExecutionFactory.create(query, model)) {
