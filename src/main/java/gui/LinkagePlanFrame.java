@@ -89,10 +89,10 @@ String [] args = {};
     	
     	for (int j = 0 ; j < variables.size(); j ++ ) {
     		
-    		rowData [j][0] = variables.get(j).get("sourceL");
-    		rowData [j][1] = variables.get(j).get("variableL");
-    		rowData [j][2] = (variables.get(j).get("minValue") != null) ? variables.get(j).get("minValue") : "no constraint set";
-    		rowData [j][3] = (variables.get(j).get("maxValue") != null) ? variables.get(j).get("maxValue") : "no constraint set";
+    		rowData [j][0] = GuiUtils.formatDataType(variables.get(j).get("sourceL"));
+    		rowData [j][1] = GuiUtils.formatDataType(variables.get(j).get("variableL"));
+    		rowData [j][2] = (variables.get(j).get("minValue") != null) ? GuiUtils.formatDataType(variables.get(j).get("minValue")) : "no constraint set";
+    		rowData [j][3] = (variables.get(j).get("maxValue") != null) ? GuiUtils.formatDataType(variables.get(j).get("maxValue")) : "no constraint set";
     		
     	}	
    	   

@@ -33,7 +33,7 @@ public class GuiUtils {
     	Font boldFont = new Font(label.getFont().getName(), Font.BOLD, label.getFont().getSize());
         label.setFont(boldFont);
         
-    	JLabel textField = new JLabel(value);
+    	JLabel textField = new JLabel(GuiUtils.formatDataType(value));
     	
     	if (color != null) {
     		textField.setForeground(color);
@@ -53,7 +53,7 @@ public class GuiUtils {
     	Font boldFont = new Font(label.getFont().getName(), Font.BOLD, label.getFont().getSize());
         label.setFont(boldFont);
         
-    	JTextField textField = new JTextField(value);
+    	JTextField textField = new JTextField(GuiUtils.formatDataType(value));
 
     	textField.setEditable(false);
     	textField.setBackground(Color.white);
@@ -228,6 +228,16 @@ public class GuiUtils {
 	    JLabel label = new JLabel(text, JLabel.CENTER);
 	    
 	    return (label);
+	}
+	
+	public static String formatDataType(String text) {
+	    
+	    if (text != null) {
+	    return text.split("\\^")[0];
+	    }
+	    else {
+	    	return null;
+	    }
 	}
 
 }

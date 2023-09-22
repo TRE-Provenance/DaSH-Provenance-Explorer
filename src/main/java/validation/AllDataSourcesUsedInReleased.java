@@ -35,7 +35,7 @@ public class AllDataSourcesUsedInReleased implements ValidationRuleInterface{
 		
 		ArrayList <HashMap<String, String>> list = new ArrayList <HashMap<String, String>> ();
 		
-		String query = Constants.PREFIXES + " SELECT DISTINCT ?database ?databaseL ?file  WHERE {?database rdfs:label ?databaseL.  ?database a shp:Database. ?linkagePlan a shp:DataLinkagePlan; schema:exifData ?dataSource. ?dataSource shp:database ?database. NOT EXISTS { ?file a shp:DataSet;  prov:wasDerivedFrom* ?database. ?activity a shp:DataRelease;schema:result ?file}  }";
+		String query = Constants.PREFIXES + " SELECT DISTINCT ?database ?databaseL ?file  WHERE {?database rdfs:label ?databaseL.  ?database a shp:Database. ?linkagePlan a shp:DataLinkagePlan; schema:exifData ?dataSource. ?dataSource shp:database ?database. NOT EXISTS { ?file a shp:DataSet;  prov:wasDerivedFrom* ?database. ?activity a shp:DatasetRelease;schema:result ?file}  }";
 
 		// Execute SPARQL query
 		list = SPARQLUtils.executeSparqlQuery(model, query);    	

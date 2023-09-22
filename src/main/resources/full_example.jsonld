@@ -2628,9 +2628,11 @@
           "roterms": "http://purl.org/ro/roterms#",
           "wf4ever": "http://purl.org/ro/wf4ever#"
      }, {"label": "http://www.w3.org/2000/01/rdf-schema#label", 
-	 "shp_SelectedVariables":"https://w3id.org/shp#SelectedVariables", "shp_RequestedVariables":"https://w3id.org/shp#RequestedVariables",
+	 "shp_SelectedVariables":"https://w3id.org/shp#SelectedVariables", 
+	 "shp_RequestedVariables":"https://w3id.org/shp#RequestedVariables",
 "shp_requestedVariables":"https://w3id.org/shp#requestedVariables",
-"shp_DataLinkagePlan":"https://w3id.org/shp#DataLinkagePlan", "shp_LinkagePlanDataSource":"https://w3id.org/shp#LinkagePlanDataSource",
+"shp_DataLinkagePlan":"https://w3id.org/shp#DataLinkagePlan", 
+"shp_LinkagePlanDataSource":"https://w3id.org/shp#LinkagePlanDataSource",
 "wasAttributedTo": "http://www.w3.org/ns/prov#wasAttributedTo", 
 "hadMember": "http://www.w3.org/ns/prov#hadMember",
  "shp_Variable": "https://w3id.org/shp#Variable", 
@@ -2660,40 +2662,46 @@
  "shp_minValue":"https://w3id.org/shp#minValue",
  "shp_maxValue":"https://w3id.org/shp#maxValue",
  "shp_SignOff":"https://w3id.org/shp#SignOff", 
+ "shp_dataType":"https://w3id.org/shp#dataType",
+ "shp_notNull":"https://w3id.org/shp#notNull",
+ "shp_notNullPct":"https://w3id.org/shp#notNullPct",
+ "shp_uniqueChiCount":"https://w3id.org/shp#uniqueChiCount",
+ "shp_maleFemaleRatio":"https://w3id.org/shp#maleFemaleRatio",
+  "shp_smallestDistinctNumber":"https://w3id.org/shp#smallestDistinctNumber",
  "shp_DashActivity":"https://w3id.org/shp#DashActivity", 
- "shp_IdLinkage":"https://w3id.org/shp#IdLinkage",
-"shp_SelectedVariables":"https://w3id.org/shp#SelectedVariables"}], "@graph": [ 			{
+ "shp_IdLinkage":"https://w3id.org/shp#IdLinkage"
+}], "@graph": [ 			{
  			      "@id":"dash:database/PIS",
  			      "@type":[
  			         "shp_Database"
  			      ],
- 			      "description":"?",
+ 			      "description":"Local (Grampian) prescribing data. Doesn't include hospital prescriptions.",
  			      "shp_databaseName":"SMR01",
  				  "label":"PIS",
  			      "shp_abbreviation":"PIS",
- 			      "shp_version":"1.2",
- 			      "shp_dataCustodian":"?",
- 			      "shp_contact":"?",
- 			      "shp_lastKnownUpdate":"?",
- 			      "shp_mostRecentRecordDate":"?",
- 			      "shp_oldestRecordDate":"?",
- 			      "shp_contextualInformationLink":"?"
+ 			      "shp_version":"n/a",
+ 			      "shp_dataCustodian":"NHS Grampian",
+ 			      "shp_contact":"dash@abdn.ac.uk",
+ 			      "shp_lastKnownUpdate":"30/5/2023",
+ 			      "shp_mostRecentRecordDate":"30/4/2023",
+ 			      "shp_oldestRecordDate":"1/4/1999",
+ 			      "shp_contextualInformationLink":"Records from June and July 2017 are missing."
  			 },  			{
  			      "@id":"dash:database/SMR01",
  			      "@type":[
  			         "shp_Database"
  			      ],
- 			      "description":"?",
+ 			      "description":"Local (Grampian) outpatient data.",
  			      "shp_databaseName":"SMR01",
  				  "label":"SMR01",
  			      "shp_abbreviation":"SMR01",
  			      "shp_version":"1.2",
- 			      "shp_dataCustodian":"?",
- 			      "shp_contact":"?",
- 			      "shp_lastKnownUpdate":"?",
- 			      "shp_mostRecentRecordDate":"?",
- 			      "shp_oldestRecordDate":"?",
- 			      "shp_contextualInformationLink":"?"
+ 			      "shp_dataCustodian":"NHS Grampian",
+ 			      "shp_contact":"dash@abdn.ac.uk",
+ 			      "shp_lastKnownUpdate":"17/2/2023",
+ 			      "shp_mostRecentRecordDate":"31/12/2022",
+ 			      "shp_oldestRecordDate":"16/3/2001",
+ 			      "shp_contextualInformationLink":"n/a"
  			 },    {
          "@id":"dash:project1/export/signedOff/data_v1.2.csv",
          "@type":[
@@ -2797,7 +2805,754 @@
                "shp_targetFile":{
                   "@id":"dash:project1/export/signedOff/data_v1.2.csv"
                }
-            },    {     "@id":"dash:projectX/Import/2023-08-15T12:00:14+00:00",
+            }, 	     {
+	           "@id":"dash:projectX/checked/DaSH123_SMR01_Release_v1.csv",
+	           "@type":[
+	              "File", "shp_DataSet"
+	           ],
+	           "description":"In-patient hospital data capturing information throughout patient's hospital stay, diagnosis and operations performed.",
+	           "label":"DaSH123_SMR01_Release_v1.csv",
+	           "path":"file:///c:/projectX/checked/DaSH123_SMR01_Release_v1.csv",
+	           "shp_hash":"e0d675e5f316bef78bfdf5a00883565",
+			   "wasDerivedFrom":[
+	           {
+	              "@id":"dash:projectX/linked/DaSH123_SMR01_Release_v1.csv"
+	           }],
+	           "wasAttributedTo":{
+	              "@id":"dash:staff/JD"
+	           },
+	           "exifData":[
+	               {
+	                "@id":"dash:projectX/checked/DaSH123_SMR01_Release_v1.csv#selectedVariables" 
+	               },
+	               
+	               {
+	              "@id":"dash:projectX/checked/DaSH123_SMR01_Release_v1.csv#DaSH123_StudyNumber"
+	               },
+	               {
+	              "@id":"dash:projectX/checked/DaSH123_SMR01_Release_v1.csv#ADMISSION_DATE"
+	               },
+	               {
+	              "@id":"dash:projectX/checked/DaSH123_SMR01_Release_v1.csv#ADMISSION_TYPE"
+	               },
+	               {
+	              "@id":"dash:projectX/checked/DaSH123_SMR01_Release_v1.csv#ADMISSION_REASON"
+	               },
+	               {
+	              "@id":"dash:projectX/checked/DaSH123_SMR01_Release_v1.csv#DISCHARGE_DATE"
+	               },
+	               {
+	              "@id":"dash:projectX/checked/DaSH123_SMR01_Release_v1.csv#DISCHARGE_TYPE"
+	               },
+	               {
+	              "@id":"dash:projectX/checked/DaSH123_SMR01_Release_v1.csv#DISCHARGE_TRANSFER_TO"
+	               },
+	               {
+	              "@id":"dash:projectX/checked/DaSH123_SMR01_Release_v1.csv#SPECIALTY"
+	               },
+	               {
+	              "@id":"dash:projectX/checked/DaSH123_SMR01_Release_v1.csv#MAIN_CONDITION"
+	               },
+	               {
+	              "@id":"dash:projectX/checked/DaSH123_SMR01_Release_v1.csv#OTHER_CONDITION_1"
+	               },
+	               {
+	              "@id":"dash:projectX/checked/DaSH123_SMR01_Release_v1.csv#OTHER_CONDITION_2"
+	               },
+	               {
+	              "@id":"dash:projectX/checked/DaSH123_SMR01_Release_v1.csv#MAIN_OPERATION"
+	               },
+	               {
+	              "@id":"dash:projectX/checked/DaSH123_SMR01_Release_v1.csv#MAIN_OPERATION_1"
+	               },
+	               {
+	              "@id":"dash:projectX/checked/DaSH123_SMR01_Release_v1.csv#MAIN_OPERATION_2"
+	               },
+	               {
+	              "@id":"dash:projectX/checked/DaSH123_SMR01_Release_v1.csv#DATE_OF_MAIN_OPERATION"
+	               },
+	               {
+	              "@id":"dash:projectX/checked/DaSH123_SMR01_Release_v1.csv#DATE_OF_MAIN_OPERATION_1"
+	               },
+	               {
+	              "@id":"dash:projectX/checked/DaSH123_SMR01_Release_v1.csv#DATE_OF_MAIN_OPERATION_2"
+	               },
+	              
+	               {
+	                  "@id":"dash:projectX/checked/DaSH123_SMR01_Release_v1.csv#summaryStats"
+	               }
+	           ]
+	        }, 
+			{
+	        "@id":"dash:projectX/checked/DaSH123_SMR01_Release_v1.csv#selectedVariables",
+	                "@type":[
+	                   "shp_SelectedVariables"
+	                ],
+	                "hadMember":[
+				        {
+				           "@id":"dash:SMR01/variable/DaSH123_StudyNumber"
+				        }, 
+				        {
+				           "@id":"dash:SMR01/variable/ADMISSION_DATE"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/ADMISSION_TYPE"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/ADMISSION_REASON"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/DISCHARGE_DATE"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/DISCHARGE_TYPE"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/DISCHARGE_TRANSFER_TO"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/SPECIALTY"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/MAIN_CONDITION"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/OTHER_CONDITION_1"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/OTHER_CONDITION_2"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/MAIN_OPERATION"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/MAIN_OPERATION_1"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/MAIN_OPERATION_2"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/DATE_OF_MAIN_OPERATION"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/DATE_OF_MAIN_OPERATION_1"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/DATE_OF_MAIN_OPERATION_2"
+				        }
+	                ]
+	         }, 
+             {
+                "@id":"dash:projectX/checked/DaSH123_SMR01_Release_v1.csv#summaryStats",
+                "@type":[
+                   "shp_EntityCharacteristic"
+                ],
+                "shp_rowCount":{
+      "@value": "230",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+				"shp_uniqueChiCount":{
+      "@value": "211",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+				"shp_maleFemaleRatio":{
+      "@value": "49",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+                "shp_targetFile":{
+                   "@id":"dash:projectX/checked/DaSH123_SMR01_Release_v1.csv"
+                }
+             }
+			 ,
+
+			            {
+			                "@id":"dash:projectX/checked/DaSH123_SMR01_Release_v1.csv#DaSH123_StudyNumber",
+			                "@type":[
+			                   "shp_EntityCharacteristic"
+			                ],
+							"shp_dataType":"numeric",
+							"shp_notNull": {
+      "@value": "230",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+     
+							"shp_notNullPct": {
+      "@value": "100",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+     
+			                "shp_minValue":{
+      "@value": "6666000001",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+			                "shp_maxValue":{
+      "@value": "6666000658",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+							"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+     
+			                "shp_targetFile":{
+			                   "@id":"dash:projectX/checked/DaSH123_SMR01_Release_v1.csv"
+			                },
+			                "shp_targetFeature":{
+			                   "@id":"dash:SMR01/variable/DaSH123_StudyNumber"
+			                }
+			             }
+						 ,
+
+						            {
+						                "@id":"dash:projectX/checked/DaSH123_SMR01_Release_v1.csv#ADMISSION_DATE",
+						                "@type":[
+						                   "shp_EntityCharacteristic"
+						                ],
+										"shp_dataType":"date",
+										"shp_notNull":{
+      "@value": "230",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+     
+										"shp_notNullPct":{
+      "@value": "100",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+						                "shp_minValue":{
+      "@value": "2015-08-01",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+						                "shp_maxValue":{
+      "@value": "2018-12-31",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+										"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+						                "shp_targetFile":{
+						                   "@id":"dash:projectX/checked/DaSH123_SMR01_Release_v1.csv"
+						                },
+						                "shp_targetFeature":{
+						                   "@id":"dash:SMR01/variable/ADMISSION_DATE"
+						                }
+						             } ,
+
+						            {
+						                "@id":"dash:projectX/checked/DaSH123_SMR01_Release_v1.csv#ADMISSION_TYPE",
+						                "@type":[
+						                   "shp_EntityCharacteristic"
+						                ],
+										"shp_dataType":"numeric",
+										"shp_notNull":{
+      "@value": "230",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+										"shp_notNullPct":{
+      "@value": "100",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+						                "shp_minValue":{
+      "@value": "11",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+						                "shp_maxValue":{
+      "@value": "99",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+										"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+						                "shp_targetFile":{
+						                   "@id":"dash:projectX/checked/DaSH123_SMR01_Release_v1.csv"
+						                },
+						                "shp_targetFeature":{
+						                   "@id":"dash:SMR01/variable/ADMISSION_TYPE"
+						                }
+									} ,
+
+						            {
+						                "@id":"dash:projectX/checked/DaSH123_SMR01_Release_v1.csv#ADMISSION_REASON",
+						                "@type":[
+						                   "shp_EntityCharacteristic"
+						                ],
+										"shp_dataType":"string",
+										"shp_notNull":{
+      "@value": "230",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+										"shp_notNullPct":{
+      "@value": "100",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+						                "shp_minValue":{
+      "@value": "1A",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+						               
+										"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+						                "shp_targetFile":{
+						                   "@id":"dash:projectX/checked/DaSH123_SMR01_Release_v1.csv"
+						                },
+						                "shp_targetFeature":{
+						                   "@id":"dash:SMR01/variable/ADMISSION_REASON"
+						                }
+						             }
+									 ,
+
+									 						            {
+									 						                "@id":"dash:projectX/checked/DaSH123_SMR01_Release_v1.csv#DISCHARGE_DATE",
+									 						                "@type":[
+									 						                   "shp_EntityCharacteristic"
+									 						                ],
+									 										"shp_dataType":"date",
+									 										"shp_notNull":{
+      "@value": "230",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+									 										"shp_notNullPct":{
+      "@value": "100",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+									 						                "shp_minValue":{
+      "@value": "2015-08-06",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+						                                                    "shp_maxValue":{
+      "@value": "2018-12-31",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+									 										"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+									 						                "shp_targetFile":{
+									 						                   "@id":"dash:projectX/checked/DaSH123_SMR01_Release_v1.csv"
+									 						                },
+									 						                "shp_targetFeature":{
+									 						                   "@id":"dash:SMR01/variable/DISCHARGE_DATE"
+									 						                }
+									 						             }
+	, 
+    {
+        "@id":"dash:projectX/checked/DaSH123_SMR01_Release_v1.csv#DISCHARGE_TYPE",
+        "@type":[
+           "shp_EntityCharacteristic"
+        ],
+		"shp_dataType":"string",
+		"shp_notNull":{
+      "@value": "230",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+		"shp_notNullPct":{
+      "@value": "100",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+        "shp_minValue":{
+      "@value": "10",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+        "shp_maxValue":{
+      "@value": "11",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+		"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+        "shp_targetFile":{
+           "@id":"dash:projectX/checked/DaSH123_SMR01_Release_v1.csv"
+        },
+        "shp_targetFeature":{
+           "@id":"dash:SMR01/variable/DISCHARGE_TYPE"
+        }
+     }								 
+	 
+ 	, 
+     {
+         "@id":"dash:projectX/checked/DaSH123_SMR01_Release_v1.csv#DISCHARGE_TRANSFER_TO",
+         "@type":[
+            "shp_EntityCharacteristic"
+         ],
+ 		"shp_dataType":"string",
+ 		"shp_notNull":{
+      "@value": "230",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+ 		"shp_notNullPct":{
+      "@value": "100",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+         "shp_minValue":{
+      "@value": "00",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+         "shp_maxValue":{
+      "@value": "99",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+ 		"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+         "shp_targetFile":{
+            "@id":"dash:projectX/checked/DaSH123_SMR01_Release_v1.csv"
+         },
+         "shp_targetFeature":{
+            "@id":"dash:SMR01/variable/DISCHARGE_TRANSFER_TO"
+         }
+      }	
+	  
+   	, 
+       {
+           "@id":"dash:projectX/checked/DaSH123_SMR01_Release_v1.csv#SPECIALTY",
+           "@type":[
+              "shp_EntityCharacteristic"
+           ],
+   		"shp_dataType":"string",
+   		"shp_notNull":{
+      "@value": "230",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+   		"shp_notNullPct":{
+      "@value": "100",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+           "shp_minValue":{
+      "@value": "A1",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+           "shp_maxValue":{
+      "@value": "Z9",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+   		"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+           "shp_targetFile":{
+              "@id":"dash:projectX/checked/DaSH123_SMR01_Release_v1.csv"
+           },
+           "shp_targetFeature":{
+              "@id":"dash:SMR01/variable/SPECIALTY"
+           }
+        }
+		
+	   	, 
+	       {
+	           "@id":"dash:projectX/checked/DaSH123_SMR01_Release_v1.csv#MAIN_CONDITION",
+	           "@type":[
+	              "shp_EntityCharacteristic"
+	           ],
+	   		"shp_dataType":"string",
+	   		"shp_notNull":{
+      "@value": "230",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+	   		"shp_notNullPct":{
+      "@value": "100",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+	           "shp_minValue":{
+      "@value": "D123",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+	           "shp_maxValue":{
+      "@value": "Z987",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+	   		"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+	           "shp_targetFile":{
+	              "@id":"dash:projectX/checked/DaSH123_SMR01_Release_v1.csv"
+	           },
+	           "shp_targetFeature":{
+	              "@id":"dash:SMR01/variable/MAIN_CONDITION"
+	           }
+	        }	
+			
+		   	, 
+		       {
+		           "@id":"dash:projectX/checked/DaSH123_SMR01_Release_v1.csv#OTHER_CONDITION_1",
+		           "@type":[
+		              "shp_EntityCharacteristic"
+		           ],
+		   		"shp_dataType":"string",
+		   		"shp_notNull":{
+      "@value": "210",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+		   		"shp_notNullPct":{
+      "@value": "91",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+		           "shp_minValue":{
+      "@value": "D123",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+		           "shp_maxValue":{
+      "@value": "D123",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+		   		"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+		           "shp_targetFile":{
+		              "@id":"dash:projectX/checked/DaSH123_SMR01_Release_v1.csv"
+		           },
+		           "shp_targetFeature":{
+		              "@id":"dash:SMR01/variable/OTHER_CONDITION_1"
+		           }
+		        }	
+				
+			   	, 
+			       {
+			           "@id":"dash:projectX/checked/DaSH123_SMR01_Release_v1.csv#OTHER_CONDITION_2",
+			           "@type":[
+			              "shp_EntityCharacteristic"
+			           ],
+			   		"shp_dataType":"string",
+			   		"shp_notNull":{
+      "@value": "183",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+			   		"shp_notNullPct":{
+      "@value": "80",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+			           "shp_minValue":{
+      "@value": "D123",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+			           "shp_maxValue":{
+      "@value": "D123",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+			   		"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+			           "shp_targetFile":{
+			              "@id":"dash:projectX/checked/DaSH123_SMR01_Release_v1.csv"
+			           },
+			           "shp_targetFeature":{
+			              "@id":"dash:SMR01/variable/OTHER_CONDITION_2"
+			           }
+			        }	
+					
+				   	, 
+				       {
+				           "@id":"dash:projectX/checked/DaSH123_SMR01_Release_v1.csv#MAIN_OPERATION",
+				           "@type":[
+				              "shp_EntityCharacteristic"
+				           ],
+				   		"shp_dataType":"string",
+				   		"shp_notNull":{
+      "@value": "230",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+				   		"shp_notNullPct":{
+      "@value": "100",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+				           "shp_minValue":{
+      "@value": "XZ98",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+				           "shp_maxValue":{
+      "@value": "DC321",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+				   		"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+				           "shp_targetFile":{
+				              "@id":"dash:projectX/checked/DaSH123_SMR01_Release_v1.csv"
+				           },
+				           "shp_targetFeature":{
+				              "@id":"dash:SMR01/variable/MAIN_OPERATION"
+				           }
+				        }
+					   	, 
+					       {
+					           "@id":"dash:projectX/checked/DaSH123_SMR01_Release_v1.csv#MAIN_OPERATION_1",
+					           "@type":[
+					              "shp_EntityCharacteristic"
+					           ],
+					   		"shp_dataType":"string",
+					   		"shp_notNull":{
+      "@value": "13",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+					   		"shp_notNullPct":{
+      "@value": "6",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+					           "shp_minValue":{
+      "@value": "XZ98",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+					           "shp_maxValue":{
+      "@value": "DC321",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+					   		"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+					           "shp_targetFile":{
+					              "@id":"dash:projectX/checked/DaSH123_SMR01_Release_v1.csv"
+					           },
+					           "shp_targetFeature":{
+					              "@id":"dash:SMR01/variable/MAIN_OPERATION_1"
+					           }
+					        }	
+						   	, 
+						       {
+						           "@id":"dash:projectX/checked/DaSH123_SMR01_Release_v1.csv#MAIN_OPERATION_2",
+						           "@type":[
+						              "shp_EntityCharacteristic"
+						           ],
+						   		"shp_dataType":"string",
+						   		"shp_notNull":{
+      "@value": "2",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+						   		"shp_notNullPct":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+						           "shp_minValue":{
+      "@value": "XZ98",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+						           "shp_maxValue":{
+      "@value": "XZ98",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+						   		"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+						           "shp_targetFile":{
+						              "@id":"dash:projectX/checked/DaSH123_SMR01_Release_v1.csv"
+						           },
+						           "shp_targetFeature":{
+						              "@id":"dash:SMR01/variable/MAIN_OPERATION_2"
+						           }
+						        }
+							   	, 
+							       {
+							           "@id":"dash:projectX/checked/DaSH123_SMR01_Release_v1.csv#DATE_OF_MAIN_OPERATION",
+							           "@type":[
+							              "shp_EntityCharacteristic"
+							           ],
+							   		"shp_dataType":"date",
+							   		"shp_notNull":{
+      "@value": "230",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+							   		"shp_notNullPct":{
+      "@value": "100",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+							           "shp_minValue":{
+      "@value": "2015-08-01",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+							           "shp_maxValue":{
+      "@value": "2018-12-31",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+							   		"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+							           "shp_targetFile":{
+							              "@id":"dash:projectX/checked/DaSH123_SMR01_Release_v1.csv"
+							           },
+							           "shp_targetFeature":{
+							              "@id":"dash:SMR01/variable/DATE_OF_MAIN_OPERATION"
+							           }
+							        }	
+									
+								   	, 
+								       {
+								           "@id":"dash:projectX/checked/DaSH123_SMR01_Release_v1.csv#DATE_OF_MAIN_OPERATION_1",
+								           "@type":[
+								              "shp_EntityCharacteristic"
+								           ],
+								   		"shp_dataType":"date",
+								   		"shp_notNull":{
+      "@value": "13",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+								   		"shp_notNullPct":{
+      "@value": "6",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+								           "shp_minValue":{
+      "@value": "2015-08-08",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+								           "shp_maxValue":{
+      "@value": "2018-12-31",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+								   		"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+								           "shp_targetFile":{
+								              "@id":"dash:projectX/checked/DaSH123_SMR01_Release_v1.csv"
+								           },
+								           "shp_targetFeature":{
+								              "@id":"dash:SMR01/variable/DATE_OF_MAIN_OPERATION_1"
+								           }
+								        }
+										
+									   	, 
+									       {
+									           "@id":"dash:projectX/checked/DaSH123_SMR01_Release_v1.csv#DATE_OF_MAIN_OPERATION_2",
+									           "@type":[
+									              "shp_EntityCharacteristic"
+									           ],
+									   		"shp_dataType":"date",
+									   		"shp_notNull":{
+      "@value": "2",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+									   		"shp_notNullPct":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+									           "shp_minValue":{
+      "@value": "2015-09-02",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+									           "shp_maxValue":{
+      "@value": "2018-12-31",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+									   		"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+									           "shp_targetFile":{
+									              "@id":"dash:projectX/checked/DaSH123_SMR01_Release_v1.csv"
+									           },
+									           "shp_targetFeature":{
+									              "@id":"dash:SMR01/variable/DATE_OF_MAIN_OPERATION_2"
+									           }
+									        }	,    {     "@id":"dash:projectX/Import/2023-08-15T12:00:14+00:00",
       "@type":[
          "CreateAction", "shp_DashActivity"
       ],
@@ -2859,10 +3614,10 @@
 	           "@type":[
 	              "File", "shp_DataSet"
 	           ],
-	           "description":"?",
+	           "description":"In-patient hospital data capturing information throughout patient's hospital stay, diagnosis and operations performed.",
 	           "label":"DaSH123_SMR01_Release_v1.csv",
 	           "path":"file:///c:/projectX/import/DaSH123_SMR01_Release_v1.csv",
-	           "shp_hash":"e0d675e5f316bef78bfdf5a008837588",
+	           "shp_hash":"e0d675e5f345bef78bfdf5a008837588",
 			   "wasDerivedFrom":[
 	           {
 	              "@id":"dash:database/SMR01"
@@ -2874,9 +3629,737 @@
 	              "@id":"dash:staff/JD"
 	           },
 	           "exifData":[
+	               {
+	                "@id":"dash:projectX/import/DaSH123_SMR01_Release_v1.csv#selectedVariables" 
+	               },
+	               
+	               {
+	              "@id":"dash:projectX/import/DaSH123_SMR01_Release_v1.csv#DaSH123_StudyNumber"
+	               },
+	               {
+	              "@id":"dash:projectX/import/DaSH123_SMR01_Release_v1.csv#ADMISSION_DATE"
+	               },
+	               {
+	              "@id":"dash:projectX/import/DaSH123_SMR01_Release_v1.csv#ADMISSION_TYPE"
+	               },
+	               {
+	              "@id":"dash:projectX/import/DaSH123_SMR01_Release_v1.csv#ADMISSION_REASON"
+	               },
+	               {
+	              "@id":"dash:projectX/import/DaSH123_SMR01_Release_v1.csv#DISCHARGE_DATE"
+	               },
+	               {
+	              "@id":"dash:projectX/import/DaSH123_SMR01_Release_v1.csv#DISCHARGE_TYPE"
+	               },
+	               {
+	              "@id":"dash:projectX/import/DaSH123_SMR01_Release_v1.csv#DISCHARGE_TRANSFER_TO"
+	               },
+	               {
+	              "@id":"dash:projectX/import/DaSH123_SMR01_Release_v1.csv#SPECIALTY"
+	               },
+	               {
+	              "@id":"dash:projectX/import/DaSH123_SMR01_Release_v1.csv#MAIN_CONDITION"
+	               },
+	               {
+	              "@id":"dash:projectX/import/DaSH123_SMR01_Release_v1.csv#OTHER_CONDITION_1"
+	               },
+	               {
+	              "@id":"dash:projectX/import/DaSH123_SMR01_Release_v1.csv#OTHER_CONDITION_2"
+	               },
+	               {
+	              "@id":"dash:projectX/import/DaSH123_SMR01_Release_v1.csv#MAIN_OPERATION"
+	               },
+	               {
+	              "@id":"dash:projectX/import/DaSH123_SMR01_Release_v1.csv#MAIN_OPERATION_1"
+	               },
+	               {
+	              "@id":"dash:projectX/import/DaSH123_SMR01_Release_v1.csv#MAIN_OPERATION_2"
+	               },
+	               {
+	              "@id":"dash:projectX/import/DaSH123_SMR01_Release_v1.csv#DATE_OF_MAIN_OPERATION"
+	               },
+	               {
+	              "@id":"dash:projectX/import/DaSH123_SMR01_Release_v1.csv#DATE_OF_MAIN_OPERATION_1"
+	               },
+	               {
+	              "@id":"dash:projectX/import/DaSH123_SMR01_Release_v1.csv#DATE_OF_MAIN_OPERATION_2"
+	               },
 	              
+	               {
+	                  "@id":"dash:projectX/import/DaSH123_SMR01_Release_v1.csv#summaryStats"
+	               }
 	           ]
-	        },    {  "@id":"dash:projectX/Linkage/2023-08-18T12:00:14+00:00",
+	        }, 
+			{
+	        "@id":"dash:projectX/import/DaSH123_SMR01_Release_v1.csv#selectedVariables",
+	                "@type":[
+	                   "shp_SelectedVariables"
+	                ],
+	                "hadMember":[
+				        {
+				           "@id":"dash:SMR01/variable/DaSH123_StudyNumber"
+				        }, 
+				        {
+				           "@id":"dash:SMR01/variable/ADMISSION_DATE"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/ADMISSION_TYPE"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/ADMISSION_REASON"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/DISCHARGE_DATE"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/DISCHARGE_TYPE"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/DISCHARGE_TRANSFER_TO"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/SPECIALTY"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/MAIN_CONDITION"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/OTHER_CONDITION_1"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/OTHER_CONDITION_2"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/MAIN_OPERATION"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/MAIN_OPERATION_1"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/MAIN_OPERATION_2"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/DATE_OF_MAIN_OPERATION"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/DATE_OF_MAIN_OPERATION_1"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/DATE_OF_MAIN_OPERATION_2"
+				        }
+	                ]
+	         }, 
+             {
+                "@id":"dash:projectX/import/DaSH123_SMR01_Release_v1.csv#summaryStats",
+                "@type":[
+                   "shp_EntityCharacteristic"
+                ],
+                "shp_rowCount":{
+      "@value": "231",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+				"shp_uniqueChiCount":{
+      "@value": "211",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+				"shp_maleFemaleRatio":{
+      "@value": "49",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+                "shp_targetFile":{
+                   "@id":"dash:projectX/import/DaSH123_SMR01_Release_v1.csv"
+                }
+             }
+			 ,
+
+			            {
+			                "@id":"dash:projectX/import/DaSH123_SMR01_Release_v1.csv#DaSH123_StudyNumber",
+			                "@type":[
+			                   "shp_EntityCharacteristic"
+			                ],
+							"shp_dataType":"numeric",
+							"shp_notNull": {
+      "@value": "231",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+     
+							"shp_notNullPct": {
+      "@value": "100",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+     
+			                "shp_minValue":{
+      "@value": "2222000001",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+			                "shp_maxValue":{
+      "@value": "2222000658",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+							"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+     
+			                "shp_targetFile":{
+			                   "@id":"dash:projectX/import/DaSH123_SMR01_Release_v1.csv"
+			                },
+			                "shp_targetFeature":{
+			                   "@id":"dash:SMR01/variable/DaSH123_StudyNumber"
+			                }
+			             }
+						 ,
+
+						            {
+						                "@id":"dash:projectX/import/DaSH123_SMR01_Release_v1.csv#ADMISSION_DATE",
+						                "@type":[
+						                   "shp_EntityCharacteristic"
+						                ],
+										"shp_dataType":"date",
+										"shp_notNull":{
+      "@value": "231",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+     
+										"shp_notNullPct":{
+      "@value": "100",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+						                "shp_minValue":{
+      "@value": "2015-08-01",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+						                "shp_maxValue":{
+      "@value": "2018-12-31",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+										"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+						                "shp_targetFile":{
+						                   "@id":"dash:projectX/import/DaSH123_SMR01_Release_v1.csv"
+						                },
+						                "shp_targetFeature":{
+						                   "@id":"dash:SMR01/variable/ADMISSION_DATE"
+						                }
+						             } ,
+
+						            {
+						                "@id":"dash:projectX/import/DaSH123_SMR01_Release_v1.csv#ADMISSION_TYPE",
+						                "@type":[
+						                   "shp_EntityCharacteristic"
+						                ],
+										"shp_dataType":"numeric",
+										"shp_notNull":{
+      "@value": "231",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+										"shp_notNullPct":{
+      "@value": "100",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+						                "shp_minValue":{
+      "@value": "11",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+						                "shp_maxValue":{
+      "@value": "99",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+										"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+						                "shp_targetFile":{
+						                   "@id":"dash:projectX/import/DaSH123_SMR01_Release_v1.csv"
+						                },
+						                "shp_targetFeature":{
+						                   "@id":"dash:SMR01/variable/ADMISSION_TYPE"
+						                }
+									} ,
+
+						            {
+						                "@id":"dash:projectX/import/DaSH123_SMR01_Release_v1.csv#ADMISSION_REASON",
+						                "@type":[
+						                   "shp_EntityCharacteristic"
+						                ],
+										"shp_dataType":"string",
+										"shp_notNull":{
+      "@value": "231",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+										"shp_notNullPct":{
+      "@value": "100",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+						                "shp_minValue":{
+      "@value": "1A",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+						               
+										"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+						                "shp_targetFile":{
+						                   "@id":"dash:projectX/import/DaSH123_SMR01_Release_v1.csv"
+						                },
+						                "shp_targetFeature":{
+						                   "@id":"dash:SMR01/variable/ADMISSION_REASON"
+						                }
+						             }
+									 ,
+
+									 						            {
+									 						                "@id":"dash:projectX/import/DaSH123_SMR01_Release_v1.csv#DISCHARGE_DATE",
+									 						                "@type":[
+									 						                   "shp_EntityCharacteristic"
+									 						                ],
+									 										"shp_dataType":"date",
+									 										"shp_notNull":{
+      "@value": "231",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+									 										"shp_notNullPct":{
+      "@value": "100",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+									 						                "shp_minValue":{
+      "@value": "2015-08-06",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+						                                                    "shp_maxValue":{
+      "@value": "2018-12-31",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+									 										"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+									 						                "shp_targetFile":{
+									 						                   "@id":"dash:projectX/import/DaSH123_SMR01_Release_v1.csv"
+									 						                },
+									 						                "shp_targetFeature":{
+									 						                   "@id":"dash:SMR01/variable/DISCHARGE_DATE"
+									 						                }
+									 						             }
+	, 
+    {
+        "@id":"dash:projectX/import/DaSH123_SMR01_Release_v1.csv#DISCHARGE_TYPE",
+        "@type":[
+           "shp_EntityCharacteristic"
+        ],
+		"shp_dataType":"string",
+		"shp_notNull":{
+      "@value": "231",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+		"shp_notNullPct":{
+      "@value": "100",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+        "shp_minValue":{
+      "@value": "10",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+        "shp_maxValue":{
+      "@value": "11",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+		"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+        "shp_targetFile":{
+           "@id":"dash:projectX/import/DaSH123_SMR01_Release_v1.csv"
+        },
+        "shp_targetFeature":{
+           "@id":"dash:SMR01/variable/DISCHARGE_TYPE"
+        }
+     }								 
+	 
+ 	, 
+     {
+         "@id":"dash:projectX/import/DaSH123_SMR01_Release_v1.csv#DISCHARGE_TRANSFER_TO",
+         "@type":[
+            "shp_EntityCharacteristic"
+         ],
+ 		"shp_dataType":"string",
+ 		"shp_notNull":{
+      "@value": "231",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+ 		"shp_notNullPct":{
+      "@value": "100",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+         "shp_minValue":{
+      "@value": "00",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+         "shp_maxValue":{
+      "@value": "99",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+ 		"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+         "shp_targetFile":{
+            "@id":"dash:projectX/import/DaSH123_SMR01_Release_v1.csv"
+         },
+         "shp_targetFeature":{
+            "@id":"dash:SMR01/variable/DISCHARGE_TRANSFER_TO"
+         }
+      }	
+	  
+   	, 
+       {
+           "@id":"dash:projectX/import/DaSH123_SMR01_Release_v1.csv#SPECIALTY",
+           "@type":[
+              "shp_EntityCharacteristic"
+           ],
+   		"shp_dataType":"string",
+   		"shp_notNull":{
+      "@value": "231",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+   		"shp_notNullPct":{
+      "@value": "100",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+           "shp_minValue":{
+      "@value": "A1",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+           "shp_maxValue":{
+      "@value": "Z9",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+   		"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+           "shp_targetFile":{
+              "@id":"dash:projectX/import/DaSH123_SMR01_Release_v1.csv"
+           },
+           "shp_targetFeature":{
+              "@id":"dash:SMR01/variable/SPECIALTY"
+           }
+        }
+		
+	   	, 
+	       {
+	           "@id":"dash:projectX/import/DaSH123_SMR01_Release_v1.csv#MAIN_CONDITION",
+	           "@type":[
+	              "shp_EntityCharacteristic"
+	           ],
+	   		"shp_dataType":"string",
+	   		"shp_notNull":{
+      "@value": "231",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+	   		"shp_notNullPct":{
+      "@value": "100",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+	           "shp_minValue":{
+      "@value": "D123",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+	           "shp_maxValue":{
+      "@value": "Z987",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+	   		"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+	           "shp_targetFile":{
+	              "@id":"dash:projectX/import/DaSH123_SMR01_Release_v1.csv"
+	           },
+	           "shp_targetFeature":{
+	              "@id":"dash:SMR01/variable/MAIN_CONDITION"
+	           }
+	        }	
+			
+		   	, 
+		       {
+		           "@id":"dash:projectX/import/DaSH123_SMR01_Release_v1.csv#OTHER_CONDITION_1",
+		           "@type":[
+		              "shp_EntityCharacteristic"
+		           ],
+		   		"shp_dataType":"string",
+		   		"shp_notNull":{
+      "@value": "210",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+		   		"shp_notNullPct":{
+      "@value": "91",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+		           "shp_minValue":{
+      "@value": "D123",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+		           "shp_maxValue":{
+      "@value": "D123",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+		   		"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+		           "shp_targetFile":{
+		              "@id":"dash:projectX/import/DaSH123_SMR01_Release_v1.csv"
+		           },
+		           "shp_targetFeature":{
+		              "@id":"dash:SMR01/variable/OTHER_CONDITION_1"
+		           }
+		        }	
+				
+			   	, 
+			       {
+			           "@id":"dash:projectX/import/DaSH123_SMR01_Release_v1.csv#OTHER_CONDITION_2",
+			           "@type":[
+			              "shp_EntityCharacteristic"
+			           ],
+			   		"shp_dataType":"string",
+			   		"shp_notNull":{
+      "@value": "183",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+			   		"shp_notNullPct":{
+      "@value": "80",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+			           "shp_minValue":{
+      "@value": "D123",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+			           "shp_maxValue":{
+      "@value": "D123",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+			   		"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+			           "shp_targetFile":{
+			              "@id":"dash:projectX/import/DaSH123_SMR01_Release_v1.csv"
+			           },
+			           "shp_targetFeature":{
+			              "@id":"dash:SMR01/variable/OTHER_CONDITION_2"
+			           }
+			        }	
+					
+				   	, 
+				       {
+				           "@id":"dash:projectX/import/DaSH123_SMR01_Release_v1.csv#MAIN_OPERATION",
+				           "@type":[
+				              "shp_EntityCharacteristic"
+				           ],
+				   		"shp_dataType":"string",
+				   		"shp_notNull":{
+      "@value": "231",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+				   		"shp_notNullPct":{
+      "@value": "100",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+				           "shp_minValue":{
+      "@value": "XZ98",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+				           "shp_maxValue":{
+      "@value": "DC321",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+				   		"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+				           "shp_targetFile":{
+				              "@id":"dash:projectX/import/DaSH123_SMR01_Release_v1.csv"
+				           },
+				           "shp_targetFeature":{
+				              "@id":"dash:SMR01/variable/MAIN_OPERATION"
+				           }
+				        }
+					   	, 
+					       {
+					           "@id":"dash:projectX/import/DaSH123_SMR01_Release_v1.csv#MAIN_OPERATION_1",
+					           "@type":[
+					              "shp_EntityCharacteristic"
+					           ],
+					   		"shp_dataType":"string",
+					   		"shp_notNull":{
+      "@value": "13",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+					   		"shp_notNullPct":{
+      "@value": "6",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+					           "shp_minValue":{
+      "@value": "XZ98",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+					           "shp_maxValue":{
+      "@value": "DC321",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+					   		"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+					           "shp_targetFile":{
+					              "@id":"dash:projectX/import/DaSH123_SMR01_Release_v1.csv"
+					           },
+					           "shp_targetFeature":{
+					              "@id":"dash:SMR01/variable/MAIN_OPERATION_1"
+					           }
+					        }	
+						   	, 
+						       {
+						           "@id":"dash:projectX/import/DaSH123_SMR01_Release_v1.csv#MAIN_OPERATION_2",
+						           "@type":[
+						              "shp_EntityCharacteristic"
+						           ],
+						   		"shp_dataType":"string",
+						   		"shp_notNull":{
+      "@value": "2",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+						   		"shp_notNullPct":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+						           "shp_minValue":{
+      "@value": "XZ98",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+						           "shp_maxValue":{
+      "@value": "XZ98",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+						   		"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+						           "shp_targetFile":{
+						              "@id":"dash:projectX/import/DaSH123_SMR01_Release_v1.csv"
+						           },
+						           "shp_targetFeature":{
+						              "@id":"dash:SMR01/variable/MAIN_OPERATION_2"
+						           }
+						        }
+							   	, 
+							       {
+							           "@id":"dash:projectX/import/DaSH123_SMR01_Release_v1.csv#DATE_OF_MAIN_OPERATION",
+							           "@type":[
+							              "shp_EntityCharacteristic"
+							           ],
+							   		"shp_dataType":"date",
+							   		"shp_notNull":{
+      "@value": "231",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+							   		"shp_notNullPct":{
+      "@value": "100",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+							           "shp_minValue":{
+      "@value": "2015-08-01",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+							           "shp_maxValue":{
+      "@value": "2018-12-31",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+							   		"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+							           "shp_targetFile":{
+							              "@id":"dash:projectX/import/DaSH123_SMR01_Release_v1.csv"
+							           },
+							           "shp_targetFeature":{
+							              "@id":"dash:SMR01/variable/DATE_OF_MAIN_OPERATION"
+							           }
+							        }	
+									
+								   	, 
+								       {
+								           "@id":"dash:projectX/import/DaSH123_SMR01_Release_v1.csv#DATE_OF_MAIN_OPERATION_1",
+								           "@type":[
+								              "shp_EntityCharacteristic"
+								           ],
+								   		"shp_dataType":"date",
+								   		"shp_notNull":{
+      "@value": "13",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+								   		"shp_notNullPct":{
+      "@value": "6",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+								           "shp_minValue":{
+      "@value": "2015-08-08",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+								           "shp_maxValue":{
+      "@value": "2018-12-31",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+								   		"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+								           "shp_targetFile":{
+								              "@id":"dash:projectX/import/DaSH123_SMR01_Release_v1.csv"
+								           },
+								           "shp_targetFeature":{
+								              "@id":"dash:SMR01/variable/DATE_OF_MAIN_OPERATION_1"
+								           }
+								        }
+										
+									   	, 
+									       {
+									           "@id":"dash:projectX/import/DaSH123_SMR01_Release_v1.csv#DATE_OF_MAIN_OPERATION_2",
+									           "@type":[
+									              "shp_EntityCharacteristic"
+									           ],
+									   		"shp_dataType":"date",
+									   		"shp_notNull":{
+      "@value": "2",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+									   		"shp_notNullPct":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+									           "shp_minValue":{
+      "@value": "2015-09-02",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+									           "shp_maxValue":{
+      "@value": "2018-12-31",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+									   		"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+									           "shp_targetFile":{
+									              "@id":"dash:projectX/import/DaSH123_SMR01_Release_v1.csv"
+									           },
+									           "shp_targetFeature":{
+									              "@id":"dash:SMR01/variable/DATE_OF_MAIN_OPERATION_2"
+									           }
+									        }	,    {  "@id":"dash:projectX/Linkage/2023-08-18T12:00:14+00:00",
       "@type":[
          "CreateAction", "shp_IdLinkage"
       ],
@@ -2910,7 +4393,1520 @@
            "@id":"dash:projectX/linked/DaSH123_SMR01_Release_v1.csv"
         }
       ]
-   },    {     "@id":"dash:projectX/DatasetRelease/2023-08-21T14:56:14+00:00",
+   }, 	     {
+	           "@id":"dash:projectX/linked/DaSH123_PIS_Release_v1.csv",
+	           "@type":[
+	              "File", "shp_DataSet"
+	           ],
+	           "description":"?",
+	           "label":"DaSH123_PIS_Release_v1.csv",
+	           "path":"file:///c:/projectX/linked/DaSH123_PIS_Release_v1.csv",
+	           "shp_hash":"e0d675e5f316bef78bfdf5a008837600",
+			   "wasDerivedFrom":[
+	           {
+	              "@id":"dash:projectX/import/DaSH123_PIS_Release_v1.csv"
+	           }],
+	           "wasAttributedTo":{
+	              "@id":"dash:staff/JD"
+	           },
+	           "exifData":[
+	              
+	           ]
+	        }, 	     {
+	           "@id":"dash:projectX/linked/DaSH123_SMR01_Release_v1.csv",
+	           "@type":[
+	              "File", "shp_DataSet"
+	           ],
+	           "description":"In-patient hospital data capturing information throughout patient's hospital stay, diagnosis and operations performed.",
+	           "label":"DaSH123_SMR01_Release_v1.csv",
+	           "path":"file:///c:/projectX/linked/DaSH123_SMR01_Release_v1.csv",
+	           "shp_hash":"e0d675e5f316bef78bfdf5a00883565",
+			   "wasDerivedFrom":[
+	           {
+	              "@id":"dash:projectX/import/DaSH123_SMR01_Release_v1.csv"
+	           }],
+	           "wasAttributedTo":{
+	              "@id":"dash:staff/JD"
+	           },
+	           "exifData":[
+	               {
+	                "@id":"dash:projectX/linked/DaSH123_SMR01_Release_v1.csv#selectedVariables" 
+	               },
+	               
+	               {
+	              "@id":"dash:projectX/linked/DaSH123_SMR01_Release_v1.csv#DaSH123_StudyNumber"
+	               },
+	               {
+	              "@id":"dash:projectX/linked/DaSH123_SMR01_Release_v1.csv#ADMISSION_DATE"
+	               },
+	               {
+	              "@id":"dash:projectX/linked/DaSH123_SMR01_Release_v1.csv#ADMISSION_TYPE"
+	               },
+	               {
+	              "@id":"dash:projectX/linked/DaSH123_SMR01_Release_v1.csv#ADMISSION_REASON"
+	               },
+	               {
+	              "@id":"dash:projectX/linked/DaSH123_SMR01_Release_v1.csv#DISCHARGE_DATE"
+	               },
+	               {
+	              "@id":"dash:projectX/linked/DaSH123_SMR01_Release_v1.csv#DISCHARGE_TYPE"
+	               },
+	               {
+	              "@id":"dash:projectX/linked/DaSH123_SMR01_Release_v1.csv#DISCHARGE_TRANSFER_TO"
+	               },
+	               {
+	              "@id":"dash:projectX/linked/DaSH123_SMR01_Release_v1.csv#SPECIALTY"
+	               },
+	               {
+	              "@id":"dash:projectX/linked/DaSH123_SMR01_Release_v1.csv#MAIN_CONDITION"
+	               },
+	               {
+	              "@id":"dash:projectX/linked/DaSH123_SMR01_Release_v1.csv#OTHER_CONDITION_1"
+	               },
+	               {
+	              "@id":"dash:projectX/linked/DaSH123_SMR01_Release_v1.csv#OTHER_CONDITION_2"
+	               },
+	               {
+	              "@id":"dash:projectX/linked/DaSH123_SMR01_Release_v1.csv#MAIN_OPERATION"
+	               },
+	               {
+	              "@id":"dash:projectX/linked/DaSH123_SMR01_Release_v1.csv#MAIN_OPERATION_1"
+	               },
+	               {
+	              "@id":"dash:projectX/linked/DaSH123_SMR01_Release_v1.csv#MAIN_OPERATION_2"
+	               },
+	               {
+	              "@id":"dash:projectX/linked/DaSH123_SMR01_Release_v1.csv#DATE_OF_MAIN_OPERATION"
+	               },
+	               {
+	              "@id":"dash:projectX/linked/DaSH123_SMR01_Release_v1.csv#DATE_OF_MAIN_OPERATION_1"
+	               },
+	               {
+	              "@id":"dash:projectX/linked/DaSH123_SMR01_Release_v1.csv#DATE_OF_MAIN_OPERATION_2"
+	               },
+	              
+	               {
+	                  "@id":"dash:projectX/linked/DaSH123_SMR01_Release_v1.csv#summaryStats"
+	               }
+	           ]
+	        }, 
+			{
+	        "@id":"dash:projectX/linked/DaSH123_SMR01_Release_v1.csv#selectedVariables",
+	                "@type":[
+	                   "shp_SelectedVariables"
+	                ],
+	                "hadMember":[
+				        {
+				           "@id":"dash:SMR01/variable/DaSH123_StudyNumber"
+				        }, 
+				        {
+				           "@id":"dash:SMR01/variable/ADMISSION_DATE"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/ADMISSION_TYPE"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/ADMISSION_REASON"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/DISCHARGE_DATE"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/DISCHARGE_TYPE"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/DISCHARGE_TRANSFER_TO"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/SPECIALTY"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/MAIN_CONDITION"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/OTHER_CONDITION_1"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/OTHER_CONDITION_2"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/MAIN_OPERATION"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/MAIN_OPERATION_1"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/MAIN_OPERATION_2"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/DATE_OF_MAIN_OPERATION"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/DATE_OF_MAIN_OPERATION_1"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/DATE_OF_MAIN_OPERATION_2"
+				        }
+	                ]
+	         }, 
+             {
+                "@id":"dash:projectX/linked/DaSH123_SMR01_Release_v1.csv#summaryStats",
+                "@type":[
+                   "shp_EntityCharacteristic"
+                ],
+                "shp_rowCount":{
+      "@value": "231",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+				"shp_uniqueChiCount":{
+      "@value": "211",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+				"shp_maleFemaleRatio":{
+      "@value": "49",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+                "shp_targetFile":{
+                   "@id":"dash:projectX/linked/DaSH123_SMR01_Release_v1.csv"
+                }
+             }
+			 ,
+
+			            {
+			                "@id":"dash:projectX/linked/DaSH123_SMR01_Release_v1.csv#DaSH123_StudyNumber",
+			                "@type":[
+			                   "shp_EntityCharacteristic"
+			                ],
+							"shp_dataType":"numeric",
+							"shp_notNull": {
+      "@value": "231",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+     
+							"shp_notNullPct": {
+      "@value": "100",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+     
+			                "shp_minValue":{
+      "@value": "6666000001",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+			                "shp_maxValue":{
+      "@value": "6666000658",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+							"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+     
+			                "shp_targetFile":{
+			                   "@id":"dash:projectX/linked/DaSH123_SMR01_Release_v1.csv"
+			                },
+			                "shp_targetFeature":{
+			                   "@id":"dash:SMR01/variable/DaSH123_StudyNumber"
+			                }
+			             }
+						 ,
+
+						            {
+						                "@id":"dash:projectX/linked/DaSH123_SMR01_Release_v1.csv#ADMISSION_DATE",
+						                "@type":[
+						                   "shp_EntityCharacteristic"
+						                ],
+										"shp_dataType":"date",
+										"shp_notNull":{
+      "@value": "231",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+     
+										"shp_notNullPct":{
+      "@value": "100",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+						                "shp_minValue":{
+      "@value": "2015-08-01",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+						                "shp_maxValue":{
+      "@value": "2018-12-31",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+										"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+						                "shp_targetFile":{
+						                   "@id":"dash:projectX/linked/DaSH123_SMR01_Release_v1.csv"
+						                },
+						                "shp_targetFeature":{
+						                   "@id":"dash:SMR01/variable/ADMISSION_DATE"
+						                }
+						             } ,
+
+						            {
+						                "@id":"dash:projectX/linked/DaSH123_SMR01_Release_v1.csv#ADMISSION_TYPE",
+						                "@type":[
+						                   "shp_EntityCharacteristic"
+						                ],
+										"shp_dataType":"numeric",
+										"shp_notNull":{
+      "@value": "231",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+										"shp_notNullPct":{
+      "@value": "100",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+						                "shp_minValue":{
+      "@value": "11",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+						                "shp_maxValue":{
+      "@value": "99",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+										"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+						                "shp_targetFile":{
+						                   "@id":"dash:projectX/linked/DaSH123_SMR01_Release_v1.csv"
+						                },
+						                "shp_targetFeature":{
+						                   "@id":"dash:SMR01/variable/ADMISSION_TYPE"
+						                }
+									} ,
+
+						            {
+						                "@id":"dash:projectX/linked/DaSH123_SMR01_Release_v1.csv#ADMISSION_REASON",
+						                "@type":[
+						                   "shp_EntityCharacteristic"
+						                ],
+										"shp_dataType":"string",
+										"shp_notNull":{
+      "@value": "231",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+										"shp_notNullPct":{
+      "@value": "100",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+						                "shp_minValue":{
+      "@value": "1A",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+						               
+										"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+						                "shp_targetFile":{
+						                   "@id":"dash:projectX/linked/DaSH123_SMR01_Release_v1.csv"
+						                },
+						                "shp_targetFeature":{
+						                   "@id":"dash:SMR01/variable/ADMISSION_REASON"
+						                }
+						             }
+									 ,
+
+									 						            {
+									 						                "@id":"dash:projectX/linked/DaSH123_SMR01_Release_v1.csv#DISCHARGE_DATE",
+									 						                "@type":[
+									 						                   "shp_EntityCharacteristic"
+									 						                ],
+									 										"shp_dataType":"date",
+									 										"shp_notNull":{
+      "@value": "231",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+									 										"shp_notNullPct":{
+      "@value": "100",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+									 						                "shp_minValue":{
+      "@value": "2015-08-06",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+						                                                    "shp_maxValue":{
+      "@value": "2018-12-31",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+									 										"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+									 						                "shp_targetFile":{
+									 						                   "@id":"dash:projectX/linked/DaSH123_SMR01_Release_v1.csv"
+									 						                },
+									 						                "shp_targetFeature":{
+									 						                   "@id":"dash:SMR01/variable/DISCHARGE_DATE"
+									 						                }
+									 						             }
+	, 
+    {
+        "@id":"dash:projectX/linked/DaSH123_SMR01_Release_v1.csv#DISCHARGE_TYPE",
+        "@type":[
+           "shp_EntityCharacteristic"
+        ],
+		"shp_dataType":"string",
+		"shp_notNull":{
+      "@value": "231",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+		"shp_notNullPct":{
+      "@value": "100",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+        "shp_minValue":{
+      "@value": "10",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+        "shp_maxValue":{
+      "@value": "11",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+		"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+        "shp_targetFile":{
+           "@id":"dash:projectX/linked/DaSH123_SMR01_Release_v1.csv"
+        },
+        "shp_targetFeature":{
+           "@id":"dash:SMR01/variable/DISCHARGE_TYPE"
+        }
+     }								 
+	 
+ 	, 
+     {
+         "@id":"dash:projectX/linked/DaSH123_SMR01_Release_v1.csv#DISCHARGE_TRANSFER_TO",
+         "@type":[
+            "shp_EntityCharacteristic"
+         ],
+ 		"shp_dataType":"string",
+ 		"shp_notNull":{
+      "@value": "231",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+ 		"shp_notNullPct":{
+      "@value": "100",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+         "shp_minValue":{
+      "@value": "00",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+         "shp_maxValue":{
+      "@value": "99",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+ 		"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+         "shp_targetFile":{
+            "@id":"dash:projectX/linked/DaSH123_SMR01_Release_v1.csv"
+         },
+         "shp_targetFeature":{
+            "@id":"dash:SMR01/variable/DISCHARGE_TRANSFER_TO"
+         }
+      }	
+	  
+   	, 
+       {
+           "@id":"dash:projectX/linked/DaSH123_SMR01_Release_v1.csv#SPECIALTY",
+           "@type":[
+              "shp_EntityCharacteristic"
+           ],
+   		"shp_dataType":"string",
+   		"shp_notNull":{
+      "@value": "231",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+   		"shp_notNullPct":{
+      "@value": "100",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+           "shp_minValue":{
+      "@value": "A1",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+           "shp_maxValue":{
+      "@value": "Z9",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+   		"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+           "shp_targetFile":{
+              "@id":"dash:projectX/linked/DaSH123_SMR01_Release_v1.csv"
+           },
+           "shp_targetFeature":{
+              "@id":"dash:SMR01/variable/SPECIALTY"
+           }
+        }
+		
+	   	, 
+	       {
+	           "@id":"dash:projectX/linked/DaSH123_SMR01_Release_v1.csv#MAIN_CONDITION",
+	           "@type":[
+	              "shp_EntityCharacteristic"
+	           ],
+	   		"shp_dataType":"string",
+	   		"shp_notNull":{
+      "@value": "231",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+	   		"shp_notNullPct":{
+      "@value": "100",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+	           "shp_minValue":{
+      "@value": "D123",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+	           "shp_maxValue":{
+      "@value": "Z987",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+	   		"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+	           "shp_targetFile":{
+	              "@id":"dash:projectX/linked/DaSH123_SMR01_Release_v1.csv"
+	           },
+	           "shp_targetFeature":{
+	              "@id":"dash:SMR01/variable/MAIN_CONDITION"
+	           }
+	        }	
+			
+		   	, 
+		       {
+		           "@id":"dash:projectX/linked/DaSH123_SMR01_Release_v1.csv#OTHER_CONDITION_1",
+		           "@type":[
+		              "shp_EntityCharacteristic"
+		           ],
+		   		"shp_dataType":"string",
+		   		"shp_notNull":{
+      "@value": "210",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+		   		"shp_notNullPct":{
+      "@value": "91",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+		           "shp_minValue":{
+      "@value": "D123",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+		           "shp_maxValue":{
+      "@value": "D123",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+		   		"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+		           "shp_targetFile":{
+		              "@id":"dash:projectX/linked/DaSH123_SMR01_Release_v1.csv"
+		           },
+		           "shp_targetFeature":{
+		              "@id":"dash:SMR01/variable/OTHER_CONDITION_1"
+		           }
+		        }	
+				
+			   	, 
+			       {
+			           "@id":"dash:projectX/linked/DaSH123_SMR01_Release_v1.csv#OTHER_CONDITION_2",
+			           "@type":[
+			              "shp_EntityCharacteristic"
+			           ],
+			   		"shp_dataType":"string",
+			   		"shp_notNull":{
+      "@value": "183",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+			   		"shp_notNullPct":{
+      "@value": "80",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+			           "shp_minValue":{
+      "@value": "D123",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+			           "shp_maxValue":{
+      "@value": "D123",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+			   		"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+			           "shp_targetFile":{
+			              "@id":"dash:projectX/linked/DaSH123_SMR01_Release_v1.csv"
+			           },
+			           "shp_targetFeature":{
+			              "@id":"dash:SMR01/variable/OTHER_CONDITION_2"
+			           }
+			        }	
+					
+				   	, 
+				       {
+				           "@id":"dash:projectX/linked/DaSH123_SMR01_Release_v1.csv#MAIN_OPERATION",
+				           "@type":[
+				              "shp_EntityCharacteristic"
+				           ],
+				   		"shp_dataType":"string",
+				   		"shp_notNull":{
+      "@value": "231",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+				   		"shp_notNullPct":{
+      "@value": "100",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+				           "shp_minValue":{
+      "@value": "XZ98",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+				           "shp_maxValue":{
+      "@value": "DC321",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+				   		"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+				           "shp_targetFile":{
+				              "@id":"dash:projectX/linked/DaSH123_SMR01_Release_v1.csv"
+				           },
+				           "shp_targetFeature":{
+				              "@id":"dash:SMR01/variable/MAIN_OPERATION"
+				           }
+				        }
+					   	, 
+					       {
+					           "@id":"dash:projectX/linked/DaSH123_SMR01_Release_v1.csv#MAIN_OPERATION_1",
+					           "@type":[
+					              "shp_EntityCharacteristic"
+					           ],
+					   		"shp_dataType":"string",
+					   		"shp_notNull":{
+      "@value": "13",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+					   		"shp_notNullPct":{
+      "@value": "6",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+					           "shp_minValue":{
+      "@value": "XZ98",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+					           "shp_maxValue":{
+      "@value": "DC321",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+					   		"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+					           "shp_targetFile":{
+					              "@id":"dash:projectX/linked/DaSH123_SMR01_Release_v1.csv"
+					           },
+					           "shp_targetFeature":{
+					              "@id":"dash:SMR01/variable/MAIN_OPERATION_1"
+					           }
+					        }	
+						   	, 
+						       {
+						           "@id":"dash:projectX/linked/DaSH123_SMR01_Release_v1.csv#MAIN_OPERATION_2",
+						           "@type":[
+						              "shp_EntityCharacteristic"
+						           ],
+						   		"shp_dataType":"string",
+						   		"shp_notNull":{
+      "@value": "2",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+						   		"shp_notNullPct":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+						           "shp_minValue":{
+      "@value": "XZ98",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+						           "shp_maxValue":{
+      "@value": "XZ98",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+						   		"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+						           "shp_targetFile":{
+						              "@id":"dash:projectX/linked/DaSH123_SMR01_Release_v1.csv"
+						           },
+						           "shp_targetFeature":{
+						              "@id":"dash:SMR01/variable/MAIN_OPERATION_2"
+						           }
+						        }
+							   	, 
+							       {
+							           "@id":"dash:projectX/linked/DaSH123_SMR01_Release_v1.csv#DATE_OF_MAIN_OPERATION",
+							           "@type":[
+							              "shp_EntityCharacteristic"
+							           ],
+							   		"shp_dataType":"date",
+							   		"shp_notNull":{
+      "@value": "231",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+							   		"shp_notNullPct":{
+      "@value": "100",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+							           "shp_minValue":{
+      "@value": "2015-08-01",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+							           "shp_maxValue":{
+      "@value": "2018-12-31",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+							   		"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+							           "shp_targetFile":{
+							              "@id":"dash:projectX/linked/DaSH123_SMR01_Release_v1.csv"
+							           },
+							           "shp_targetFeature":{
+							              "@id":"dash:SMR01/variable/DATE_OF_MAIN_OPERATION"
+							           }
+							        }	
+									
+								   	, 
+								       {
+								           "@id":"dash:projectX/linked/DaSH123_SMR01_Release_v1.csv#DATE_OF_MAIN_OPERATION_1",
+								           "@type":[
+								              "shp_EntityCharacteristic"
+								           ],
+								   		"shp_dataType":"date",
+								   		"shp_notNull":{
+      "@value": "13",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+								   		"shp_notNullPct":{
+      "@value": "6",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+								           "shp_minValue":{
+      "@value": "2015-08-08",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+								           "shp_maxValue":{
+      "@value": "2018-12-31",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+								   		"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+								           "shp_targetFile":{
+								              "@id":"dash:projectX/linked/DaSH123_SMR01_Release_v1.csv"
+								           },
+								           "shp_targetFeature":{
+								              "@id":"dash:SMR01/variable/DATE_OF_MAIN_OPERATION_1"
+								           }
+								        }
+										
+									   	, 
+									       {
+									           "@id":"dash:projectX/linked/DaSH123_SMR01_Release_v1.csv#DATE_OF_MAIN_OPERATION_2",
+									           "@type":[
+									              "shp_EntityCharacteristic"
+									           ],
+									   		"shp_dataType":"date",
+									   		"shp_notNull":{
+      "@value": "2",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+									   		"shp_notNullPct":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+									           "shp_minValue":{
+      "@value": "2015-09-02",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+									           "shp_maxValue":{
+      "@value": "2018-12-31",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+									   		"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+									           "shp_targetFile":{
+									              "@id":"dash:projectX/linked/DaSH123_SMR01_Release_v1.csv"
+									           },
+									           "shp_targetFeature":{
+									              "@id":"dash:SMR01/variable/DATE_OF_MAIN_OPERATION_2"
+									           }
+									        }	, 	     {
+	           "@id":"dash:projectX/release/DaSH123_SMR01_Release_v1.csv",
+	           "@type":[
+	              "File", "shp_DataSet"
+	           ],
+	           "description":"In-patient hospital data capturing information throughout patient's hospital stay, diagnosis and operations performed.",
+	           "label":"DaSH123_SMR01_Release_v1.csv",
+	           "path":"file:///c:/projectX/release/DaSH123_SMR01_Release_v1.csv",
+	           "shp_hash":"e0d675e5f316bef78bfdf5a00883565",
+			   "wasDerivedFrom":[
+	           {
+	              "@id":"dash:projectX/signoff/DaSH123_SMR01_Release_v1.csv"
+	           }],
+	           "wasAttributedTo":{
+	              "@id":"dash:staff/JD"
+	           },
+	           "exifData":[
+	               {
+	                "@id":"dash:projectX/release/DaSH123_SMR01_Release_v1.csv#selectedVariables" 
+	               },
+	               
+	               {
+	              "@id":"dash:projectX/release/DaSH123_SMR01_Release_v1.csv#DaSH123_StudyNumber"
+	               },
+	               {
+	              "@id":"dash:projectX/release/DaSH123_SMR01_Release_v1.csv#ADMISSION_DATE"
+	               },
+	               {
+	              "@id":"dash:projectX/release/DaSH123_SMR01_Release_v1.csv#ADMISSION_TYPE"
+	               },
+	               {
+	              "@id":"dash:projectX/release/DaSH123_SMR01_Release_v1.csv#ADMISSION_REASON"
+	               },
+	               {
+	              "@id":"dash:projectX/release/DaSH123_SMR01_Release_v1.csv#DISCHARGE_DATE"
+	               },
+	               {
+	              "@id":"dash:projectX/release/DaSH123_SMR01_Release_v1.csv#DISCHARGE_TYPE"
+	               },
+	               {
+	              "@id":"dash:projectX/release/DaSH123_SMR01_Release_v1.csv#DISCHARGE_TRANSFER_TO"
+	               },
+	               {
+	              "@id":"dash:projectX/release/DaSH123_SMR01_Release_v1.csv#SPECIALTY"
+	               },
+	               {
+	              "@id":"dash:projectX/release/DaSH123_SMR01_Release_v1.csv#MAIN_CONDITION"
+	               },
+	               {
+	              "@id":"dash:projectX/release/DaSH123_SMR01_Release_v1.csv#OTHER_CONDITION_1"
+	               },
+	               {
+	              "@id":"dash:projectX/release/DaSH123_SMR01_Release_v1.csv#OTHER_CONDITION_2"
+	               },
+	               {
+	              "@id":"dash:projectX/release/DaSH123_SMR01_Release_v1.csv#MAIN_OPERATION"
+	               },
+	               {
+	              "@id":"dash:projectX/release/DaSH123_SMR01_Release_v1.csv#MAIN_OPERATION_1"
+	               },
+	               {
+	              "@id":"dash:projectX/release/DaSH123_SMR01_Release_v1.csv#MAIN_OPERATION_2"
+	               },
+	               {
+	              "@id":"dash:projectX/release/DaSH123_SMR01_Release_v1.csv#DATE_OF_MAIN_OPERATION"
+	               },
+	               {
+	              "@id":"dash:projectX/release/DaSH123_SMR01_Release_v1.csv#DATE_OF_MAIN_OPERATION_1"
+	               },
+	               {
+	              "@id":"dash:projectX/release/DaSH123_SMR01_Release_v1.csv#DATE_OF_MAIN_OPERATION_2"
+	               },
+	              
+	               {
+	                  "@id":"dash:projectX/release/DaSH123_SMR01_Release_v1.csv#summaryStats"
+	               }
+	           ]
+	        }, 
+			{
+	        "@id":"dash:projectX/release/DaSH123_SMR01_Release_v1.csv#selectedVariables",
+	                "@type":[
+	                   "shp_SelectedVariables"
+	                ],
+	                "hadMember":[
+				        {
+				           "@id":"dash:SMR01/variable/DaSH123_StudyNumber"
+				        }, 
+				        {
+				           "@id":"dash:SMR01/variable/ADMISSION_DATE"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/ADMISSION_TYPE"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/ADMISSION_REASON"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/DISCHARGE_DATE"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/DISCHARGE_TYPE"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/DISCHARGE_TRANSFER_TO"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/SPECIALTY"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/MAIN_CONDITION"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/OTHER_CONDITION_1"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/OTHER_CONDITION_2"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/MAIN_OPERATION"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/MAIN_OPERATION_1"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/MAIN_OPERATION_2"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/DATE_OF_MAIN_OPERATION"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/DATE_OF_MAIN_OPERATION_1"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/DATE_OF_MAIN_OPERATION_2"
+				        }
+	                ]
+	         }, 
+             {
+                "@id":"dash:projectX/release/DaSH123_SMR01_Release_v1.csv#summaryStats",
+                "@type":[
+                   "shp_EntityCharacteristic"
+                ],
+                "shp_rowCount":{
+      "@value": "230",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+				"shp_uniqueChiCount":{
+      "@value": "211",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+				"shp_maleFemaleRatio":{
+      "@value": "49",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+                "shp_targetFile":{
+                   "@id":"dash:projectX/release/DaSH123_SMR01_Release_v1.csv"
+                }
+             }
+			 ,
+
+			            {
+			                "@id":"dash:projectX/release/DaSH123_SMR01_Release_v1.csv#DaSH123_StudyNumber",
+			                "@type":[
+			                   "shp_EntityCharacteristic"
+			                ],
+							"shp_dataType":"numeric",
+							"shp_notNull": {
+      "@value": "230",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+     
+							"shp_notNullPct": {
+      "@value": "100",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+     
+			                "shp_minValue":{
+      "@value": "6666000001",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+			                "shp_maxValue":{
+      "@value": "6666000658",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+							"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+     
+			                "shp_targetFile":{
+			                   "@id":"dash:projectX/release/DaSH123_SMR01_Release_v1.csv"
+			                },
+			                "shp_targetFeature":{
+			                   "@id":"dash:SMR01/variable/DaSH123_StudyNumber"
+			                }
+			             }
+						 ,
+
+						            {
+						                "@id":"dash:projectX/release/DaSH123_SMR01_Release_v1.csv#ADMISSION_DATE",
+						                "@type":[
+						                   "shp_EntityCharacteristic"
+						                ],
+										"shp_dataType":"date",
+										"shp_notNull":{
+      "@value": "230",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+     
+										"shp_notNullPct":{
+      "@value": "100",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+						                "shp_minValue":{
+      "@value": "2015-08-01",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+						                "shp_maxValue":{
+      "@value": "2018-12-31",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+										"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+						                "shp_targetFile":{
+						                   "@id":"dash:projectX/release/DaSH123_SMR01_Release_v1.csv"
+						                },
+						                "shp_targetFeature":{
+						                   "@id":"dash:SMR01/variable/ADMISSION_DATE"
+						                }
+						             } ,
+
+						            {
+						                "@id":"dash:projectX/release/DaSH123_SMR01_Release_v1.csv#ADMISSION_TYPE",
+						                "@type":[
+						                   "shp_EntityCharacteristic"
+						                ],
+										"shp_dataType":"numeric",
+										"shp_notNull":{
+      "@value": "230",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+										"shp_notNullPct":{
+      "@value": "100",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+						                "shp_minValue":{
+      "@value": "11",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+						                "shp_maxValue":{
+      "@value": "99",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+										"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+						                "shp_targetFile":{
+						                   "@id":"dash:projectX/release/DaSH123_SMR01_Release_v1.csv"
+						                },
+						                "shp_targetFeature":{
+						                   "@id":"dash:SMR01/variable/ADMISSION_TYPE"
+						                }
+									} ,
+
+						            {
+						                "@id":"dash:projectX/release/DaSH123_SMR01_Release_v1.csv#ADMISSION_REASON",
+						                "@type":[
+						                   "shp_EntityCharacteristic"
+						                ],
+										"shp_dataType":"string",
+										"shp_notNull":{
+      "@value": "230",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+										"shp_notNullPct":{
+      "@value": "100",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+						                "shp_minValue":{
+      "@value": "1A",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+						               
+										"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+						                "shp_targetFile":{
+						                   "@id":"dash:projectX/release/DaSH123_SMR01_Release_v1.csv"
+						                },
+						                "shp_targetFeature":{
+						                   "@id":"dash:SMR01/variable/ADMISSION_REASON"
+						                }
+						             }
+									 ,
+
+									 						            {
+									 						                "@id":"dash:projectX/release/DaSH123_SMR01_Release_v1.csv#DISCHARGE_DATE",
+									 						                "@type":[
+									 						                   "shp_EntityCharacteristic"
+									 						                ],
+									 										"shp_dataType":"date",
+									 										"shp_notNull":{
+      "@value": "230",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+									 										"shp_notNullPct":{
+      "@value": "100",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+									 						                "shp_minValue":{
+      "@value": "2015-08-06",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+						                                                    "shp_maxValue":{
+      "@value": "2018-12-31",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+									 										"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+									 						                "shp_targetFile":{
+									 						                   "@id":"dash:projectX/release/DaSH123_SMR01_Release_v1.csv"
+									 						                },
+									 						                "shp_targetFeature":{
+									 						                   "@id":"dash:SMR01/variable/DISCHARGE_DATE"
+									 						                }
+									 						             }
+	, 
+    {
+        "@id":"dash:projectX/release/DaSH123_SMR01_Release_v1.csv#DISCHARGE_TYPE",
+        "@type":[
+           "shp_EntityCharacteristic"
+        ],
+		"shp_dataType":"string",
+		"shp_notNull":{
+      "@value": "230",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+		"shp_notNullPct":{
+      "@value": "100",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+        "shp_minValue":{
+      "@value": "10",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+        "shp_maxValue":{
+      "@value": "11",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+		"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+        "shp_targetFile":{
+           "@id":"dash:projectX/release/DaSH123_SMR01_Release_v1.csv"
+        },
+        "shp_targetFeature":{
+           "@id":"dash:SMR01/variable/DISCHARGE_TYPE"
+        }
+     }								 
+	 
+ 	, 
+     {
+         "@id":"dash:projectX/release/DaSH123_SMR01_Release_v1.csv#DISCHARGE_TRANSFER_TO",
+         "@type":[
+            "shp_EntityCharacteristic"
+         ],
+ 		"shp_dataType":"string",
+ 		"shp_notNull":{
+      "@value": "230",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+ 		"shp_notNullPct":{
+      "@value": "100",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+         "shp_minValue":{
+      "@value": "00",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+         "shp_maxValue":{
+      "@value": "99",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+ 		"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+         "shp_targetFile":{
+            "@id":"dash:projectX/release/DaSH123_SMR01_Release_v1.csv"
+         },
+         "shp_targetFeature":{
+            "@id":"dash:SMR01/variable/DISCHARGE_TRANSFER_TO"
+         }
+      }	
+	  
+   	, 
+       {
+           "@id":"dash:projectX/release/DaSH123_SMR01_Release_v1.csv#SPECIALTY",
+           "@type":[
+              "shp_EntityCharacteristic"
+           ],
+   		"shp_dataType":"string",
+   		"shp_notNull":{
+      "@value": "230",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+   		"shp_notNullPct":{
+      "@value": "100",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+           "shp_minValue":{
+      "@value": "A1",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+           "shp_maxValue":{
+      "@value": "Z9",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+   		"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+           "shp_targetFile":{
+              "@id":"dash:projectX/release/DaSH123_SMR01_Release_v1.csv"
+           },
+           "shp_targetFeature":{
+              "@id":"dash:SMR01/variable/SPECIALTY"
+           }
+        }
+		
+	   	, 
+	       {
+	           "@id":"dash:projectX/release/DaSH123_SMR01_Release_v1.csv#MAIN_CONDITION",
+	           "@type":[
+	              "shp_EntityCharacteristic"
+	           ],
+	   		"shp_dataType":"string",
+	   		"shp_notNull":{
+      "@value": "230",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+	   		"shp_notNullPct":{
+      "@value": "100",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+	           "shp_minValue":{
+      "@value": "D123",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+	           "shp_maxValue":{
+      "@value": "Z987",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+	   		"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+	           "shp_targetFile":{
+	              "@id":"dash:projectX/release/DaSH123_SMR01_Release_v1.csv"
+	           },
+	           "shp_targetFeature":{
+	              "@id":"dash:SMR01/variable/MAIN_CONDITION"
+	           }
+	        }	
+			
+		   	, 
+		       {
+		           "@id":"dash:projectX/release/DaSH123_SMR01_Release_v1.csv#OTHER_CONDITION_1",
+		           "@type":[
+		              "shp_EntityCharacteristic"
+		           ],
+		   		"shp_dataType":"string",
+		   		"shp_notNull":{
+      "@value": "210",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+		   		"shp_notNullPct":{
+      "@value": "91",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+		           "shp_minValue":{
+      "@value": "D123",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+		           "shp_maxValue":{
+      "@value": "D123",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+		   		"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+		           "shp_targetFile":{
+		              "@id":"dash:projectX/release/DaSH123_SMR01_Release_v1.csv"
+		           },
+		           "shp_targetFeature":{
+		              "@id":"dash:SMR01/variable/OTHER_CONDITION_1"
+		           }
+		        }	
+				
+			   	, 
+			       {
+			           "@id":"dash:projectX/release/DaSH123_SMR01_Release_v1.csv#OTHER_CONDITION_2",
+			           "@type":[
+			              "shp_EntityCharacteristic"
+			           ],
+			   		"shp_dataType":"string",
+			   		"shp_notNull":{
+      "@value": "183",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+			   		"shp_notNullPct":{
+      "@value": "80",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+			           "shp_minValue":{
+      "@value": "D123",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+			           "shp_maxValue":{
+      "@value": "D123",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+			   		"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+			           "shp_targetFile":{
+			              "@id":"dash:projectX/release/DaSH123_SMR01_Release_v1.csv"
+			           },
+			           "shp_targetFeature":{
+			              "@id":"dash:SMR01/variable/OTHER_CONDITION_2"
+			           }
+			        }	
+					
+				   	, 
+				       {
+				           "@id":"dash:projectX/release/DaSH123_SMR01_Release_v1.csv#MAIN_OPERATION",
+				           "@type":[
+				              "shp_EntityCharacteristic"
+				           ],
+				   		"shp_dataType":"string",
+				   		"shp_notNull":{
+      "@value": "230",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+				   		"shp_notNullPct":{
+      "@value": "100",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+				           "shp_minValue":{
+      "@value": "XZ98",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+				           "shp_maxValue":{
+      "@value": "DC321",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+				   		"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+				           "shp_targetFile":{
+				              "@id":"dash:projectX/release/DaSH123_SMR01_Release_v1.csv"
+				           },
+				           "shp_targetFeature":{
+				              "@id":"dash:SMR01/variable/MAIN_OPERATION"
+				           }
+				        }
+					   	, 
+					       {
+					           "@id":"dash:projectX/release/DaSH123_SMR01_Release_v1.csv#MAIN_OPERATION_1",
+					           "@type":[
+					              "shp_EntityCharacteristic"
+					           ],
+					   		"shp_dataType":"string",
+					   		"shp_notNull":{
+      "@value": "13",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+					   		"shp_notNullPct":{
+      "@value": "6",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+					           "shp_minValue":{
+      "@value": "XZ98",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+					           "shp_maxValue":{
+      "@value": "DC321",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+					   		"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+					           "shp_targetFile":{
+					              "@id":"dash:projectX/release/DaSH123_SMR01_Release_v1.csv"
+					           },
+					           "shp_targetFeature":{
+					              "@id":"dash:SMR01/variable/MAIN_OPERATION_1"
+					           }
+					        }	
+						   	, 
+						       {
+						           "@id":"dash:projectX/release/DaSH123_SMR01_Release_v1.csv#MAIN_OPERATION_2",
+						           "@type":[
+						              "shp_EntityCharacteristic"
+						           ],
+						   		"shp_dataType":"string",
+						   		"shp_notNull":{
+      "@value": "2",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+						   		"shp_notNullPct":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+						           "shp_minValue":{
+      "@value": "XZ98",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+						           "shp_maxValue":{
+      "@value": "XZ98",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+						   		"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+						           "shp_targetFile":{
+						              "@id":"dash:projectX/release/DaSH123_SMR01_Release_v1.csv"
+						           },
+						           "shp_targetFeature":{
+						              "@id":"dash:SMR01/variable/MAIN_OPERATION_2"
+						           }
+						        }
+							   	, 
+							       {
+							           "@id":"dash:projectX/release/DaSH123_SMR01_Release_v1.csv#DATE_OF_MAIN_OPERATION",
+							           "@type":[
+							              "shp_EntityCharacteristic"
+							           ],
+							   		"shp_dataType":"date",
+							   		"shp_notNull":{
+      "@value": "230",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+							   		"shp_notNullPct":{
+      "@value": "100",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+							           "shp_minValue":{
+      "@value": "2015-08-01",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+							           "shp_maxValue":{
+      "@value": "2018-12-31",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+							   		"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+							           "shp_targetFile":{
+							              "@id":"dash:projectX/release/DaSH123_SMR01_Release_v1.csv"
+							           },
+							           "shp_targetFeature":{
+							              "@id":"dash:SMR01/variable/DATE_OF_MAIN_OPERATION"
+							           }
+							        }	
+									
+								   	, 
+								       {
+								           "@id":"dash:projectX/release/DaSH123_SMR01_Release_v1.csv#DATE_OF_MAIN_OPERATION_1",
+								           "@type":[
+								              "shp_EntityCharacteristic"
+								           ],
+								   		"shp_dataType":"date",
+								   		"shp_notNull":{
+      "@value": "13",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+								   		"shp_notNullPct":{
+      "@value": "6",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+								           "shp_minValue":{
+      "@value": "2015-08-08",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+								           "shp_maxValue":{
+      "@value": "2018-12-31",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+								   		"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+								           "shp_targetFile":{
+								              "@id":"dash:projectX/release/DaSH123_SMR01_Release_v1.csv"
+								           },
+								           "shp_targetFeature":{
+								              "@id":"dash:SMR01/variable/DATE_OF_MAIN_OPERATION_1"
+								           }
+								        }
+										
+									   	, 
+									       {
+									           "@id":"dash:projectX/release/DaSH123_SMR01_Release_v1.csv#DATE_OF_MAIN_OPERATION_2",
+									           "@type":[
+									              "shp_EntityCharacteristic"
+									           ],
+									   		"shp_dataType":"date",
+									   		"shp_notNull":{
+      "@value": "2",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+									   		"shp_notNullPct":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+									           "shp_minValue":{
+      "@value": "2015-09-02",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+									           "shp_maxValue":{
+      "@value": "2018-12-31",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+									   		"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+									           "shp_targetFile":{
+									              "@id":"dash:projectX/release/DaSH123_SMR01_Release_v1.csv"
+									           },
+									           "shp_targetFeature":{
+									              "@id":"dash:SMR01/variable/DATE_OF_MAIN_OPERATION_2"
+									           }
+									        }	,    {     "@id":"dash:projectX/DatasetRelease/2023-08-21T14:56:14+00:00",
       "@type":[
          "CreateAction", "shp_DatasetRelease"
       ],
@@ -2932,19 +5928,766 @@
       ],
       "result":[
           {
-             "@id":"dash:projectX/dataRelease/DaSH123_PIS_Release_v1.csv"
+             "@id":"dash:projectX/release/DaSH123_PIS_Release_v1.csv"
           }, 
           {
-             "@id":"dash:projectX/dataRelease/DaSH123_SMR01_Release_v1.csv"
+             "@id":"dash:projectX/release/DaSH123_SMR01_Release_v1.csv"
           }
       ]
-   },    {
+   }, 	     {
+	           "@id":"dash:projectX/signoff/DaSH123_SMR01_Release_v1.csv",
+	           "@type":[
+	              "File", "shp_DataSet"
+	           ],
+	           "description":"In-patient hospital data capturing information throughout patient's hospital stay, diagnosis and operations performed.",
+	           "label":"DaSH123_SMR01_Release_v1.csv",
+	           "path":"file:///c:/projectX/signoff/DaSH123_SMR01_Release_v1.csv",
+	           "shp_hash":"e0d675e5f316bef78bfdf5a00883565",
+			   "wasDerivedFrom":[
+	           {
+	              "@id":"dash:projectX/checked/DaSH123_SMR01_Release_v1.csv"
+	           }],
+	           "wasAttributedTo":{
+	              "@id":"dash:staff/JD"
+	           },
+	           "exifData":[
+	               {
+	                "@id":"dash:projectX/signoff/DaSH123_SMR01_Release_v1.csv#selectedVariables" 
+	               },
+	               
+	               {
+	              "@id":"dash:projectX/signoff/DaSH123_SMR01_Release_v1.csv#DaSH123_StudyNumber"
+	               },
+	               {
+	              "@id":"dash:projectX/signoff/DaSH123_SMR01_Release_v1.csv#ADMISSION_DATE"
+	               },
+	               {
+	              "@id":"dash:projectX/signoff/DaSH123_SMR01_Release_v1.csv#ADMISSION_TYPE"
+	               },
+	               {
+	              "@id":"dash:projectX/signoff/DaSH123_SMR01_Release_v1.csv#ADMISSION_REASON"
+	               },
+	               {
+	              "@id":"dash:projectX/signoff/DaSH123_SMR01_Release_v1.csv#DISCHARGE_DATE"
+	               },
+	               {
+	              "@id":"dash:projectX/signoff/DaSH123_SMR01_Release_v1.csv#DISCHARGE_TYPE"
+	               },
+	               {
+	              "@id":"dash:projectX/signoff/DaSH123_SMR01_Release_v1.csv#DISCHARGE_TRANSFER_TO"
+	               },
+	               {
+	              "@id":"dash:projectX/signoff/DaSH123_SMR01_Release_v1.csv#SPECIALTY"
+	               },
+	               {
+	              "@id":"dash:projectX/signoff/DaSH123_SMR01_Release_v1.csv#MAIN_CONDITION"
+	               },
+	               {
+	              "@id":"dash:projectX/signoff/DaSH123_SMR01_Release_v1.csv#OTHER_CONDITION_1"
+	               },
+	               {
+	              "@id":"dash:projectX/signoff/DaSH123_SMR01_Release_v1.csv#OTHER_CONDITION_2"
+	               },
+	               {
+	              "@id":"dash:projectX/signoff/DaSH123_SMR01_Release_v1.csv#MAIN_OPERATION"
+	               },
+	               {
+	              "@id":"dash:projectX/signoff/DaSH123_SMR01_Release_v1.csv#MAIN_OPERATION_1"
+	               },
+	               {
+	              "@id":"dash:projectX/signoff/DaSH123_SMR01_Release_v1.csv#MAIN_OPERATION_2"
+	               },
+	               {
+	              "@id":"dash:projectX/signoff/DaSH123_SMR01_Release_v1.csv#DATE_OF_MAIN_OPERATION"
+	               },
+	               {
+	              "@id":"dash:projectX/signoff/DaSH123_SMR01_Release_v1.csv#DATE_OF_MAIN_OPERATION_1"
+	               },
+	               {
+	              "@id":"dash:projectX/signoff/DaSH123_SMR01_Release_v1.csv#DATE_OF_MAIN_OPERATION_2"
+	               },
+	              
+	               {
+	                  "@id":"dash:projectX/signoff/DaSH123_SMR01_Release_v1.csv#summaryStats"
+	               }
+	           ]
+	        }, 
+			{
+	        "@id":"dash:projectX/signoff/DaSH123_SMR01_Release_v1.csv#selectedVariables",
+	                "@type":[
+	                   "shp_SelectedVariables"
+	                ],
+	                "hadMember":[
+				        {
+				           "@id":"dash:SMR01/variable/DaSH123_StudyNumber"
+				        }, 
+				        {
+				           "@id":"dash:SMR01/variable/ADMISSION_DATE"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/ADMISSION_TYPE"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/ADMISSION_REASON"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/DISCHARGE_DATE"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/DISCHARGE_TYPE"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/DISCHARGE_TRANSFER_TO"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/SPECIALTY"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/MAIN_CONDITION"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/OTHER_CONDITION_1"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/OTHER_CONDITION_2"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/MAIN_OPERATION"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/MAIN_OPERATION_1"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/MAIN_OPERATION_2"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/DATE_OF_MAIN_OPERATION"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/DATE_OF_MAIN_OPERATION_1"
+				        },
+				        {
+				           "@id":"dash:SMR01/variable/DATE_OF_MAIN_OPERATION_2"
+				        }
+	                ]
+	         }, 
+             {
+                "@id":"dash:projectX/signoff/DaSH123_SMR01_Release_v1.csv#summaryStats",
+                "@type":[
+                   "shp_EntityCharacteristic"
+                ],
+                "shp_rowCount":{
+      "@value": "230",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+				"shp_uniqueChiCount":{
+      "@value": "211",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+				"shp_maleFemaleRatio":{
+      "@value": "49",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+                "shp_targetFile":{
+                   "@id":"dash:projectX/signoff/DaSH123_SMR01_Release_v1.csv"
+                }
+             }
+			 ,
+
+			            {
+			                "@id":"dash:projectX/signoff/DaSH123_SMR01_Release_v1.csv#DaSH123_StudyNumber",
+			                "@type":[
+			                   "shp_EntityCharacteristic"
+			                ],
+							"shp_dataType":"numeric",
+							"shp_notNull": {
+      "@value": "230",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+     
+							"shp_notNullPct": {
+      "@value": "100",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+     
+			                "shp_minValue":{
+      "@value": "6666000001",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+			                "shp_maxValue":{
+      "@value": "6666000658",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+							"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+     
+			                "shp_targetFile":{
+			                   "@id":"dash:projectX/signoff/DaSH123_SMR01_Release_v1.csv"
+			                },
+			                "shp_targetFeature":{
+			                   "@id":"dash:SMR01/variable/DaSH123_StudyNumber"
+			                }
+			             }
+						 ,
+
+						            {
+						                "@id":"dash:projectX/signoff/DaSH123_SMR01_Release_v1.csv#ADMISSION_DATE",
+						                "@type":[
+						                   "shp_EntityCharacteristic"
+						                ],
+										"shp_dataType":"date",
+										"shp_notNull":{
+      "@value": "230",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+     
+										"shp_notNullPct":{
+      "@value": "100",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+						                "shp_minValue":{
+      "@value": "2015-08-01",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+						                "shp_maxValue":{
+      "@value": "2018-12-31",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+										"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+						                "shp_targetFile":{
+						                   "@id":"dash:projectX/signoff/DaSH123_SMR01_Release_v1.csv"
+						                },
+						                "shp_targetFeature":{
+						                   "@id":"dash:SMR01/variable/ADMISSION_DATE"
+						                }
+						             } ,
+
+						            {
+						                "@id":"dash:projectX/signoff/DaSH123_SMR01_Release_v1.csv#ADMISSION_TYPE",
+						                "@type":[
+						                   "shp_EntityCharacteristic"
+						                ],
+										"shp_dataType":"numeric",
+										"shp_notNull":{
+      "@value": "230",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+										"shp_notNullPct":{
+      "@value": "100",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+						                "shp_minValue":{
+      "@value": "11",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+						                "shp_maxValue":{
+      "@value": "99",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+										"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+						                "shp_targetFile":{
+						                   "@id":"dash:projectX/signoff/DaSH123_SMR01_Release_v1.csv"
+						                },
+						                "shp_targetFeature":{
+						                   "@id":"dash:SMR01/variable/ADMISSION_TYPE"
+						                }
+									} ,
+
+						            {
+						                "@id":"dash:projectX/signoff/DaSH123_SMR01_Release_v1.csv#ADMISSION_REASON",
+						                "@type":[
+						                   "shp_EntityCharacteristic"
+						                ],
+										"shp_dataType":"string",
+										"shp_notNull":{
+      "@value": "230",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+										"shp_notNullPct":{
+      "@value": "100",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+						                "shp_minValue":{
+      "@value": "1A",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+						               
+										"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+						                "shp_targetFile":{
+						                   "@id":"dash:projectX/signoff/DaSH123_SMR01_Release_v1.csv"
+						                },
+						                "shp_targetFeature":{
+						                   "@id":"dash:SMR01/variable/ADMISSION_REASON"
+						                }
+						             }
+									 ,
+
+									 						            {
+									 						                "@id":"dash:projectX/signoff/DaSH123_SMR01_Release_v1.csv#DISCHARGE_DATE",
+									 						                "@type":[
+									 						                   "shp_EntityCharacteristic"
+									 						                ],
+									 										"shp_dataType":"date",
+									 										"shp_notNull":{
+      "@value": "230",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+									 										"shp_notNullPct":{
+      "@value": "100",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+									 						                "shp_minValue":{
+      "@value": "2015-08-06",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+						                                                    "shp_maxValue":{
+      "@value": "2018-12-31",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+									 										"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+									 						                "shp_targetFile":{
+									 						                   "@id":"dash:projectX/signoff/DaSH123_SMR01_Release_v1.csv"
+									 						                },
+									 						                "shp_targetFeature":{
+									 						                   "@id":"dash:SMR01/variable/DISCHARGE_DATE"
+									 						                }
+									 						             }
+	, 
+    {
+        "@id":"dash:projectX/signoff/DaSH123_SMR01_Release_v1.csv#DISCHARGE_TYPE",
+        "@type":[
+           "shp_EntityCharacteristic"
+        ],
+		"shp_dataType":"string",
+		"shp_notNull":{
+      "@value": "230",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+		"shp_notNullPct":{
+      "@value": "100",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+        "shp_minValue":{
+      "@value": "10",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+        "shp_maxValue":{
+      "@value": "11",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+		"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+        "shp_targetFile":{
+           "@id":"dash:projectX/signoff/DaSH123_SMR01_Release_v1.csv"
+        },
+        "shp_targetFeature":{
+           "@id":"dash:SMR01/variable/DISCHARGE_TYPE"
+        }
+     }								 
+	 
+ 	, 
+     {
+         "@id":"dash:projectX/signoff/DaSH123_SMR01_Release_v1.csv#DISCHARGE_TRANSFER_TO",
+         "@type":[
+            "shp_EntityCharacteristic"
+         ],
+ 		"shp_dataType":"string",
+ 		"shp_notNull":{
+      "@value": "230",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+ 		"shp_notNullPct":{
+      "@value": "100",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+         "shp_minValue":{
+      "@value": "00",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+         "shp_maxValue":{
+      "@value": "99",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+ 		"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+         "shp_targetFile":{
+            "@id":"dash:projectX/signoff/DaSH123_SMR01_Release_v1.csv"
+         },
+         "shp_targetFeature":{
+            "@id":"dash:SMR01/variable/DISCHARGE_TRANSFER_TO"
+         }
+      }	
+	  
+   	, 
+       {
+           "@id":"dash:projectX/signoff/DaSH123_SMR01_Release_v1.csv#SPECIALTY",
+           "@type":[
+              "shp_EntityCharacteristic"
+           ],
+   		"shp_dataType":"string",
+   		"shp_notNull":{
+      "@value": "230",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+   		"shp_notNullPct":{
+      "@value": "100",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+           "shp_minValue":{
+      "@value": "A1",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+           "shp_maxValue":{
+      "@value": "Z9",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+   		"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+           "shp_targetFile":{
+              "@id":"dash:projectX/signoff/DaSH123_SMR01_Release_v1.csv"
+           },
+           "shp_targetFeature":{
+              "@id":"dash:SMR01/variable/SPECIALTY"
+           }
+        }
+		
+	   	, 
+	       {
+	           "@id":"dash:projectX/signoff/DaSH123_SMR01_Release_v1.csv#MAIN_CONDITION",
+	           "@type":[
+	              "shp_EntityCharacteristic"
+	           ],
+	   		"shp_dataType":"string",
+	   		"shp_notNull":{
+      "@value": "230",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+	   		"shp_notNullPct":{
+      "@value": "100",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+	           "shp_minValue":{
+      "@value": "D123",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+	           "shp_maxValue":{
+      "@value": "Z987",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+	   		"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+	           "shp_targetFile":{
+	              "@id":"dash:projectX/signoff/DaSH123_SMR01_Release_v1.csv"
+	           },
+	           "shp_targetFeature":{
+	              "@id":"dash:SMR01/variable/MAIN_CONDITION"
+	           }
+	        }	
+			
+		   	, 
+		       {
+		           "@id":"dash:projectX/signoff/DaSH123_SMR01_Release_v1.csv#OTHER_CONDITION_1",
+		           "@type":[
+		              "shp_EntityCharacteristic"
+		           ],
+		   		"shp_dataType":"string",
+		   		"shp_notNull":{
+      "@value": "210",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+		   		"shp_notNullPct":{
+      "@value": "91",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+		           "shp_minValue":{
+      "@value": "D123",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+		           "shp_maxValue":{
+      "@value": "D123",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+		   		"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+		           "shp_targetFile":{
+		              "@id":"dash:projectX/signoff/DaSH123_SMR01_Release_v1.csv"
+		           },
+		           "shp_targetFeature":{
+		              "@id":"dash:SMR01/variable/OTHER_CONDITION_1"
+		           }
+		        }	
+				
+			   	, 
+			       {
+			           "@id":"dash:projectX/signoff/DaSH123_SMR01_Release_v1.csv#OTHER_CONDITION_2",
+			           "@type":[
+			              "shp_EntityCharacteristic"
+			           ],
+			   		"shp_dataType":"string",
+			   		"shp_notNull":{
+      "@value": "183",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+			   		"shp_notNullPct":{
+      "@value": "80",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+			           "shp_minValue":{
+      "@value": "D123",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+			           "shp_maxValue":{
+      "@value": "D123",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+			   		"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+			           "shp_targetFile":{
+			              "@id":"dash:projectX/signoff/DaSH123_SMR01_Release_v1.csv"
+			           },
+			           "shp_targetFeature":{
+			              "@id":"dash:SMR01/variable/OTHER_CONDITION_2"
+			           }
+			        }	
+					
+				   	, 
+				       {
+				           "@id":"dash:projectX/signoff/DaSH123_SMR01_Release_v1.csv#MAIN_OPERATION",
+				           "@type":[
+				              "shp_EntityCharacteristic"
+				           ],
+				   		"shp_dataType":"string",
+				   		"shp_notNull":{
+      "@value": "230",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+				   		"shp_notNullPct":{
+      "@value": "100",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+				           "shp_minValue":{
+      "@value": "XZ98",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+				           "shp_maxValue":{
+      "@value": "DC321",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+				   		"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+				           "shp_targetFile":{
+				              "@id":"dash:projectX/signoff/DaSH123_SMR01_Release_v1.csv"
+				           },
+				           "shp_targetFeature":{
+				              "@id":"dash:SMR01/variable/MAIN_OPERATION"
+				           }
+				        }
+					   	, 
+					       {
+					           "@id":"dash:projectX/signoff/DaSH123_SMR01_Release_v1.csv#MAIN_OPERATION_1",
+					           "@type":[
+					              "shp_EntityCharacteristic"
+					           ],
+					   		"shp_dataType":"string",
+					   		"shp_notNull":{
+      "@value": "13",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+					   		"shp_notNullPct":{
+      "@value": "6",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+					           "shp_minValue":{
+      "@value": "XZ98",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+					           "shp_maxValue":{
+      "@value": "DC321",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+					   		"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+					           "shp_targetFile":{
+					              "@id":"dash:projectX/signoff/DaSH123_SMR01_Release_v1.csv"
+					           },
+					           "shp_targetFeature":{
+					              "@id":"dash:SMR01/variable/MAIN_OPERATION_1"
+					           }
+					        }	
+						   	, 
+						       {
+						           "@id":"dash:projectX/signoff/DaSH123_SMR01_Release_v1.csv#MAIN_OPERATION_2",
+						           "@type":[
+						              "shp_EntityCharacteristic"
+						           ],
+						   		"shp_dataType":"string",
+						   		"shp_notNull":{
+      "@value": "2",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+						   		"shp_notNullPct":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+						           "shp_minValue":{
+      "@value": "XZ98",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+						           "shp_maxValue":{
+      "@value": "XZ98",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+						   		"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+						           "shp_targetFile":{
+						              "@id":"dash:projectX/signoff/DaSH123_SMR01_Release_v1.csv"
+						           },
+						           "shp_targetFeature":{
+						              "@id":"dash:SMR01/variable/MAIN_OPERATION_2"
+						           }
+						        }
+							   	, 
+							       {
+							           "@id":"dash:projectX/signoff/DaSH123_SMR01_Release_v1.csv#DATE_OF_MAIN_OPERATION",
+							           "@type":[
+							              "shp_EntityCharacteristic"
+							           ],
+							   		"shp_dataType":"date",
+							   		"shp_notNull":{
+      "@value": "230",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+							   		"shp_notNullPct":{
+      "@value": "100",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+							           "shp_minValue":{
+      "@value": "2015-08-01",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+							           "shp_maxValue":{
+      "@value": "2018-12-31",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+							   		"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+							           "shp_targetFile":{
+							              "@id":"dash:projectX/signoff/DaSH123_SMR01_Release_v1.csv"
+							           },
+							           "shp_targetFeature":{
+							              "@id":"dash:SMR01/variable/DATE_OF_MAIN_OPERATION"
+							           }
+							        }	
+									
+								   	, 
+								       {
+								           "@id":"dash:projectX/signoff/DaSH123_SMR01_Release_v1.csv#DATE_OF_MAIN_OPERATION_1",
+								           "@type":[
+								              "shp_EntityCharacteristic"
+								           ],
+								   		"shp_dataType":"date",
+								   		"shp_notNull":{
+      "@value": "13",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+								   		"shp_notNullPct":{
+      "@value": "6",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+								           "shp_minValue":{
+      "@value": "2015-08-08",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+								           "shp_maxValue":{
+      "@value": "2018-12-31",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+								   		"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+								           "shp_targetFile":{
+								              "@id":"dash:projectX/signoff/DaSH123_SMR01_Release_v1.csv"
+								           },
+								           "shp_targetFeature":{
+								              "@id":"dash:SMR01/variable/DATE_OF_MAIN_OPERATION_1"
+								           }
+								        }
+										
+									   	, 
+									       {
+									           "@id":"dash:projectX/signoff/DaSH123_SMR01_Release_v1.csv#DATE_OF_MAIN_OPERATION_2",
+									           "@type":[
+									              "shp_EntityCharacteristic"
+									           ],
+									   		"shp_dataType":"date",
+									   		"shp_notNull":{
+      "@value": "2",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+									   		"shp_notNullPct":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+									           "shp_minValue":{
+      "@value": "2015-09-02",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+									           "shp_maxValue":{
+      "@value": "2018-12-31",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+									   		"shp_smallestDistinctNumber":{
+      "@value": "1",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+									           "shp_targetFile":{
+									              "@id":"dash:projectX/signoff/DaSH123_SMR01_Release_v1.csv"
+									           },
+									           "shp_targetFeature":{
+									              "@id":"dash:SMR01/variable/DATE_OF_MAIN_OPERATION_2"
+									           }
+									        }	,    {
       "@id":"dash:projectX/dlp",
       "@type":[
          "File",
          "shp_DataLinkagePlan"
       ],
-      "description":"This  is  data  linkage plan description.",
+      "description":"Data Linkage Plan for project X.",
       "label":"dlp",
       "path":"file:///c:/projectX/documents/linkagePlan.csv",
 	  "shp_hash":"e0d123e5f316bef78bfdf5a008837577",
@@ -2953,10 +6696,10 @@
       ],
       "exifData":[
          {
-            "@id":"dash:project1/linkagePlan.csv#DataSource.PIS"
+            "@id":"dash:projectX/dlp#DataSource.PIS"
          },
          {
-            "@id":"dash:project1/linkagePlan.csv#DataSource.SMR01"
+            "@id":"dash:projectX/dlp#DataSource.SMR01"
          }
       ]
    }, 
@@ -2973,7 +6716,7 @@
       },
       "shp_constraint":[
          {
-         "@id":"dash:project1/linkagePlan.csv#VariableConstraint.PIS_PRESCRIBED_DATE"
+         "@id":"dash:projectX/dlp#VariableConstraint.PIS_PRESCRIBED_DATE"
          }
       ]
    }, 
@@ -3004,14 +6747,154 @@
    ]
 }, 
 {
-   "@id":"dash:project1/linkagePlan.csv#VariableConstraint.PIS_PRESCRIBED_DATE",
+   "@id":"dash:projectX/dlp#VariableConstraint.PIS_PRESCRIBED_DATE",
    "@type":[
       "shp_VariableConstraint"
    ],
-   "shp_minValue":"01-08-2015",
-   "shp_maxValue":"31-12-2018",
+   "shp_minValue":{
+      "@value": "2015-08-01",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+   "shp_maxValue":{
+      "@value": "2018-12-31",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
    "shp_targetFeature":{
       "@id":"dash:PIS/variable/PRESCRIBED_DATE"
+   }
+}, 
+
+   {
+      "@id":"dash:projectX/dlp#DataSource.SMR01",
+      "@type":[
+         "shp_LinkagePlanDataSource"
+      ],
+      "label":"SMR01 Data Source",
+	  "shp_database":{"@id":"dash:database/SMR01"},
+      "shp_requestedVariables":{
+         "@id":"dash:projectX/dlp#RequestedVariables.SMR01"
+      },
+      "shp_constraint":[
+         {
+         "@id":"dash:projectX/dlp#VariableConstraint.SMR01_ADMISSION_DATE"
+         },
+         {
+         "@id":"dash:projectX/dlp#VariableConstraint.SMR01_DATE_OF_MAIN_OPERATION_1"
+         },
+         {
+         "@id":"dash:projectX/dlp#VariableConstraint.SMR01_DATE_OF_MAIN_OPERATION_2"
+         }
+      ]
+   }, 
+   {
+   "@id":"dash:projectX/dlp#RequestedVariables.SMR01",
+   "@type":[
+      "shp_RequestedVariables"
+   ],
+   "hadMember":[
+      {
+         "@id":"dash:SMR01/variable/DaSH123_StudyNumber"
+      }, 
+      {
+         "@id":"dash:SMR01/variable/ADMISSION_DATE"
+      },
+      {
+         "@id":"dash:SMR01/variable/ADMISSION_TYPE"
+      },
+      {
+         "@id":"dash:SMR01/variable/ADMISSION_REASON"
+      },
+      {
+         "@id":"dash:SMR01/variable/DISCHARGE_DATE"
+      },
+      {
+         "@id":"dash:SMR01/variable/DISCHARGE_TYPE"
+      },
+      {
+         "@id":"dash:SMR01/variable/DISCHARGE_TRANSFER_TO"
+      },
+      {
+         "@id":"dash:SMR01/variable/SPECIALTY"
+      },
+      {
+         "@id":"dash:SMR01/variable/MAIN_CONDITION"
+      },
+      {
+         "@id":"dash:SMR01/variable/OTHER_CONDITION_1"
+      },
+      {
+         "@id":"dash:SMR01/variable/OTHER_CONDITION_2"
+      },
+      {
+         "@id":"dash:SMR01/variable/MAIN_OPERATION"
+      },
+      {
+         "@id":"dash:SMR01/variable/MAIN_OPERATION_1"
+      },
+      {
+         "@id":"dash:SMR01/variable/MAIN_OPERATION_2"
+      },
+      {
+         "@id":"dash:SMR01/variable/DATE_OF_MAIN_OPERATION"
+      },
+      {
+         "@id":"dash:SMR01/variable/DATE_OF_MAIN_OPERATION_1"
+      },
+      {
+         "@id":"dash:SMR01/variable/DATE_OF_MAIN_OPERATION_2"
+      }
+      
+   ]
+},
+{
+   "@id":"dash:projectX/dlp#VariableConstraint.SMR01_ADMISSION_DATE",
+   "@type":[
+      "shp_VariableConstraint"
+   ],
+   "shp_minValue":{
+      "@value": "2015-08-01",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+   "shp_maxValue":{
+      "@value": "2018-12-31",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+   "shp_targetFeature":{
+      "@id":"dash:SMR01/variable/ADMISSION_DATE"
+   }
+},
+{
+   "@id":"dash:projectX/dlp#VariableConstraint.SMR01_DATE_OF_MAIN_OPERATION_1",
+   "@type":[
+      "shp_VariableConstraint"
+   ],
+   "shp_minValue":{
+      "@value": "2015-08-08",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+   "shp_maxValue":{
+      "@value": "2018-12-31",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+   "shp_targetFeature":{
+      "@id":"dash:SMR01/variable/DATE_OF_MAIN_OPERATION_1"
+   }
+},
+{
+   "@id":"dash:projectX/dlp#VariableConstraint.SMR01_DATE_OF_MAIN_OPERATION_2",
+   "@type":[
+      "shp_VariableConstraint"
+   ],
+   "shp_minValue":{
+      "@value": "2015-09-02",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+   "shp_maxValue":{
+      "@value": "2018-12-31",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+   "shp_targetFeature":{
+      "@id":"dash:SMR01/variable/DATE_OF_MAIN_OPERATION_2"
    }
 },    {     "@id":"dash:projectX/SignOff/2023-08-21T13:56:14+00:00",
       "@type":[
@@ -3026,7 +6909,12 @@
       "label":"Sign Off",
 	  "endTime": "2023-08-21T13:56:14+00:00",
       "object":[
-         
+          {
+             "@id":"dash:projectX/checked/DaSH123_PIS_Release_v1.csv"
+          }, 
+          {
+             "@id":"dash:projectX/checked/DaSH123_SMR01_Release_v1.csv"
+          }
       ],
       "result":[
          {
@@ -3049,10 +6937,20 @@
       "label":"Validation Check",
 	  "endTime": "2023-08-20T12:56:14+00:00",
       "object":[
-         
+          {
+             "@id":"dash:projectX/linked/DaSH123_PIS_Release_v1.csv"
+          }, 
+          {
+             "@id":"dash:projectX/linked/DaSH123_SMR01_Release_v1.csv"
+          }
       ],
       "result":[
-        
+          {
+             "@id":"dash:projectX/checked/DaSH123_PIS_Release_v1.csv"
+          }, 
+          {
+             "@id":"dash:projectX/checked/DaSH123_SMR01_Release_v1.csv"
+          }
       ]
    }, {"@id":"dash:PIS/variable/PAID_DATE",
 "@type":["shp_Variable"],"label":"PAID DATE"
@@ -3071,4 +6969,73 @@
 },
 {"@id":"dash:PIS/variable/PAID_QUANTITY",
 "@type":["shp_Variable"],"label":"PAID QUANTITY"
+},
+
+{
+   "@id":"dash:SMR01/variable/DaSH123_StudyNumber",
+   "@type":["shp_Variable"],"label":"DaSH123 StudyNumber"
+}, 
+{
+   "@id":"dash:SMR01/variable/ADMISSION_DATE",
+   "@type":["shp_Variable"],"label":"ADMISSION DATE"
+},
+{
+   "@id":"dash:SMR01/variable/ADMISSION_TYPE",
+   "@type":["shp_Variable"],"label":"ADMISSION TYPE"
+},
+{
+   "@id":"dash:SMR01/variable/ADMISSION_REASON",
+   "@type":["shp_Variable"],"label":"ADMISSION REASON"
+},
+{
+   "@id":"dash:SMR01/variable/DISCHARGE_DATE",
+   "@type":["shp_Variable"],"label":"DISCHARGE DATE"
+},
+{
+   "@id":"dash:SMR01/variable/DISCHARGE_TYPE",
+   "@type":["shp_Variable"],"label":"DISCHARGE TYPE"
+},
+{
+   "@id":"dash:SMR01/variable/DISCHARGE_TRANSFER_TO",
+   "@type":["shp_Variable"],"label":"DISCHARGE TRANSFER TO"
+},
+{
+   "@id":"dash:SMR01/variable/SPECIALTY",
+   "@type":["shp_Variable"],"label":"SPECIALTY"
+},
+{
+   "@id":"dash:SMR01/variable/MAIN_CONDITION",
+   "@type":["shp_Variable"],"label":"MAIN CONDITION"
+},
+{
+   "@id":"dash:SMR01/variable/OTHER_CONDITION_1",
+   "@type":["shp_Variable"],"label":"OTHER CONDITION 1"
+},
+{
+   "@id":"dash:SMR01/variable/OTHER_CONDITION_2",
+   "@type":["shp_Variable"],"label":"OTHER CONDITION 2"
+},
+{
+   "@id":"dash:SMR01/variable/MAIN_OPERATION",
+   "@type":["shp_Variable"],"label":"MAIN OPERATION"
+},
+{
+   "@id":"dash:SMR01/variable/MAIN_OPERATION_1",
+   "@type":["shp_Variable"],"label":"MAIN OPERATION 1"
+},
+{
+   "@id":"dash:SMR01/variable/MAIN_OPERATION_2",
+   "@type":["shp_Variable"],"label":"MAIN OPERATION 2"
+},
+{
+   "@id":"dash:SMR01/variable/DATE_OF_MAIN_OPERATION",
+   "@type":["shp_Variable"],"label":"DATE OF MAIN OPERATION"
+},
+{
+   "@id":"dash:SMR01/variable/DATE_OF_MAIN_OPERATION_1",
+   "@type":["shp_Variable"],"label":"DATE OF MAIN OPERATION 1"
+},
+{
+   "@id":"dash:SMR01/variable/DATE_OF_MAIN_OPERATION_2",
+   "@type":["shp_Variable"],"label":"DATE OF MAIN OPERATION 2"
 }]}

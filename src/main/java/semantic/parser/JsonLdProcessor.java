@@ -100,7 +100,7 @@ public ArrayList<HashMap<String, String>> getVariablesInPlan () {
  
 
 public ArrayList<HashMap<String, String>>  getVariableStatsForFile(String fileIRI) {
-	String query = Constants.PREFIXES + " SELECT ?minValue ?maxValue ?variableL   WHERE {<"+fileIRI+"> schema:exifData ?item. ?item a shp:EntityCharacteristic; shp:targetFile <"+fileIRI+">; shp:targetFeature/rdfs:label ?variableL; shp:minValue ?minValue; shp:maxValue ?maxValue. }" ;    	
+	String query = Constants.PREFIXES + " SELECT ?minValue ?maxValue ?variableL ?completePct ?complete ?sdn ?dataType   WHERE {<"+fileIRI+"> schema:exifData ?item. ?item a shp:EntityCharacteristic; shp:targetFile <"+fileIRI+">; shp:targetFeature/rdfs:label ?variableL. Optional { ?item shp:minValue ?minValue} Optional {?item shp:maxValue ?maxValue} Optional {?item shp:dataType ?dataType} Optional {?item shp:notNull ?complete} Optional {?item shp:notNullPct ?completePct}  Optional {?item shp:smallestDistinctNumber ?sdn}.  } Order by ?variableL" ;    	
 	System.out.println (query);
 	// Execute SPARQL query
 	ArrayList<HashMap<String, String>>  list = SPARQLUtils.executeSparqlQuery(model, query);    	
@@ -134,7 +134,7 @@ public ArrayList<HashMap<String, String>>  getDatabaseOriginForFile (String data
 
 
 public ArrayList<HashMap<String, String>>  getSummaryStatsForFile(String fileIRI) {
-	String query = Constants.PREFIXES + " SELECT ?description ?rowCount  WHERE {<"+fileIRI+"> schema:description ?description. Optional {<"+fileIRI+"> schema:exifData ?item. ?item a shp:EntityCharacteristic; shp:targetFile <"+fileIRI+">; shp:rowCount ?rowCount. NOT EXISTS {?item shp:targetFeature ?feature.} } }" ;    	
+	String query = Constants.PREFIXES + " SELECT ?description ?rowCount ?uniqueChi ?ratio  WHERE {<"+fileIRI+"> schema:description ?description. Optional {<"+fileIRI+"> schema:exifData ?item. ?item a shp:EntityCharacteristic; shp:targetFile <"+fileIRI+">. OPTIONAL {?item shp:rowCount ?rowCount.} OPTIONAL {?item shp:maleFemaleRatio ?ratio.} OPTIONAL {?item shp:uniqueChiCount ?uniqueChi.} NOT EXISTS {?item shp:targetFeature ?feature.} } }" ;    	
 	System.out.println (query);
 	// Execute SPARQL query
 	ArrayList<HashMap<String, String>>  list = SPARQLUtils.executeSparqlQuery(model, query);    	
@@ -198,8 +198,8 @@ public  ArrayList<HashMap<String, String>> getLinkagePlanDetails() {
 
 	        // Execute SPARQL query
 	        String queryStr =  "PREFIX shp: <https://w3id.org/shp#> PREFIX schema: <http://schema.org/> PREFIX time: <http://www.w3.org/2006/time#> PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX peco: <https://w3id.org/peco#> PREFIX ecfo: <https://w3id.org/ecfo#>  PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX owl: <http://www.w3.org/2002/07/owl#> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>  PREFIX prov:<http://www.w3.org/ns/prov#> PREFIX qudt: <http://qudt.org/schema/qudt/> "
-	        		+ " SELECT DISTINCT * WHERE {?plan  schema:exifData ?item. ?item a shp:LinkagePlanDataSource.  OPTIONAL {?item shp:constraint ?constraint. ?constraint shp:minValue ?minValue; shp:maxValue ?maxValue; shp:targetFeature ?variable} }";
-	        	 
+	        		+ " SELECT DISTINCT * WHERE {?database rdfs:label ?databaseL.  ?database a shp:Database. ?linkagePlan a shp:DataLinkagePlan; schema:exifData ?dataSource. ?dataSource shp:database ?database.  ?file a shp:DataSet;  prov:wasDerivedFrom* ?s. ?activity a shp:DatasetRelease;schema:result ?file  }";
+	        
 	        			
 
 	        Query query = QueryFactory.create(queryStr);

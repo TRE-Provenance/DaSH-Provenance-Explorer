@@ -1,18 +1,24 @@
 package gui;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Random;
 
 import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JProgressBar;
 import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
 import javax.swing.JTable;
+import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableCellRenderer;
 
 import Utils.GuiUtils;
 import Utils.ValidationUtils;
@@ -35,7 +41,7 @@ public 	DatasetFrame (Dataset dataset,CommentsJsonLdProcessor commentsJsonLdProc
 	
 	setTitle (dataset.getURI());
     setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-    setSize(700, 600);
+    setSize(1200, 600);
     setLocationRelativeTo(null);
 
     JPanel panel = new JPanel(new BorderLayout());
@@ -50,6 +56,8 @@ public 	DatasetFrame (Dataset dataset,CommentsJsonLdProcessor commentsJsonLdProc
     mainInfo.add(GuiUtils.wrapTextWithLabel ("Description: ", summaryStats.get(0).get("description"),null));
     mainInfo.add(GuiUtils.wrapTextWithLabel ("Path: ", dataset.getPath(),null));
     mainInfo.add(GuiUtils.wrapTextWithLabel ("Row Count: ", summaryStats.get(0).get("rowCount"),null));
+    mainInfo.add(GuiUtils.wrapTextWithLabel ("Unique CHIs: ", summaryStats.get(0).get("uniqueChi"),null));
+    mainInfo.add(GuiUtils.wrapTextWithLabel ("Male/Female ratio: ", summaryStats.get(0).get("ratio"),null));
     
    
   
@@ -112,10 +120,14 @@ public 	DatasetFrame (Dataset dataset,CommentsJsonLdProcessor commentsJsonLdProc
     //keep the first column empty
     
     //To do - load dynamically 
-    Object[] columnNames = new Object [3];
+    Object[] columnNames = new Object [7];
     columnNames[0] = "";
-    columnNames[1] = "minValue";
-    columnNames[2] = "maxValue";
+    columnNames[1] = "Data Type";
+    columnNames[2] = "Min Value";
+    columnNames[3] = "Max Value";
+    columnNames[4] = "Smallest Distinct Numb";
+    columnNames[5] = "Complete";
+    columnNames[6] = "Complete (%)";
     
     
     
@@ -125,25 +137,42 @@ public 	DatasetFrame (Dataset dataset,CommentsJsonLdProcessor commentsJsonLdProc
     
     ArrayList<HashMap<String, String>> variableStats = dataProcessor.getVariableStatsForFile(dataset.getURI());
     
-    int NUMB_STATS_DISPLAYED = 2;
+    int NUMB_STATS_DISPLAYED = 6;
    
     Object[][] rowData = new Object[variables.size()][NUMB_STATS_DISPLAYED+1];
     
     
     
-    rowData [0][1] = "minValue";
-    rowData [0][2] = "maxValue";
      	
     	for (int j = 0 ; j < variableStats.size(); j ++ ) {
     		
-    		rowData [j][0] = variableStats.get(j).get("variableL");
-    		rowData [j][1] = variableStats.get(j).get("minValue");
-    		rowData [j][2] = variableStats.get(j).get("maxValue");
+    		rowData [j][0] = GuiUtils.formatDataType(variableStats.get(j).get("variableL"));
+    		rowData [j][1] = GuiUtils.formatDataType(variableStats.get(j).get("dataType"));
+    		rowData [j][2] = GuiUtils.formatDataType(variableStats.get(j).get("minValue"));
+    		rowData [j][3] = GuiUtils.formatDataType(variableStats.get(j).get("maxValue"));
+    		rowData [j][4] = GuiUtils.formatDataType(variableStats.get(j).get("sdn"));
+    		rowData [j][5] = GuiUtils.formatDataType( variableStats.get(j).get("complete"));
+    		rowData [j][6] = GuiUtils.formatDataType(variableStats.get(j).get("completePct"));
+    		
+    		
     	}	
     	   
 
     JTable table = new JTable(rowData, columnNames);
     table.setEnabled(false);
+    
+    
+ // Apply the custom renderer only to the "Percentage" column
+    String columnName = "Complete (%)";
+    int columnIndex = getColumnIndexByName(table, columnName);
+    
+    System.out.println("Column Index: " + columnIndex);
+    
+    if (columnIndex != -1) {
+        table.getColumnModel().getColumn(columnIndex).setCellRenderer(new PercentageColumnRenderer());
+    }
+    
+    
     JScrollPane scrollPane = new JScrollPane(table);
     scrollPane.setPreferredSize(new Dimension(600, 200));
     
@@ -177,5 +206,53 @@ public 	DatasetFrame (Dataset dataset,CommentsJsonLdProcessor commentsJsonLdProc
     setVisible(true);
     
 }
+
+static class PercentageColumnRenderer extends DefaultTableCellRenderer {
+    @Override
+    public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+        Component component = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+        try {
+        int valueInt = Integer.parseInt(value.toString());
+        JLabel label = new JLabel (value.toString());
+        label.setHorizontalAlignment(SwingConstants.CENTER);
+        label.setOpaque(true);
+        label.setBackground(getColorForPercentage (valueInt));
+        
+        return label;
+        
+        }
+        catch (NumberFormatException ex) {
+        	return component;
+        }
+
+        
+    }
+
+    private Color getColorForPercentage(int percentage) {
+        // Customize the color based on the percentage as needed
+        if (percentage < 50) {
+            return Color.RED;
+        } else if (percentage < 100) {
+            return Color.YELLOW;
+        } else {
+            return Color.GREEN;
+        }
+    }
+}
+
+private static int getColumnIndexByName(JTable table, String columnName) {
+    for (int i = 0; i < table.getColumnCount(); i++) {
+        if (table.getColumnName(i).equals(columnName)) {
+            return i;
+        }
+    }
+    return -1; // Column not found
+}
+
+
+
+
+
+
 
 }
