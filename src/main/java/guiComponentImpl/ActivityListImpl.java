@@ -105,6 +105,8 @@ public class ActivityListImpl implements ActivityListInterface {
 			 
 			 Activity newact = new Activity (activityURI);
 			 
+			 newact.setDescription(resultList.get(i).get("description"));
+			 
 			 newact.setActivityL(resultList.get(i).get("activityL"));
 			 
 			 ArrayList<HashMap<String, String>> activityType = dataProcessor.getActivitySHPType(activityURI);

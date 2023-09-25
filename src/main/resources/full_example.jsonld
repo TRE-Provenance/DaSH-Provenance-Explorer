@@ -2669,7 +2669,8 @@
  "shp_maleFemaleRatio":"https://w3id.org/shp#maleFemaleRatio",
   "shp_smallestDistinctNumber":"https://w3id.org/shp#smallestDistinctNumber",
  "shp_DashActivity":"https://w3id.org/shp#DashActivity", 
- "shp_IdLinkage":"https://w3id.org/shp#IdLinkage"
+ "shp_IdLinkage":"https://w3id.org/shp#IdLinkage",
+ "shp_hash":"https://w3id.org/shp#hash"
 }], "@graph": [ 			{
  			      "@id":"dash:database/PIS",
  			      "@type":[
@@ -2806,6 +2807,350 @@
                   "@id":"dash:project1/export/signedOff/data_v1.2.csv"
                }
             }, 	     {
+	           "@id":"dash:projectX/checked/DaSH123_PIS_Release_v1.csv",
+	           "@type":[
+	              "File", "shp_DataSet"
+	           ],
+	           "description":"?",
+	           "label":"DaSH123_PIS_Release_v1.csv",
+	           "path":"file:///c:/projectX/checked/DaSH123_PIS_Release_v1.csv",
+	           "shp_hash":"e0d675e5f316bef78bfdf5a008837600",
+			   "wasDerivedFrom":[
+	           {
+	              "@id":"dash:projectX/linked/DaSH123_PIS_Release_v1.csv"
+	           }],
+	           "wasAttributedTo":{
+	              "@id":"dash:staff/JD"
+	           },
+	           "exifData":[
+	               {
+	                "@id":"dash:projectX/checked/DaSH123_PIS_Release_v1.csv#selectedVariables" 
+	               },
+	               {
+	              "@id":"dash:projectX/checked/DaSH123_PIS_Release_v1.csv#DaSH123_StudyNumber"
+	               },
+	               {
+	              "@id":"dash:projectX/checked/DaSH123_PIS_Release_v1.csv#PAID_DATE"
+	               },
+	               {
+	              "@id":"dash:projectX/checked/DaSH123_PIS_Release_v1.csv#PRESCRIBED_DATE"
+	               },
+	               {
+	              "@id":"dash:projectX/checked/DaSH123_PIS_Release_v1.csv#DISPENSED_DATE"
+	               },
+	               {
+	              "@id":"dash:projectX/checked/DaSH123_PIS_Release_v1.csv#PI_APPROVED_NAME"
+	               },
+	               {
+	              "@id":"dash:projectX/checked/DaSH123_PIS_Release_v1.csv#PI_BNF_ITEM_CODE"
+	               },
+	               {
+	              "@id":"dash:projectX/checked/DaSH123_PIS_Release_v1.csv#PAID_QUANTITY"
+	               },
+	               {
+	                  "@id":"dash:projectX/checked/DaSH123_PIS_Release_v1.csv#summaryStats"
+	               }
+	           ]
+	        }, 
+            {
+               "@id":"dash:projectX/checked/DaSH123_PIS_Release_v1.csv#summaryStats",
+               "@type":[
+                  "shp_EntityCharacteristic"
+               ],
+               "shp_rowCount":{
+     "@value": "12358",
+     "@type": "http://www.w3.org/2001/XMLSchema#integer"
+   },
+			"shp_uniqueChiCount":{
+     "@value": "658",
+     "@type": "http://www.w3.org/2001/XMLSchema#integer"
+   },
+			"shp_maleFemaleRatio":{
+     "@value": "53",
+     "@type": "http://www.w3.org/2001/XMLSchema#integer"
+   },
+               "shp_targetFile":{
+                  "@id":"dash:projectX/checked/DaSH123_PIS_Release_v1.csv"
+               }
+            }
+			,
+			{
+	        "@id":"dash:projectX/checked/DaSH123_PIS_Release_v1.csv#selectedVariables",
+	                "@type":[
+	                   "shp_SelectedVariables"
+	                ],
+	                "hadMember":[
+				        {
+				           "@id":"dash:PIS/variable/DaSH123_StudyNumber"
+				        }, 
+				        {
+				           "@id":"dash:PIS/variable/PAID_DATE"
+				        },
+				        {
+				           "@id":"dash:PIS/variable/PRESCRIBED_DATE"
+				        },
+				        {
+				           "@id":"dash:PIS/variable/DISPENSED_DATE"
+				        },
+				        {
+				           "@id":"dash:PIS/variable/PI_APPROVED_NAME"
+				        },
+				        {
+				           "@id":"dash:PIS/variable/PI_BNF_ITEM_CODE"
+				        },
+				        {
+				           "@id":"dash:PIS/variable/PAID_QUANTITY"
+				        }
+				        
+	                ]
+	         },
+			 
+		            {
+		                "@id":"dash:projectX/checked/DaSH123_PIS_Release_v1.csv#DaSH123_StudyNumber",
+		                "@type":[
+		                   "shp_EntityCharacteristic"
+		                ],
+						"shp_dataType":"numeric",
+						"shp_notNull": {
+  "@value": "12358",
+  "@type": "http://www.w3.org/2001/XMLSchema#integer"
+},
+ 
+						"shp_notNullPct": {
+  "@value": "100",
+  "@type": "http://www.w3.org/2001/XMLSchema#integer"
+},
+ 
+		                "shp_minValue":{
+  "@value": "5555000001",
+  "@type": "http://www.w3.org/2001/XMLSchema#integer"
+},
+		                "shp_maxValue":{
+  "@value": "5555000658",
+  "@type": "http://www.w3.org/2001/XMLSchema#integer"
+},
+						"shp_smallestDistinctNumber":{
+  "@value": "1",
+  "@type": "http://www.w3.org/2001/XMLSchema#integer"
+},
+   "shp_targetFile":{
+      "@id":"dash:projectX/checked/DaSH123_PIS_Release_v1.csv"
+   },
+   "shp_targetFeature":{
+      "@id":"dash:PIS/variable/DaSH123_StudyNumber"
+   }
+}
+					 ,
+
+					            {
+					                "@id":"dash:projectX/checked/DaSH123_PIS_Release_v1.csv#PAID_DATE",
+					                "@type":[
+					                   "shp_EntityCharacteristic"
+					                ],
+									"shp_dataType":"date",
+									"shp_notNull":{
+  "@value": "11384",
+  "@type": "http://www.w3.org/2001/XMLSchema#integer"
+},
+ 
+									"shp_notNullPct":{
+  "@value": "92.11",
+  "@type": "http://www.w3.org/2001/XMLSchema#float"
+},
+					                "shp_minValue":{
+  "@value": "02-08-2015",
+  "@type": "http://www.w3.org/2001/XMLSchema#date"
+},
+					                "shp_maxValue":{
+  "@value": "31-12-2018",
+  "@type": "http://www.w3.org/2001/XMLSchema#date"
+},
+									"shp_smallestDistinctNumber":{
+  "@value": "3",
+  "@type": "http://www.w3.org/2001/XMLSchema#integer"
+},
+					                "shp_targetFile":{
+					                   "@id":"dash:projectX/checked/DaSH123_PIS_Release_v1.csv"
+					                },
+					                "shp_targetFeature":{
+					                   "@id":"dash:PIS/variable/PAID_DATE"
+					                }
+					             } ,
+
+ 					            {
+ 					                "@id":"dash:projectX/checked/DaSH123_PIS_Release_v1.csv#PRESCRIBED_DATE",
+ 					                "@type":[
+ 					                   "shp_EntityCharacteristic"
+ 					                ],
+ 									"shp_dataType":"date",
+ 									"shp_notNull":{
+   "@value": "12358",
+   "@type": "http://www.w3.org/2001/XMLSchema#integer"
+ },
+ 
+ 									"shp_notNullPct":{
+   "@value": "100",
+   "@type": "http://www.w3.org/2001/XMLSchema#float"
+ },
+ 					                "shp_minValue":{
+   "@value": "01-08-2015",
+   "@type": "http://www.w3.org/2001/XMLSchema#date"
+ },
+ 					                "shp_maxValue":{
+   "@value": "31-12-2018",
+   "@type": "http://www.w3.org/2001/XMLSchema#date"
+ },
+ 									"shp_smallestDistinctNumber":{
+   "@value": "2",
+   "@type": "http://www.w3.org/2001/XMLSchema#integer"
+ },
+ 					                "shp_targetFile":{
+ 					                   "@id":"dash:projectX/checked/DaSH123_PIS_Release_v1.csv"
+ 					                },
+ 					                "shp_targetFeature":{
+ 					                   "@id":"dash:PIS/variable/PRESCRIBED_DATE"
+ 					                }
+ 					             } ,
+								 
+  					            {
+  					                "@id":"dash:projectX/checked/DaSH123_PIS_Release_v1.csv#DISPENSED_DATE",
+  					                "@type":[
+  					                   "shp_EntityCharacteristic"
+  					                ],
+  									"shp_dataType":"date",
+  									"shp_notNull":{
+    "@value": "11044",
+    "@type": "http://www.w3.org/2001/XMLSchema#integer"
+  },
+ 
+  									"shp_notNullPct":{
+    "@value": "89.36",
+    "@type": "http://www.w3.org/2001/XMLSchema#float"
+  },
+  					                "shp_minValue":{
+    "@value": "02-08-2015",
+    "@type": "http://www.w3.org/2001/XMLSchema#date"
+  },
+  					                "shp_maxValue":{
+    "@value": "31-12-2018",
+    "@type": "http://www.w3.org/2001/XMLSchema#date"
+  },
+  									"shp_smallestDistinctNumber":{
+    "@value": "3",
+    "@type": "http://www.w3.org/2001/XMLSchema#integer"
+  },
+  					                "shp_targetFile":{
+  					                   "@id":"dash:projectX/checked/DaSH123_PIS_Release_v1.csv"
+  					                },
+  					                "shp_targetFeature":{
+  					                   "@id":"dash:PIS/variable/DISPENSED_DATE"
+  					                }
+  					             } ,	
+								 
+   					            {
+   					                "@id":"dash:projectX/checked/DaSH123_PIS_Release_v1.csv#PI_APPROVED_NAME",
+   					                "@type":[
+   					                   "shp_EntityCharacteristic"
+   					                ],
+   									"shp_dataType":"string",
+   									"shp_notNull":{
+     "@value": "12358",
+     "@type": "http://www.w3.org/2001/XMLSchema#integer"
+   },
+ 
+   									"shp_notNullPct":{
+     "@value": "100",
+     "@type": "http://www.w3.org/2001/XMLSchema#float"
+   },
+   					                "shp_minValue":{
+     "@value": "ASPIRIN",
+     "@type": "http://www.w3.org/2001/XMLSchema#string"
+   },
+   					                "shp_maxValue":{
+     "@value": "PARACETAMOL",
+     "@type": "http://www.w3.org/2001/XMLSchema#string"
+   },
+   									"shp_smallestDistinctNumber":{
+     "@value": "1",
+     "@type": "http://www.w3.org/2001/XMLSchema#integer"
+   },
+   					                "shp_targetFile":{
+   					                   "@id":"dash:projectX/checked/DaSH123_PIS_Release_v1.csv"
+   					                },
+   					                "shp_targetFeature":{
+   					                   "@id":"dash:PIS/variable/PI_APPROVED_NAME"
+   					                }
+   					             } ,	
+								 
+    					            {
+    					                "@id":"dash:projectX/checked/DaSH123_PIS_Release_v1.csv#PI_BNF_ITEM_CODE",
+    					                "@type":[
+    					                   "shp_EntityCharacteristic"
+    					                ],
+    									"shp_dataType":"string",
+    									"shp_notNull":{
+      "@value": "12358",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+ 
+    									"shp_notNullPct":{
+      "@value": "100",
+      "@type": "http://www.w3.org/2001/XMLSchema#float"
+    },
+    					                "shp_minValue":{
+      "@value": "GA5HSE05326G356WU764",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+    					                "shp_maxValue":{
+      "@value": "Y35WUSH3ULUSETH23756",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+    									"shp_smallestDistinctNumber":{
+      "@value": "2",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+    					                "shp_targetFile":{
+    					                   "@id":"dash:projectX/checked/DaSH123_PIS_Release_v1.csv"
+    					                },
+    					                "shp_targetFeature":{
+    					                   "@id":"dash:PIS/variable/PI_BNF_ITEM_CODE"
+    					                }
+    					             } ,
+									 
+     					            {
+     					                "@id":"dash:projectX/checked/DaSH123_PIS_Release_v1.csv#PAID_QUANTITY",
+     					                "@type":[
+     					                   "shp_EntityCharacteristic"
+     					                ],
+     									"shp_dataType":"numeric",
+     									"shp_notNull":{
+       "@value": "754",
+       "@type": "http://www.w3.org/2001/XMLSchema#integer"
+     },
+ 
+     									"shp_notNullPct":{
+       "@value": "6.10",
+       "@type": "http://www.w3.org/2001/XMLSchema#float"
+     },
+     					                "shp_minValue":{
+       "@value": "1",
+       "@type": "http://www.w3.org/2001/XMLSchema#integer"
+     },
+     					                "shp_maxValue":{
+       "@value": "5",
+       "@type": "http://www.w3.org/2001/XMLSchema#integer"
+     },
+     									"shp_smallestDistinctNumber":{
+       "@value": "12",
+       "@type": "http://www.w3.org/2001/XMLSchema#integer"
+     },
+     					                "shp_targetFile":{
+     					                   "@id":"dash:projectX/checked/DaSH123_PIS_Release_v1.csv"
+     					                },
+     					                "shp_targetFeature":{
+     					                   "@id":"dash:PIS/variable/PAID_QUANTITY"
+     					                }
+     					             }					     				     				     				     , 	     {
 	           "@id":"dash:projectX/checked/DaSH123_SMR01_Release_v1.csv",
 	           "@type":[
 	              "File", "shp_DataSet"
@@ -3592,7 +3937,7 @@
 	           "@type":[
 	              "File", "shp_DataSet"
 	           ],
-	           "description":"?",
+	           "description":"Non-hospital pharmacy data. Captures prescribed, paid and dispensed drugs.",
 	           "label":"DaSH123_PIS_Release_v1.csv",
 	           "path":"file:///c:/projectX/import/DaSH123_PIS_Release_v1.csv",
 	           "shp_hash":"e0d675e5f316bef78bfdf5a008837588",
@@ -3607,9 +3952,334 @@
 	              "@id":"dash:staff/JD"
 	           },
 	           "exifData":[
-	              
+	               {
+	                "@id":"dash:projectX/import/DaSH123_PIS_Release_v1.csv#selectedVariables" 
+	               },
+	               {
+	              "@id":"dash:projectX/import/DaSH123_PIS_Release_v1.csv#DaSH123_StudyNumber"
+	               },
+	               {
+	              "@id":"dash:projectX/import/DaSH123_PIS_Release_v1.csv#PAID_DATE"
+	               },
+	               {
+	              "@id":"dash:projectX/import/DaSH123_PIS_Release_v1.csv#PRESCRIBED_DATE"
+	               },
+	               {
+	              "@id":"dash:projectX/import/DaSH123_PIS_Release_v1.csv#DISPENSED_DATE"
+	               },
+	               {
+	              "@id":"dash:projectX/import/DaSH123_PIS_Release_v1.csv#PI_APPROVED_NAME"
+	               },
+	               {
+	              "@id":"dash:projectX/import/DaSH123_PIS_Release_v1.csv#PI_BNF_ITEM_CODE"
+	               },
+	               {
+	              "@id":"dash:projectX/import/DaSH123_PIS_Release_v1.csv#PAID_QUANTITY"
+	               },
+	               {
+	                  "@id":"dash:projectX/import/DaSH123_PIS_Release_v1.csv#summaryStats"
+	               }
 	           ]
-	        }, 	     {
+	        }, 
+            {
+               "@id":"dash:projectX/import/DaSH123_PIS_Release_v1.csv#summaryStats",
+               "@type":[
+                  "shp_EntityCharacteristic"
+               ],
+               "shp_rowCount":{
+     "@value": "12358",
+     "@type": "http://www.w3.org/2001/XMLSchema#integer"
+   },
+			"shp_uniqueChiCount":{
+     "@value": "658",
+     "@type": "http://www.w3.org/2001/XMLSchema#integer"
+   },
+			"shp_maleFemaleRatio":{
+     "@value": "53",
+     "@type": "http://www.w3.org/2001/XMLSchema#integer"
+   },
+               "shp_targetFile":{
+                  "@id":"dash:projectX/import/DaSH123_PIS_Release_v1.csv"
+               }
+            }
+			,
+			{
+	        "@id":"dash:projectX/import/DaSH123_PIS_Release_v1.csv#selectedVariables",
+	                "@type":[
+	                   "shp_SelectedVariables"
+	                ],
+	                "hadMember":[
+				        {
+				           "@id":"dash:PIS/variable/DaSH123_StudyNumber"
+				        }, 
+				        {
+				           "@id":"dash:PIS/variable/PAID_DATE"
+				        },
+				        {
+				           "@id":"dash:PIS/variable/PRESCRIBED_DATE"
+				        },
+				        {
+				           "@id":"dash:PIS/variable/DISPENSED_DATE"
+				        },
+				        {
+				           "@id":"dash:PIS/variable/PI_APPROVED_NAME"
+				        },
+				        {
+				           "@id":"dash:PIS/variable/PI_BNF_ITEM_CODE"
+				        },
+				        {
+				           "@id":"dash:PIS/variable/PAID_QUANTITY"
+				        }
+				        
+	                ]
+	         },
+			 
+		            {
+		                "@id":"dash:projectX/import/DaSH123_PIS_Release_v1.csv#DaSH123_StudyNumber",
+		                "@type":[
+		                   "shp_EntityCharacteristic"
+		                ],
+						"shp_dataType":"numeric",
+						"shp_notNull": {
+  "@value": "12358",
+  "@type": "http://www.w3.org/2001/XMLSchema#integer"
+},
+ 
+						"shp_notNullPct": {
+  "@value": "100",
+  "@type": "http://www.w3.org/2001/XMLSchema#integer"
+},
+ 
+		                "shp_minValue":{
+  "@value": "1111000001",
+  "@type": "http://www.w3.org/2001/XMLSchema#integer"
+},
+		                "shp_maxValue":{
+  "@value": "1111000658",
+  "@type": "http://www.w3.org/2001/XMLSchema#integer"
+},
+						"shp_smallestDistinctNumber":{
+  "@value": "1",
+  "@type": "http://www.w3.org/2001/XMLSchema#integer"
+},
+   "shp_targetFile":{
+      "@id":"dash:projectX/import/DaSH123_PIS_Release_v1.csv"
+   },
+   "shp_targetFeature":{
+      "@id":"dash:PIS/variable/DaSH123_StudyNumber"
+   }
+}
+					 ,
+
+					            {
+					                "@id":"dash:projectX/import/DaSH123_PIS_Release_v1.csv#PAID_DATE",
+					                "@type":[
+					                   "shp_EntityCharacteristic"
+					                ],
+									"shp_dataType":"date",
+									"shp_notNull":{
+  "@value": "11384",
+  "@type": "http://www.w3.org/2001/XMLSchema#integer"
+},
+ 
+									"shp_notNullPct":{
+  "@value": "92.11",
+  "@type": "http://www.w3.org/2001/XMLSchema#float"
+},
+					                "shp_minValue":{
+  "@value": "02-08-2015",
+  "@type": "http://www.w3.org/2001/XMLSchema#date"
+},
+					                "shp_maxValue":{
+  "@value": "31-12-2018",
+  "@type": "http://www.w3.org/2001/XMLSchema#date"
+},
+									"shp_smallestDistinctNumber":{
+  "@value": "3",
+  "@type": "http://www.w3.org/2001/XMLSchema#integer"
+},
+					                "shp_targetFile":{
+					                   "@id":"dash:projectX/import/DaSH123_PIS_Release_v1.csv"
+					                },
+					                "shp_targetFeature":{
+					                   "@id":"dash:PIS/variable/PAID_DATE"
+					                }
+					             } ,
+
+ 					            {
+ 					                "@id":"dash:projectX/import/DaSH123_PIS_Release_v1.csv#PRESCRIBED_DATE",
+ 					                "@type":[
+ 					                   "shp_EntityCharacteristic"
+ 					                ],
+ 									"shp_dataType":"date",
+ 									"shp_notNull":{
+   "@value": "12358",
+   "@type": "http://www.w3.org/2001/XMLSchema#integer"
+ },
+ 
+ 									"shp_notNullPct":{
+   "@value": "100",
+   "@type": "http://www.w3.org/2001/XMLSchema#float"
+ },
+ 					                "shp_minValue":{
+   "@value": "01-08-2015",
+   "@type": "http://www.w3.org/2001/XMLSchema#date"
+ },
+ 					                "shp_maxValue":{
+   "@value": "31-12-2018",
+   "@type": "http://www.w3.org/2001/XMLSchema#date"
+ },
+ 									"shp_smallestDistinctNumber":{
+   "@value": "2",
+   "@type": "http://www.w3.org/2001/XMLSchema#integer"
+ },
+ 					                "shp_targetFile":{
+ 					                   "@id":"dash:projectX/import/DaSH123_PIS_Release_v1.csv"
+ 					                },
+ 					                "shp_targetFeature":{
+ 					                   "@id":"dash:PIS/variable/PRESCRIBED_DATE"
+ 					                }
+ 					             } ,
+								 
+  					            {
+  					                "@id":"dash:projectX/import/DaSH123_PIS_Release_v1.csv#DISPENSED_DATE",
+  					                "@type":[
+  					                   "shp_EntityCharacteristic"
+  					                ],
+  									"shp_dataType":"date",
+  									"shp_notNull":{
+    "@value": "11044",
+    "@type": "http://www.w3.org/2001/XMLSchema#integer"
+  },
+ 
+  									"shp_notNullPct":{
+    "@value": "89.36",
+    "@type": "http://www.w3.org/2001/XMLSchema#float"
+  },
+  					                "shp_minValue":{
+    "@value": "02-08-2015",
+    "@type": "http://www.w3.org/2001/XMLSchema#date"
+  },
+  					                "shp_maxValue":{
+    "@value": "31-12-2018",
+    "@type": "http://www.w3.org/2001/XMLSchema#date"
+  },
+  									"shp_smallestDistinctNumber":{
+    "@value": "3",
+    "@type": "http://www.w3.org/2001/XMLSchema#integer"
+  },
+  					                "shp_targetFile":{
+  					                   "@id":"dash:projectX/import/DaSH123_PIS_Release_v1.csv"
+  					                },
+  					                "shp_targetFeature":{
+  					                   "@id":"dash:PIS/variable/DISPENSED_DATE"
+  					                }
+  					             } ,	
+								 
+   					            {
+   					                "@id":"dash:projectX/import/DaSH123_PIS_Release_v1.csv#PI_APPROVED_NAME",
+   					                "@type":[
+   					                   "shp_EntityCharacteristic"
+   					                ],
+   									"shp_dataType":"string",
+   									"shp_notNull":{
+     "@value": "12358",
+     "@type": "http://www.w3.org/2001/XMLSchema#integer"
+   },
+ 
+   									"shp_notNullPct":{
+     "@value": "100",
+     "@type": "http://www.w3.org/2001/XMLSchema#float"
+   },
+   					                "shp_minValue":{
+     "@value": "ASPIRIN",
+     "@type": "http://www.w3.org/2001/XMLSchema#string"
+   },
+   					                "shp_maxValue":{
+     "@value": "PARACETAMOL",
+     "@type": "http://www.w3.org/2001/XMLSchema#string"
+   },
+   									"shp_smallestDistinctNumber":{
+     "@value": "1",
+     "@type": "http://www.w3.org/2001/XMLSchema#integer"
+   },
+   					                "shp_targetFile":{
+   					                   "@id":"dash:projectX/import/DaSH123_PIS_Release_v1.csv"
+   					                },
+   					                "shp_targetFeature":{
+   					                   "@id":"dash:PIS/variable/PI_APPROVED_NAME"
+   					                }
+   					             } ,	
+								 
+    					            {
+    					                "@id":"dash:projectX/import/DaSH123_PIS_Release_v1.csv#PI_BNF_ITEM_CODE",
+    					                "@type":[
+    					                   "shp_EntityCharacteristic"
+    					                ],
+    									"shp_dataType":"string",
+    									"shp_notNull":{
+      "@value": "12358",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+ 
+    									"shp_notNullPct":{
+      "@value": "100",
+      "@type": "http://www.w3.org/2001/XMLSchema#float"
+    },
+    					                "shp_minValue":{
+      "@value": "GA5HSE05326G356WU764",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+    					                "shp_maxValue":{
+      "@value": "Y35WUSH3ULUSETH23756",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+    									"shp_smallestDistinctNumber":{
+      "@value": "2",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+    					                "shp_targetFile":{
+    					                   "@id":"dash:projectX/import/DaSH123_PIS_Release_v1.csv"
+    					                },
+    					                "shp_targetFeature":{
+    					                   "@id":"dash:PIS/variable/PI_BNF_ITEM_CODE"
+    					                }
+    					             } ,
+									 
+     					            {
+     					                "@id":"dash:projectX/import/DaSH123_PIS_Release_v1.csv#PAID_QUANTITY",
+     					                "@type":[
+     					                   "shp_EntityCharacteristic"
+     					                ],
+     									"shp_dataType":"numeric",
+     									"shp_notNull":{
+       "@value": "754",
+       "@type": "http://www.w3.org/2001/XMLSchema#integer"
+     },
+ 
+     									"shp_notNullPct":{
+       "@value": "6.10",
+       "@type": "http://www.w3.org/2001/XMLSchema#float"
+     },
+     					                "shp_minValue":{
+       "@value": "1",
+       "@type": "http://www.w3.org/2001/XMLSchema#integer"
+     },
+     					                "shp_maxValue":{
+       "@value": "5",
+       "@type": "http://www.w3.org/2001/XMLSchema#integer"
+     },
+     									"shp_smallestDistinctNumber":{
+       "@value": "12",
+       "@type": "http://www.w3.org/2001/XMLSchema#integer"
+     },
+     					                "shp_targetFile":{
+     					                   "@id":"dash:projectX/import/DaSH123_PIS_Release_v1.csv"
+     					                },
+     					                "shp_targetFeature":{
+     					                   "@id":"dash:PIS/variable/PAID_QUANTITY"
+     					                }
+     					             }					     				     				     				     , 	     {
 	           "@id":"dash:projectX/import/DaSH123_SMR01_Release_v1.csv",
 	           "@type":[
 	              "File", "shp_DataSet"
@@ -4410,9 +5080,334 @@
 	              "@id":"dash:staff/JD"
 	           },
 	           "exifData":[
-	              
+	               {
+	                "@id":"dash:projectX/linked/DaSH123_PIS_Release_v1.csv#selectedVariables" 
+	               },
+	               {
+	              "@id":"dash:projectX/linked/DaSH123_PIS_Release_v1.csv#DaSH123_StudyNumber"
+	               },
+	               {
+	              "@id":"dash:projectX/linked/DaSH123_PIS_Release_v1.csv#PAID_DATE"
+	               },
+	               {
+	              "@id":"dash:projectX/linked/DaSH123_PIS_Release_v1.csv#PRESCRIBED_DATE"
+	               },
+	               {
+	              "@id":"dash:projectX/linked/DaSH123_PIS_Release_v1.csv#DISPENSED_DATE"
+	               },
+	               {
+	              "@id":"dash:projectX/linked/DaSH123_PIS_Release_v1.csv#PI_APPROVED_NAME"
+	               },
+	               {
+	              "@id":"dash:projectX/linked/DaSH123_PIS_Release_v1.csv#PI_BNF_ITEM_CODE"
+	               },
+	               {
+	              "@id":"dash:projectX/linked/DaSH123_PIS_Release_v1.csv#PAID_QUANTITY"
+	               },
+	               {
+	                  "@id":"dash:projectX/linked/DaSH123_PIS_Release_v1.csv#summaryStats"
+	               }
 	           ]
-	        }, 	     {
+	        }, 
+            {
+               "@id":"dash:projectX/linked/DaSH123_PIS_Release_v1.csv#summaryStats",
+               "@type":[
+                  "shp_EntityCharacteristic"
+               ],
+               "shp_rowCount":{
+     "@value": "12358",
+     "@type": "http://www.w3.org/2001/XMLSchema#integer"
+   },
+			"shp_uniqueChiCount":{
+     "@value": "658",
+     "@type": "http://www.w3.org/2001/XMLSchema#integer"
+   },
+			"shp_maleFemaleRatio":{
+     "@value": "53",
+     "@type": "http://www.w3.org/2001/XMLSchema#integer"
+   },
+               "shp_targetFile":{
+                  "@id":"dash:projectX/linked/DaSH123_PIS_Release_v1.csv"
+               }
+            }
+			,
+			{
+	        "@id":"dash:projectX/linked/DaSH123_PIS_Release_v1.csv#selectedVariables",
+	                "@type":[
+	                   "shp_SelectedVariables"
+	                ],
+	                "hadMember":[
+				        {
+				           "@id":"dash:PIS/variable/DaSH123_StudyNumber"
+				        }, 
+				        {
+				           "@id":"dash:PIS/variable/PAID_DATE"
+				        },
+				        {
+				           "@id":"dash:PIS/variable/PRESCRIBED_DATE"
+				        },
+				        {
+				           "@id":"dash:PIS/variable/DISPENSED_DATE"
+				        },
+				        {
+				           "@id":"dash:PIS/variable/PI_APPROVED_NAME"
+				        },
+				        {
+				           "@id":"dash:PIS/variable/PI_BNF_ITEM_CODE"
+				        },
+				        {
+				           "@id":"dash:PIS/variable/PAID_QUANTITY"
+				        }
+				        
+	                ]
+	         },
+			 
+		            {
+		                "@id":"dash:projectX/linked/DaSH123_PIS_Release_v1.csv#DaSH123_StudyNumber",
+		                "@type":[
+		                   "shp_EntityCharacteristic"
+		                ],
+						"shp_dataType":"numeric",
+						"shp_notNull": {
+  "@value": "12358",
+  "@type": "http://www.w3.org/2001/XMLSchema#integer"
+},
+ 
+						"shp_notNullPct": {
+  "@value": "100",
+  "@type": "http://www.w3.org/2001/XMLSchema#integer"
+},
+ 
+		                "shp_minValue":{
+  "@value": "1111000001",
+  "@type": "http://www.w3.org/2001/XMLSchema#integer"
+},
+		                "shp_maxValue":{
+  "@value": "1111000658",
+  "@type": "http://www.w3.org/2001/XMLSchema#integer"
+},
+						"shp_smallestDistinctNumber":{
+  "@value": "1",
+  "@type": "http://www.w3.org/2001/XMLSchema#integer"
+},
+   "shp_targetFile":{
+      "@id":"dash:projectX/linked/DaSH123_PIS_Release_v1.csv"
+   },
+   "shp_targetFeature":{
+      "@id":"dash:PIS/variable/DaSH123_StudyNumber"
+   }
+}
+					 ,
+
+					            {
+					                "@id":"dash:projectX/linked/DaSH123_PIS_Release_v1.csv#PAID_DATE",
+					                "@type":[
+					                   "shp_EntityCharacteristic"
+					                ],
+									"shp_dataType":"date",
+									"shp_notNull":{
+  "@value": "11384",
+  "@type": "http://www.w3.org/2001/XMLSchema#integer"
+},
+ 
+									"shp_notNullPct":{
+  "@value": "92.11",
+  "@type": "http://www.w3.org/2001/XMLSchema#float"
+},
+					                "shp_minValue":{
+  "@value": "02-08-2015",
+  "@type": "http://www.w3.org/2001/XMLSchema#date"
+},
+					                "shp_maxValue":{
+  "@value": "31-12-2018",
+  "@type": "http://www.w3.org/2001/XMLSchema#date"
+},
+									"shp_smallestDistinctNumber":{
+  "@value": "3",
+  "@type": "http://www.w3.org/2001/XMLSchema#integer"
+},
+					                "shp_targetFile":{
+					                   "@id":"dash:projectX/linked/DaSH123_PIS_Release_v1.csv"
+					                },
+					                "shp_targetFeature":{
+					                   "@id":"dash:PIS/variable/PAID_DATE"
+					                }
+					             } ,
+
+ 					            {
+ 					                "@id":"dash:projectX/linked/DaSH123_PIS_Release_v1.csv#PRESCRIBED_DATE",
+ 					                "@type":[
+ 					                   "shp_EntityCharacteristic"
+ 					                ],
+ 									"shp_dataType":"date",
+ 									"shp_notNull":{
+   "@value": "12358",
+   "@type": "http://www.w3.org/2001/XMLSchema#integer"
+ },
+ 
+ 									"shp_notNullPct":{
+   "@value": "100",
+   "@type": "http://www.w3.org/2001/XMLSchema#float"
+ },
+ 					                "shp_minValue":{
+   "@value": "01-08-2015",
+   "@type": "http://www.w3.org/2001/XMLSchema#date"
+ },
+ 					                "shp_maxValue":{
+   "@value": "31-12-2018",
+   "@type": "http://www.w3.org/2001/XMLSchema#date"
+ },
+ 									"shp_smallestDistinctNumber":{
+   "@value": "2",
+   "@type": "http://www.w3.org/2001/XMLSchema#integer"
+ },
+ 					                "shp_targetFile":{
+ 					                   "@id":"dash:projectX/linked/DaSH123_PIS_Release_v1.csv"
+ 					                },
+ 					                "shp_targetFeature":{
+ 					                   "@id":"dash:PIS/variable/PRESCRIBED_DATE"
+ 					                }
+ 					             } ,
+								 
+  					            {
+  					                "@id":"dash:projectX/linked/DaSH123_PIS_Release_v1.csv#DISPENSED_DATE",
+  					                "@type":[
+  					                   "shp_EntityCharacteristic"
+  					                ],
+  									"shp_dataType":"date",
+  									"shp_notNull":{
+    "@value": "11044",
+    "@type": "http://www.w3.org/2001/XMLSchema#integer"
+  },
+ 
+  									"shp_notNullPct":{
+    "@value": "89.36",
+    "@type": "http://www.w3.org/2001/XMLSchema#float"
+  },
+  					                "shp_minValue":{
+    "@value": "02-08-2015",
+    "@type": "http://www.w3.org/2001/XMLSchema#date"
+  },
+  					                "shp_maxValue":{
+    "@value": "31-12-2018",
+    "@type": "http://www.w3.org/2001/XMLSchema#date"
+  },
+  									"shp_smallestDistinctNumber":{
+    "@value": "3",
+    "@type": "http://www.w3.org/2001/XMLSchema#integer"
+  },
+  					                "shp_targetFile":{
+  					                   "@id":"dash:projectX/linked/DaSH123_PIS_Release_v1.csv"
+  					                },
+  					                "shp_targetFeature":{
+  					                   "@id":"dash:PIS/variable/DISPENSED_DATE"
+  					                }
+  					             } ,	
+								 
+   					            {
+   					                "@id":"dash:projectX/linked/DaSH123_PIS_Release_v1.csv#PI_APPROVED_NAME",
+   					                "@type":[
+   					                   "shp_EntityCharacteristic"
+   					                ],
+   									"shp_dataType":"string",
+   									"shp_notNull":{
+     "@value": "12358",
+     "@type": "http://www.w3.org/2001/XMLSchema#integer"
+   },
+ 
+   									"shp_notNullPct":{
+     "@value": "100",
+     "@type": "http://www.w3.org/2001/XMLSchema#float"
+   },
+   					                "shp_minValue":{
+     "@value": "ASPIRIN",
+     "@type": "http://www.w3.org/2001/XMLSchema#string"
+   },
+   					                "shp_maxValue":{
+     "@value": "PARACETAMOL",
+     "@type": "http://www.w3.org/2001/XMLSchema#string"
+   },
+   									"shp_smallestDistinctNumber":{
+     "@value": "1",
+     "@type": "http://www.w3.org/2001/XMLSchema#integer"
+   },
+   					                "shp_targetFile":{
+   					                   "@id":"dash:projectX/linked/DaSH123_PIS_Release_v1.csv"
+   					                },
+   					                "shp_targetFeature":{
+   					                   "@id":"dash:PIS/variable/PI_APPROVED_NAME"
+   					                }
+   					             } ,	
+								 
+    					            {
+    					                "@id":"dash:projectX/linked/DaSH123_PIS_Release_v1.csv#PI_BNF_ITEM_CODE",
+    					                "@type":[
+    					                   "shp_EntityCharacteristic"
+    					                ],
+    									"shp_dataType":"string",
+    									"shp_notNull":{
+      "@value": "12358",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+ 
+    									"shp_notNullPct":{
+      "@value": "100",
+      "@type": "http://www.w3.org/2001/XMLSchema#float"
+    },
+    					                "shp_minValue":{
+      "@value": "GA5HSE05326G356WU764",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+    					                "shp_maxValue":{
+      "@value": "Y35WUSH3ULUSETH23756",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+    									"shp_smallestDistinctNumber":{
+      "@value": "2",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+    					                "shp_targetFile":{
+    					                   "@id":"dash:projectX/linked/DaSH123_PIS_Release_v1.csv"
+    					                },
+    					                "shp_targetFeature":{
+    					                   "@id":"dash:PIS/variable/PI_BNF_ITEM_CODE"
+    					                }
+    					             } ,
+									 
+     					            {
+     					                "@id":"dash:projectX/linked/DaSH123_PIS_Release_v1.csv#PAID_QUANTITY",
+     					                "@type":[
+     					                   "shp_EntityCharacteristic"
+     					                ],
+     									"shp_dataType":"numeric",
+     									"shp_notNull":{
+       "@value": "754",
+       "@type": "http://www.w3.org/2001/XMLSchema#integer"
+     },
+ 
+     									"shp_notNullPct":{
+       "@value": "6.10",
+       "@type": "http://www.w3.org/2001/XMLSchema#float"
+     },
+     					                "shp_minValue":{
+       "@value": "1",
+       "@type": "http://www.w3.org/2001/XMLSchema#integer"
+     },
+     					                "shp_maxValue":{
+       "@value": "5",
+       "@type": "http://www.w3.org/2001/XMLSchema#integer"
+     },
+     									"shp_smallestDistinctNumber":{
+       "@value": "12",
+       "@type": "http://www.w3.org/2001/XMLSchema#integer"
+     },
+     					                "shp_targetFile":{
+     					                   "@id":"dash:projectX/linked/DaSH123_PIS_Release_v1.csv"
+     					                },
+     					                "shp_targetFeature":{
+     					                   "@id":"dash:PIS/variable/PAID_QUANTITY"
+     					                }
+     					             }					     				     				     				     , 	     {
 	           "@id":"dash:projectX/linked/DaSH123_SMR01_Release_v1.csv",
 	           "@type":[
 	              "File", "shp_DataSet"
@@ -5160,6 +6155,350 @@
 									              "@id":"dash:SMR01/variable/DATE_OF_MAIN_OPERATION_2"
 									           }
 									        }	, 	     {
+	           "@id":"dash:projectX/release/DaSH123_PIS_Release_v1.csv",
+	           "@type":[
+	              "File", "shp_DataSet"
+	           ],
+	           "description":"?",
+	           "label":"DaSH123_PIS_Release_v1.csv",
+	           "path":"file:///c:/projectX/release/DaSH123_PIS_Release_v1.csv",
+	           "shp_hash":"e0d675e5f316bef78bfdf5a008837600",
+			   "wasDerivedFrom":[
+	           {
+	              "@id":"dash:projectX/signoff/DaSH123_PIS_Release_v1.csv"
+	           }],
+	           "wasAttributedTo":{
+	              "@id":"dash:staff/JD"
+	           },
+	           "exifData":[
+	               {
+	                "@id":"dash:projectX/release/DaSH123_PIS_Release_v1.csv#selectedVariables" 
+	               },
+	               {
+	              "@id":"dash:projectX/release/DaSH123_PIS_Release_v1.csv#DaSH123_StudyNumber"
+	               },
+	               {
+	              "@id":"dash:projectX/release/DaSH123_PIS_Release_v1.csv#PAID_DATE"
+	               },
+	               {
+	              "@id":"dash:projectX/release/DaSH123_PIS_Release_v1.csv#PRESCRIBED_DATE"
+	               },
+	               {
+	              "@id":"dash:projectX/release/DaSH123_PIS_Release_v1.csv#DISPENSED_DATE"
+	               },
+	               {
+	              "@id":"dash:projectX/release/DaSH123_PIS_Release_v1.csv#PI_APPROVED_NAME"
+	               },
+	               {
+	              "@id":"dash:projectX/release/DaSH123_PIS_Release_v1.csv#PI_BNF_ITEM_CODE"
+	               },
+	               {
+	              "@id":"dash:projectX/release/DaSH123_PIS_Release_v1.csv#PAID_QUANTITY"
+	               },
+	               {
+	                  "@id":"dash:projectX/release/DaSH123_PIS_Release_v1.csv#summaryStats"
+	               }
+	           ]
+	        }, 
+            {
+               "@id":"dash:projectX/release/DaSH123_PIS_Release_v1.csv#summaryStats",
+               "@type":[
+                  "shp_EntityCharacteristic"
+               ],
+               "shp_rowCount":{
+     "@value": "12358",
+     "@type": "http://www.w3.org/2001/XMLSchema#integer"
+   },
+			"shp_uniqueChiCount":{
+     "@value": "658",
+     "@type": "http://www.w3.org/2001/XMLSchema#integer"
+   },
+			"shp_maleFemaleRatio":{
+     "@value": "53",
+     "@type": "http://www.w3.org/2001/XMLSchema#integer"
+   },
+               "shp_targetFile":{
+                  "@id":"dash:projectX/release/DaSH123_PIS_Release_v1.csv"
+               }
+            }
+			,
+			{
+	        "@id":"dash:projectX/release/DaSH123_PIS_Release_v1.csv#selectedVariables",
+	                "@type":[
+	                   "shp_SelectedVariables"
+	                ],
+	                "hadMember":[
+				        {
+				           "@id":"dash:PIS/variable/DaSH123_StudyNumber"
+				        }, 
+				        {
+				           "@id":"dash:PIS/variable/PAID_DATE"
+				        },
+				        {
+				           "@id":"dash:PIS/variable/PRESCRIBED_DATE"
+				        },
+				        {
+				           "@id":"dash:PIS/variable/DISPENSED_DATE"
+				        },
+				        {
+				           "@id":"dash:PIS/variable/PI_APPROVED_NAME"
+				        },
+				        {
+				           "@id":"dash:PIS/variable/PI_BNF_ITEM_CODE"
+				        },
+				        {
+				           "@id":"dash:PIS/variable/PAID_QUANTITY"
+				        }
+				        
+	                ]
+	         },
+			 
+		            {
+		                "@id":"dash:projectX/release/DaSH123_PIS_Release_v1.csv#DaSH123_StudyNumber",
+		                "@type":[
+		                   "shp_EntityCharacteristic"
+		                ],
+						"shp_dataType":"numeric",
+						"shp_notNull": {
+  "@value": "12358",
+  "@type": "http://www.w3.org/2001/XMLSchema#integer"
+},
+ 
+						"shp_notNullPct": {
+  "@value": "100",
+  "@type": "http://www.w3.org/2001/XMLSchema#integer"
+},
+ 
+		                "shp_minValue":{
+  "@value": "1111000001",
+  "@type": "http://www.w3.org/2001/XMLSchema#integer"
+},
+		                "shp_maxValue":{
+  "@value": "1111000658",
+  "@type": "http://www.w3.org/2001/XMLSchema#integer"
+},
+						"shp_smallestDistinctNumber":{
+  "@value": "1",
+  "@type": "http://www.w3.org/2001/XMLSchema#integer"
+},
+   "shp_targetFile":{
+      "@id":"dash:projectX/release/DaSH123_PIS_Release_v1.csv"
+   },
+   "shp_targetFeature":{
+      "@id":"dash:PIS/variable/DaSH123_StudyNumber"
+   }
+}
+					 ,
+
+					            {
+					                "@id":"dash:projectX/release/DaSH123_PIS_Release_v1.csv#PAID_DATE",
+					                "@type":[
+					                   "shp_EntityCharacteristic"
+					                ],
+									"shp_dataType":"date",
+									"shp_notNull":{
+  "@value": "11384",
+  "@type": "http://www.w3.org/2001/XMLSchema#integer"
+},
+ 
+									"shp_notNullPct":{
+  "@value": "92.11",
+  "@type": "http://www.w3.org/2001/XMLSchema#float"
+},
+					                "shp_minValue":{
+  "@value": "02-08-2015",
+  "@type": "http://www.w3.org/2001/XMLSchema#date"
+},
+					                "shp_maxValue":{
+  "@value": "31-12-2018",
+  "@type": "http://www.w3.org/2001/XMLSchema#date"
+},
+									"shp_smallestDistinctNumber":{
+  "@value": "3",
+  "@type": "http://www.w3.org/2001/XMLSchema#integer"
+},
+					                "shp_targetFile":{
+					                   "@id":"dash:projectX/release/DaSH123_PIS_Release_v1.csv"
+					                },
+					                "shp_targetFeature":{
+					                   "@id":"dash:PIS/variable/PAID_DATE"
+					                }
+					             } ,
+
+ 					            {
+ 					                "@id":"dash:projectX/release/DaSH123_PIS_Release_v1.csv#PRESCRIBED_DATE",
+ 					                "@type":[
+ 					                   "shp_EntityCharacteristic"
+ 					                ],
+ 									"shp_dataType":"date",
+ 									"shp_notNull":{
+   "@value": "12358",
+   "@type": "http://www.w3.org/2001/XMLSchema#integer"
+ },
+ 
+ 									"shp_notNullPct":{
+   "@value": "100",
+   "@type": "http://www.w3.org/2001/XMLSchema#float"
+ },
+ 					                "shp_minValue":{
+   "@value": "01-08-2015",
+   "@type": "http://www.w3.org/2001/XMLSchema#date"
+ },
+ 					                "shp_maxValue":{
+   "@value": "31-12-2018",
+   "@type": "http://www.w3.org/2001/XMLSchema#date"
+ },
+ 									"shp_smallestDistinctNumber":{
+   "@value": "2",
+   "@type": "http://www.w3.org/2001/XMLSchema#integer"
+ },
+ 					                "shp_targetFile":{
+ 					                   "@id":"dash:projectX/release/DaSH123_PIS_Release_v1.csv"
+ 					                },
+ 					                "shp_targetFeature":{
+ 					                   "@id":"dash:PIS/variable/PRESCRIBED_DATE"
+ 					                }
+ 					             } ,
+								 
+  					            {
+  					                "@id":"dash:projectX/release/DaSH123_PIS_Release_v1.csv#DISPENSED_DATE",
+  					                "@type":[
+  					                   "shp_EntityCharacteristic"
+  					                ],
+  									"shp_dataType":"date",
+  									"shp_notNull":{
+    "@value": "11044",
+    "@type": "http://www.w3.org/2001/XMLSchema#integer"
+  },
+ 
+  									"shp_notNullPct":{
+    "@value": "89.36",
+    "@type": "http://www.w3.org/2001/XMLSchema#float"
+  },
+  					                "shp_minValue":{
+    "@value": "02-08-2015",
+    "@type": "http://www.w3.org/2001/XMLSchema#date"
+  },
+  					                "shp_maxValue":{
+    "@value": "31-12-2018",
+    "@type": "http://www.w3.org/2001/XMLSchema#date"
+  },
+  									"shp_smallestDistinctNumber":{
+    "@value": "3",
+    "@type": "http://www.w3.org/2001/XMLSchema#integer"
+  },
+  					                "shp_targetFile":{
+  					                   "@id":"dash:projectX/release/DaSH123_PIS_Release_v1.csv"
+  					                },
+  					                "shp_targetFeature":{
+  					                   "@id":"dash:PIS/variable/DISPENSED_DATE"
+  					                }
+  					             } ,	
+								 
+   					            {
+   					                "@id":"dash:projectX/release/DaSH123_PIS_Release_v1.csv#PI_APPROVED_NAME",
+   					                "@type":[
+   					                   "shp_EntityCharacteristic"
+   					                ],
+   									"shp_dataType":"string",
+   									"shp_notNull":{
+     "@value": "12358",
+     "@type": "http://www.w3.org/2001/XMLSchema#integer"
+   },
+ 
+   									"shp_notNullPct":{
+     "@value": "100",
+     "@type": "http://www.w3.org/2001/XMLSchema#float"
+   },
+   					                "shp_minValue":{
+     "@value": "ASPIRIN",
+     "@type": "http://www.w3.org/2001/XMLSchema#string"
+   },
+   					                "shp_maxValue":{
+     "@value": "PARACETAMOL",
+     "@type": "http://www.w3.org/2001/XMLSchema#string"
+   },
+   									"shp_smallestDistinctNumber":{
+     "@value": "1",
+     "@type": "http://www.w3.org/2001/XMLSchema#integer"
+   },
+   					                "shp_targetFile":{
+   					                   "@id":"dash:projectX/release/DaSH123_PIS_Release_v1.csv"
+   					                },
+   					                "shp_targetFeature":{
+   					                   "@id":"dash:PIS/variable/PI_APPROVED_NAME"
+   					                }
+   					             } ,	
+								 
+    					            {
+    					                "@id":"dash:projectX/release/DaSH123_PIS_Release_v1.csv#PI_BNF_ITEM_CODE",
+    					                "@type":[
+    					                   "shp_EntityCharacteristic"
+    					                ],
+    									"shp_dataType":"string",
+    									"shp_notNull":{
+      "@value": "12358",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+ 
+    									"shp_notNullPct":{
+      "@value": "100",
+      "@type": "http://www.w3.org/2001/XMLSchema#float"
+    },
+    					                "shp_minValue":{
+      "@value": "GA5HSE05326G356WU764",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+    					                "shp_maxValue":{
+      "@value": "Y35WUSH3ULUSETH23756",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+    									"shp_smallestDistinctNumber":{
+      "@value": "2",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+    					                "shp_targetFile":{
+    					                   "@id":"dash:projectX/release/DaSH123_PIS_Release_v1.csv"
+    					                },
+    					                "shp_targetFeature":{
+    					                   "@id":"dash:PIS/variable/PI_BNF_ITEM_CODE"
+    					                }
+    					             } ,
+									 
+     					            {
+     					                "@id":"dash:projectX/release/DaSH123_PIS_Release_v1.csv#PAID_QUANTITY",
+     					                "@type":[
+     					                   "shp_EntityCharacteristic"
+     					                ],
+     									"shp_dataType":"numeric",
+     									"shp_notNull":{
+       "@value": "754",
+       "@type": "http://www.w3.org/2001/XMLSchema#integer"
+     },
+ 
+     									"shp_notNullPct":{
+       "@value": "6.10",
+       "@type": "http://www.w3.org/2001/XMLSchema#float"
+     },
+     					                "shp_minValue":{
+       "@value": "1",
+       "@type": "http://www.w3.org/2001/XMLSchema#integer"
+     },
+     					                "shp_maxValue":{
+       "@value": "5",
+       "@type": "http://www.w3.org/2001/XMLSchema#integer"
+     },
+     									"shp_smallestDistinctNumber":{
+       "@value": "12",
+       "@type": "http://www.w3.org/2001/XMLSchema#integer"
+     },
+     					                "shp_targetFile":{
+     					                   "@id":"dash:projectX/release/DaSH123_PIS_Release_v1.csv"
+     					                },
+     					                "shp_targetFeature":{
+     					                   "@id":"dash:PIS/variable/PAID_QUANTITY"
+     					                }
+     					             }					     				     				     				     , 	     {
 	           "@id":"dash:projectX/release/DaSH123_SMR01_Release_v1.csv",
 	           "@type":[
 	              "File", "shp_DataSet"
@@ -5935,6 +7274,350 @@
           }
       ]
    }, 	     {
+	           "@id":"dash:projectX/signoff/DaSH123_PIS_Release_v1.csv",
+	           "@type":[
+	              "File", "shp_DataSet"
+	           ],
+	           "description":"?",
+	           "label":"DaSH123_PIS_Release_v1.csv",
+	           "path":"file:///c:/projectX/signoff/DaSH123_PIS_Release_v1.csv",
+	           "shp_hash":"e0d675e5f316bef78bfdf5a008837600",
+			   "wasDerivedFrom":[
+	           {
+	              "@id":"dash:projectX/checked/DaSH123_PIS_Release_v1.csv"
+	           }],
+	           "wasAttributedTo":{
+	              "@id":"dash:staff/JD"
+	           },
+	           "exifData":[
+	               {
+	                "@id":"dash:projectX/signoff/DaSH123_PIS_Release_v1.csv#selectedVariables" 
+	               },
+	               {
+	              "@id":"dash:projectX/signoff/DaSH123_PIS_Release_v1.csv#DaSH123_StudyNumber"
+	               },
+	               {
+	              "@id":"dash:projectX/signoff/DaSH123_PIS_Release_v1.csv#PAID_DATE"
+	               },
+	               {
+	              "@id":"dash:projectX/signoff/DaSH123_PIS_Release_v1.csv#PRESCRIBED_DATE"
+	               },
+	               {
+	              "@id":"dash:projectX/signoff/DaSH123_PIS_Release_v1.csv#DISPENSED_DATE"
+	               },
+	               {
+	              "@id":"dash:projectX/signoff/DaSH123_PIS_Release_v1.csv#PI_APPROVED_NAME"
+	               },
+	               {
+	              "@id":"dash:projectX/signoff/DaSH123_PIS_Release_v1.csv#PI_BNF_ITEM_CODE"
+	               },
+	               {
+	              "@id":"dash:projectX/signoff/DaSH123_PIS_Release_v1.csv#PAID_QUANTITY"
+	               },
+	               {
+	                  "@id":"dash:projectX/signoff/DaSH123_PIS_Release_v1.csv#summaryStats"
+	               }
+	           ]
+	        }, 
+            {
+               "@id":"dash:projectX/signoff/DaSH123_PIS_Release_v1.csv#summaryStats",
+               "@type":[
+                  "shp_EntityCharacteristic"
+               ],
+               "shp_rowCount":{
+     "@value": "12358",
+     "@type": "http://www.w3.org/2001/XMLSchema#integer"
+   },
+			"shp_uniqueChiCount":{
+     "@value": "658",
+     "@type": "http://www.w3.org/2001/XMLSchema#integer"
+   },
+			"shp_maleFemaleRatio":{
+     "@value": "53",
+     "@type": "http://www.w3.org/2001/XMLSchema#integer"
+   },
+               "shp_targetFile":{
+                  "@id":"dash:projectX/signoff/DaSH123_PIS_Release_v1.csv"
+               }
+            }
+			,
+			{
+	        "@id":"dash:projectX/signoff/DaSH123_PIS_Release_v1.csv#selectedVariables",
+	                "@type":[
+	                   "shp_SelectedVariables"
+	                ],
+	                "hadMember":[
+				        {
+				           "@id":"dash:PIS/variable/DaSH123_StudyNumber"
+				        }, 
+				        {
+				           "@id":"dash:PIS/variable/PAID_DATE"
+				        },
+				        {
+				           "@id":"dash:PIS/variable/PRESCRIBED_DATE"
+				        },
+				        {
+				           "@id":"dash:PIS/variable/DISPENSED_DATE"
+				        },
+				        {
+				           "@id":"dash:PIS/variable/PI_APPROVED_NAME"
+				        },
+				        {
+				           "@id":"dash:PIS/variable/PI_BNF_ITEM_CODE"
+				        },
+				        {
+				           "@id":"dash:PIS/variable/PAID_QUANTITY"
+				        }
+				        
+	                ]
+	         },
+			 
+		            {
+		                "@id":"dash:projectX/signoff/DaSH123_PIS_Release_v1.csv#DaSH123_StudyNumber",
+		                "@type":[
+		                   "shp_EntityCharacteristic"
+		                ],
+						"shp_dataType":"numeric",
+						"shp_notNull": {
+  "@value": "12358",
+  "@type": "http://www.w3.org/2001/XMLSchema#integer"
+},
+ 
+						"shp_notNullPct": {
+  "@value": "100",
+  "@type": "http://www.w3.org/2001/XMLSchema#integer"
+},
+ 
+		                "shp_minValue":{
+  "@value": "1111000001",
+  "@type": "http://www.w3.org/2001/XMLSchema#integer"
+},
+		                "shp_maxValue":{
+  "@value": "1111000658",
+  "@type": "http://www.w3.org/2001/XMLSchema#integer"
+},
+						"shp_smallestDistinctNumber":{
+  "@value": "1",
+  "@type": "http://www.w3.org/2001/XMLSchema#integer"
+},
+   "shp_targetFile":{
+      "@id":"dash:projectX/signoff/DaSH123_PIS_Release_v1.csv"
+   },
+   "shp_targetFeature":{
+      "@id":"dash:PIS/variable/DaSH123_StudyNumber"
+   }
+}
+					 ,
+
+					            {
+					                "@id":"dash:projectX/signoff/DaSH123_PIS_Release_v1.csv#PAID_DATE",
+					                "@type":[
+					                   "shp_EntityCharacteristic"
+					                ],
+									"shp_dataType":"date",
+									"shp_notNull":{
+  "@value": "11384",
+  "@type": "http://www.w3.org/2001/XMLSchema#integer"
+},
+ 
+									"shp_notNullPct":{
+  "@value": "92.11",
+  "@type": "http://www.w3.org/2001/XMLSchema#float"
+},
+					                "shp_minValue":{
+  "@value": "02-08-2015",
+  "@type": "http://www.w3.org/2001/XMLSchema#date"
+},
+					                "shp_maxValue":{
+  "@value": "31-12-2018",
+  "@type": "http://www.w3.org/2001/XMLSchema#date"
+},
+									"shp_smallestDistinctNumber":{
+  "@value": "3",
+  "@type": "http://www.w3.org/2001/XMLSchema#integer"
+},
+					                "shp_targetFile":{
+					                   "@id":"dash:projectX/signoff/DaSH123_PIS_Release_v1.csv"
+					                },
+					                "shp_targetFeature":{
+					                   "@id":"dash:PIS/variable/PAID_DATE"
+					                }
+					             } ,
+
+ 					            {
+ 					                "@id":"dash:projectX/signoff/DaSH123_PIS_Release_v1.csv#PRESCRIBED_DATE",
+ 					                "@type":[
+ 					                   "shp_EntityCharacteristic"
+ 					                ],
+ 									"shp_dataType":"date",
+ 									"shp_notNull":{
+   "@value": "12358",
+   "@type": "http://www.w3.org/2001/XMLSchema#integer"
+ },
+ 
+ 									"shp_notNullPct":{
+   "@value": "100",
+   "@type": "http://www.w3.org/2001/XMLSchema#float"
+ },
+ 					                "shp_minValue":{
+   "@value": "01-08-2015",
+   "@type": "http://www.w3.org/2001/XMLSchema#date"
+ },
+ 					                "shp_maxValue":{
+   "@value": "31-12-2018",
+   "@type": "http://www.w3.org/2001/XMLSchema#date"
+ },
+ 									"shp_smallestDistinctNumber":{
+   "@value": "2",
+   "@type": "http://www.w3.org/2001/XMLSchema#integer"
+ },
+ 					                "shp_targetFile":{
+ 					                   "@id":"dash:projectX/signoff/DaSH123_PIS_Release_v1.csv"
+ 					                },
+ 					                "shp_targetFeature":{
+ 					                   "@id":"dash:PIS/variable/PRESCRIBED_DATE"
+ 					                }
+ 					             } ,
+								 
+  					            {
+  					                "@id":"dash:projectX/signoff/DaSH123_PIS_Release_v1.csv#DISPENSED_DATE",
+  					                "@type":[
+  					                   "shp_EntityCharacteristic"
+  					                ],
+  									"shp_dataType":"date",
+  									"shp_notNull":{
+    "@value": "11044",
+    "@type": "http://www.w3.org/2001/XMLSchema#integer"
+  },
+ 
+  									"shp_notNullPct":{
+    "@value": "89.36",
+    "@type": "http://www.w3.org/2001/XMLSchema#float"
+  },
+  					                "shp_minValue":{
+    "@value": "02-08-2015",
+    "@type": "http://www.w3.org/2001/XMLSchema#date"
+  },
+  					                "shp_maxValue":{
+    "@value": "31-12-2018",
+    "@type": "http://www.w3.org/2001/XMLSchema#date"
+  },
+  									"shp_smallestDistinctNumber":{
+    "@value": "3",
+    "@type": "http://www.w3.org/2001/XMLSchema#integer"
+  },
+  					                "shp_targetFile":{
+  					                   "@id":"dash:projectX/signoff/DaSH123_PIS_Release_v1.csv"
+  					                },
+  					                "shp_targetFeature":{
+  					                   "@id":"dash:PIS/variable/DISPENSED_DATE"
+  					                }
+  					             } ,	
+								 
+   					            {
+   					                "@id":"dash:projectX/signoff/DaSH123_PIS_Release_v1.csv#PI_APPROVED_NAME",
+   					                "@type":[
+   					                   "shp_EntityCharacteristic"
+   					                ],
+   									"shp_dataType":"string",
+   									"shp_notNull":{
+     "@value": "12358",
+     "@type": "http://www.w3.org/2001/XMLSchema#integer"
+   },
+ 
+   									"shp_notNullPct":{
+     "@value": "100",
+     "@type": "http://www.w3.org/2001/XMLSchema#float"
+   },
+   					                "shp_minValue":{
+     "@value": "ASPIRIN",
+     "@type": "http://www.w3.org/2001/XMLSchema#string"
+   },
+   					                "shp_maxValue":{
+     "@value": "PARACETAMOL",
+     "@type": "http://www.w3.org/2001/XMLSchema#string"
+   },
+   									"shp_smallestDistinctNumber":{
+     "@value": "1",
+     "@type": "http://www.w3.org/2001/XMLSchema#integer"
+   },
+   					                "shp_targetFile":{
+   					                   "@id":"dash:projectX/signoff/DaSH123_PIS_Release_v1.csv"
+   					                },
+   					                "shp_targetFeature":{
+   					                   "@id":"dash:PIS/variable/PI_APPROVED_NAME"
+   					                }
+   					             } ,	
+								 
+    					            {
+    					                "@id":"dash:projectX/signoff/DaSH123_PIS_Release_v1.csv#PI_BNF_ITEM_CODE",
+    					                "@type":[
+    					                   "shp_EntityCharacteristic"
+    					                ],
+    									"shp_dataType":"string",
+    									"shp_notNull":{
+      "@value": "12358",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+ 
+    									"shp_notNullPct":{
+      "@value": "100",
+      "@type": "http://www.w3.org/2001/XMLSchema#float"
+    },
+    					                "shp_minValue":{
+      "@value": "GA5HSE05326G356WU764",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+    					                "shp_maxValue":{
+      "@value": "Y35WUSH3ULUSETH23756",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+    									"shp_smallestDistinctNumber":{
+      "@value": "2",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+    					                "shp_targetFile":{
+    					                   "@id":"dash:projectX/signoff/DaSH123_PIS_Release_v1.csv"
+    					                },
+    					                "shp_targetFeature":{
+    					                   "@id":"dash:PIS/variable/PI_BNF_ITEM_CODE"
+    					                }
+    					             } ,
+									 
+     					            {
+     					                "@id":"dash:projectX/signoff/DaSH123_PIS_Release_v1.csv#PAID_QUANTITY",
+     					                "@type":[
+     					                   "shp_EntityCharacteristic"
+     					                ],
+     									"shp_dataType":"numeric",
+     									"shp_notNull":{
+       "@value": "754",
+       "@type": "http://www.w3.org/2001/XMLSchema#integer"
+     },
+ 
+     									"shp_notNullPct":{
+       "@value": "6.10",
+       "@type": "http://www.w3.org/2001/XMLSchema#float"
+     },
+     					                "shp_minValue":{
+       "@value": "1",
+       "@type": "http://www.w3.org/2001/XMLSchema#integer"
+     },
+     					                "shp_maxValue":{
+       "@value": "5",
+       "@type": "http://www.w3.org/2001/XMLSchema#integer"
+     },
+     									"shp_smallestDistinctNumber":{
+       "@value": "12",
+       "@type": "http://www.w3.org/2001/XMLSchema#integer"
+     },
+     					                "shp_targetFile":{
+     					                   "@id":"dash:projectX/signoff/DaSH123_PIS_Release_v1.csv"
+     					                },
+     					                "shp_targetFeature":{
+     					                   "@id":"dash:PIS/variable/PAID_QUANTITY"
+     					                }
+     					             }					     				     				     				     , 	     {
 	           "@id":"dash:projectX/signoff/DaSH123_SMR01_Release_v1.csv",
 	           "@type":[
 	              "File", "shp_DataSet"
@@ -6952,7 +8635,13 @@
              "@id":"dash:projectX/checked/DaSH123_SMR01_Release_v1.csv"
           }
       ]
-   }, {"@id":"dash:PIS/variable/PAID_DATE",
+   }, 
+
+{
+   "@id":"dash:PIS/variable/DaSH123_StudyNumber",
+   "@type":["shp_Variable"],"label":"DaSH123 StudyNumber"
+},
+{"@id":"dash:PIS/variable/PAID_DATE",
 "@type":["shp_Variable"],"label":"PAID DATE"
 }, 
 {"@id":"dash:PIS/variable/PRESCRIBED_DATE",

@@ -21,18 +21,29 @@ public class ValidationEngine {
 		
 		settings = new HashMap <String,ArrayList <ValidationRuleInterface>> (); 
 		
+		
+ArrayList<ValidationRuleInterface> linkageChecks = new ArrayList <ValidationRuleInterface> ();
+		
+
+linkageChecks.add(new ExpectedChangeOfHash());
+		
+		settings.put("https://w3id.org/shp#IdLinkage", linkageChecks);
+		
 		ArrayList<ValidationRuleInterface> signoffChecks = new ArrayList <ValidationRuleInterface> ();
 		
 		signoffChecks.add(new CheckInpusOutputsRowCountMatches());
+		signoffChecks.add(new UnexpectedChangeOfHash());
 		
 		settings.put("https://w3id.org/shp#SignOff", signoffChecks);
 		
 		
 ArrayList<ValidationRuleInterface> releaseChecks = new ArrayList <ValidationRuleInterface> ();
 		
-releaseChecks.add(new CheckInpusOutputsRowCountMatches());
+        releaseChecks.add(new CheckInpusOutputsRowCountMatches());
+        releaseChecks.add(new UnexpectedChangeOfHash());
 		
 		settings.put("https://w3id.org/shp#DatasetRelease", releaseChecks);
+		
 		
         ArrayList<ValidationRuleInterface> datasetChecks = new ArrayList <ValidationRuleInterface> ();
         

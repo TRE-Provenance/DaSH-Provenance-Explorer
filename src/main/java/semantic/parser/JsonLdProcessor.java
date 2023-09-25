@@ -33,7 +33,7 @@ public class JsonLdProcessor {
     public ArrayList<HashMap<String, String>> getActivityData () {
     	
     	// Execute SPARQL query
-    	ArrayList<HashMap<String, String>>  list = SPARQLUtils.executeSparqlQuery(model, Constants.PREFIXES + " SELECT DISTINCT ?activity ?activityL ?activityEndTime   WHERE {?activity a <http://schema.org/CreateAction>; rdfs:label ?activityL; <http://schema.org/endTime> ?activityEndTime. } ORDER BY ASC(?activityEndTime) ");    	
+    	ArrayList<HashMap<String, String>>  list = SPARQLUtils.executeSparqlQuery(model, Constants.PREFIXES + " SELECT DISTINCT ?activity ?description ?activityL ?activityEndTime   WHERE {?activity a <http://schema.org/CreateAction>; rdfs:label ?activityL; <http://schema.org/endTime> ?activityEndTime; schema:description ?description. } ORDER BY ASC(?activityEndTime) ");    	
     	
 		return list;
     }
@@ -198,8 +198,8 @@ public  ArrayList<HashMap<String, String>> getLinkagePlanDetails() {
 
 	        // Execute SPARQL query
 	        String queryStr =  "PREFIX shp: <https://w3id.org/shp#> PREFIX schema: <http://schema.org/> PREFIX time: <http://www.w3.org/2006/time#> PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX peco: <https://w3id.org/peco#> PREFIX ecfo: <https://w3id.org/ecfo#>  PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX owl: <http://www.w3.org/2002/07/owl#> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>  PREFIX prov:<http://www.w3.org/ns/prov#> PREFIX qudt: <http://qudt.org/schema/qudt/> "
-	        		+ " SELECT DISTINCT * WHERE {?database rdfs:label ?databaseL.  ?database a shp:Database. ?linkagePlan a shp:DataLinkagePlan; schema:exifData ?dataSource. ?dataSource shp:database ?database.  ?file a shp:DataSet;  prov:wasDerivedFrom* ?s. ?activity a shp:DatasetRelease;schema:result ?file  }";
-	        
+	        		+ " SELECT DISTINCT * WHERE {<dash:projectX/Linkage/2023-08-18T12:00:14+00:00> a <http://schema.org/CreateAction>;  <http://schema.org/object> ?input;<http://schema.org/result> ?output.  ?input a shp:DataSet; rdfs:label ?datasetL. ?output a shp:DataSet; rdfs:label ?datasetL. ?input shp:hash ?inputHash. ?output shp:hash ?outputHash. FILTER (?inputHash != ?outputHash) }";  
+	        			
 	        			
 
 	        Query query = QueryFactory.create(queryStr);

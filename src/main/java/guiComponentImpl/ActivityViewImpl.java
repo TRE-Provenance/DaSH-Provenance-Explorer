@@ -85,6 +85,12 @@ public class ActivityViewImpl implements ActivityView{
 			
 		}
 	    }
+	    
+	    else {
+	    	JLabel label = new JLabel ("No validation checks set for this activity ");
+	    	label.setAlignmentX(Component.LEFT_ALIGNMENT);
+	    	 activityViewPanel.add(  GuiUtils.wrapTextWithLabel ("No validation checks set for this activity ","", null));
+	    }
 	   
 	    
 	    

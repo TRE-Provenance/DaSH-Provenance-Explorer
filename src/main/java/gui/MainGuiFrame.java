@@ -34,7 +34,7 @@ public class MainGuiFrame extends JFrame {
     public MainGuiFrame() {
     	setTitle("Provenance Explorer");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(900, 800);
+        setSize(1200, 1000);
         setLocationRelativeTo(null);
         openFile();
         

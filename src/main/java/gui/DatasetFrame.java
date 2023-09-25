@@ -212,7 +212,7 @@ static class PercentageColumnRenderer extends DefaultTableCellRenderer {
     public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
         Component component = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
         try {
-        int valueInt = Integer.parseInt(value.toString());
+        double valueInt = Double.parseDouble(value.toString());
         JLabel label = new JLabel (value.toString());
         label.setHorizontalAlignment(SwingConstants.CENTER);
         label.setOpaque(true);
@@ -228,7 +228,7 @@ static class PercentageColumnRenderer extends DefaultTableCellRenderer {
         
     }
 
-    private Color getColorForPercentage(int percentage) {
+    private Color getColorForPercentage(double percentage) {
         // Customize the color based on the percentage as needed
         if (percentage < 50) {
             return Color.RED;

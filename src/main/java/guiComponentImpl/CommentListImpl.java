@@ -97,10 +97,29 @@ public class CommentListImpl implements CommentListInterface {
     private static class CommentRenderer extends JPanel implements ListCellRenderer<Comment> {
         private JLabel authorTimeLabel = new JLabel();
         private JLabel textLabel = new JLabel();
+        JLabel authorNameLabel = new JLabel();
+        JLabel timeLabel = new JLabel();
 
         public CommentRenderer() {
             setLayout(new BorderLayout());
-            add(authorTimeLabel, BorderLayout.NORTH);
+            JPanel panel = new JPanel();
+            panel.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 5)); // Left-aligned flow layout with horizontal and vertical gaps
+
+            // Create an author icon
+            ImageIcon authorIcon = new ImageIcon(CommentListImpl.class.getClassLoader().getResource("author.png")); // Replace with your actual icon file
+            JLabel authorLabel = new JLabel(authorIcon);
+
+           
+            // Create a clock icon
+            ImageIcon clockIcon = new ImageIcon(CommentListImpl.class.getClassLoader().getResource("clock.png")); // Replace with your actual icon file
+            JLabel clockLabel = new JLabel(clockIcon);
+
+            // Add components to the panel
+            panel.add(authorLabel);
+            panel.add(authorNameLabel);
+            panel.add(clockLabel);
+            panel.add(timeLabel);
+            add(panel, BorderLayout.NORTH);
             add(textLabel, BorderLayout.CENTER);
 
             Font boldFont = textLabel.getFont().deriveFont(Font.BOLD);
@@ -110,8 +129,10 @@ public class CommentListImpl implements CommentListInterface {
 
         @Override
         public Component getListCellRendererComponent(JList<? extends Comment> list, Comment value, int index, boolean isSelected, boolean cellHasFocus) {
-            authorTimeLabel.setText("<html><b>Author:</b> " + value.getAuthor() + " <b>Time:</b> " + value.getFormattedTimestamp() + "</html>");
-            textLabel.setText("<html><body>" + value.getText() + "</body></html>");
+            //authorTimeLabel.setText("<html><b>Author:</b> " + value.getAuthor() + " <b>Time:</b> " + value.getFormattedTimestamp() + "</html>");
+        	authorNameLabel.setText(value.getAuthor());
+        	timeLabel.setText(value.getFormattedTimestamp());
+        	textLabel.setText("<html><body>" + value.getText() + "</body></html>");
 
             if (isSelected) {
                 setBackground(list.getSelectionBackground());
