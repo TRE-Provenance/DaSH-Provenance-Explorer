@@ -101,7 +101,7 @@ public class MainGuiFrame extends JFrame {
             }
                
         }
-        	 topPanel.add(ValidationUtils.entityResult("Released Files ("+allReleased.size()+")", allReleased));
+        	 topPanel.add(ValidationUtils.entityResultNoColor("Released Files ("+allReleased.size()+")", allReleased));
          	
         }
         

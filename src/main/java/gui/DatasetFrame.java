@@ -25,6 +25,7 @@ import Utils.ValidationUtils;
 import guiComponentImpl.CommentListImpl;
 import guiInterface.CommentListInterface;
 import semantic.parser.CommentsJsonLdProcessor;
+import semantic.parser.Constants;
 import semantic.parser.Dataset;
 import semantic.parser.JsonLdProcessor;
 import validation.CheckForSensitiveVariablesInFile;
@@ -230,12 +231,12 @@ static class PercentageColumnRenderer extends DefaultTableCellRenderer {
 
     private Color getColorForPercentage(double percentage) {
         // Customize the color based on the percentage as needed
-        if (percentage < 50) {
-            return Color.RED;
-        } else if (percentage < 100) {
-            return Color.YELLOW;
+        if (percentage < 5) {
+            return Constants.light_orange;
+        } else if (percentage < 10) {
+            return Constants.light_yellow;
         } else {
-            return Color.GREEN;
+            return Color.WHITE;
         }
     }
 }

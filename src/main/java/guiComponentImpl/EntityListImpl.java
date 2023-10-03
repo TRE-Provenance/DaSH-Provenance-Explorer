@@ -1,6 +1,7 @@
 package guiComponentImpl;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.event.MouseEvent;
@@ -42,22 +43,26 @@ public class EntityListImpl implements EntityListInterface {
 	private CommentsJsonLdProcessor commentsJsonLdProcessor;
 
 	
-	public EntityListImpl( ArrayList <Entity> entries, CommentsJsonLdProcessor commentsJsonLdProcessor) {
+	public EntityListImpl( ArrayList <Entity> entries, Color color, CommentsJsonLdProcessor commentsJsonLdProcessor) {
 		
 		this.commentsJsonLdProcessor = commentsJsonLdProcessor;
 		
 		panel = new JPanel();
+		
+		
 		
 		panel.setLayout(new BorderLayout());
 
         // Create the list model
         listModel = new DefaultListModel<>();
         
+        
+        
       
 
         // Create the JList with the list model
         jList = new JList<>(listModel);
-        
+        jList.setBackground(color);
     
 
         // Set a custom renderer for the JList to display icons and text

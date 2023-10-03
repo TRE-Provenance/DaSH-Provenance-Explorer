@@ -51,7 +51,7 @@ public  List<Entity> getViolations (String [] args, Model model) {
 @Override
 public String getName() {
 	// TODO Auto-generated method stub
-	return "Number of Rows input/output";
+	return "Number of Rows input/output not equal";
 }
 
 @Override
@@ -68,20 +68,20 @@ public JPanel getSimpleResult (String [] args, Model model)  {
 	
 	
 	
-	ArrayList<Entity> rowCountDoesntMatch =  (ArrayList<Entity>) new CheckInpusOutputsRowCountMatches ().getViolations(args, model);
-    if (rowCountDoesntMatch.size()>0) {
+	ArrayList<Entity> variablesList =  (ArrayList<Entity>) new CheckInpusOutputsRowCountMatches ().getViolations(args, model);
+	ArrayList <Entity> entities= new ArrayList <Entity> (); 
+	
+	if (variablesList.size()>0) {
     	
-    	for (int i =0; i <rowCountDoesntMatch.size();i++ ) {
-    		resultMatchingRows = resultMatchingRows + rowCountDoesntMatch.get(i).getEntityL();
-    		
-    		if (i+1!=rowCountDoesntMatch.size()) {
-    			resultMatchingRows = resultMatchingRows +",";
-        	}
+    	
+    	for (int i =0; i <variablesList.size();i++ ) {
+    		entities.add(variablesList.get(i));
     	}
     	
     }
 	
-    return ValidationUtils.simpleResult(getName(), resultMatchingRows);
+    //return ValidationUtils.simpleResult(getName(), resultMatchingRows);
+    return ValidationUtils.entityResult(getName()+ " ("+variablesList.size()+")", entities);
 }
 
 

@@ -51,12 +51,12 @@ public class ActivityViewImpl implements ActivityView{
 		//panel.add(GuiUtils.wrapTextWithLabel("Responsible Person(s): ",activity.getInputs().toString(),null));
 		//activityViewPanel.add(GuiUtils.wrapParameterListWithLabelNoColor ("Inputs: ", activity.getInputs(),commentsJsonLdProcessor));
 		//activityViewPanel.add(GuiUtils.wrapParameterListWithLabelNoColor ("Inputs: ",null);
-		EntityListImpl entityList = new EntityListImpl (activity.getInputs(),commentsJsonLdProcessor); 
+		EntityListImpl entityList = new EntityListImpl (activity.getInputs(), Color.WHITE , commentsJsonLdProcessor); 
 		JPanel listPanel = entityList.getEntityList();
 		activityViewPanel.add(GuiUtils.addLabel ("Inputs (" + entityList.getListModel().getSize() +")" ));
 		activityViewPanel.add(listPanel);
 		
-		entityList = new EntityListImpl (activity.getOutputs(),commentsJsonLdProcessor); 
+		entityList = new EntityListImpl (activity.getOutputs(), Color.WHITE , commentsJsonLdProcessor); 
 		listPanel = entityList.getEntityList();
 		activityViewPanel.add(GuiUtils.addLabel ("Outputs (" + entityList.getListModel().getSize() +")" ));
 		activityViewPanel.add(listPanel);
