@@ -71,7 +71,7 @@ public JPanel getSimpleResult (String [] args, Model model)  {
    
     	
 	
-    return ValidationUtils.entityResult(getName(), hashDoesNotMatch);
+    return ValidationUtils.entityResult(getName()+ " ("+hashDoesNotMatch.size()+")", hashDoesNotMatch);
 }
 
 

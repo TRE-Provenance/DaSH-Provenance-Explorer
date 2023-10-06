@@ -29,6 +29,7 @@ import semantic.parser.CommentsJsonLdProcessor;
 import semantic.parser.Dataset;
 import semantic.parser.JsonLdProcessor;
 import semantic.parser.LinkagePlan;
+import semantic.parser.UidMapping;
 import semantic.parser.Database;
 
 public class ActivityListImpl implements ActivityListInterface {
@@ -156,6 +157,18 @@ public class ActivityListImpl implements ActivityListInterface {
                 	 
                 	 newact.getInputs().add(database);
 				 }
+                 
+                if (inputs.get(j).get("inputType").contains("UidMapping")) {
+					 
+                	UidMapping mapping = new UidMapping (inputs.get(j).get("input")); 
+                	mapping.setEntityL(inputs.get(j).get("inputL"));
+                	 ArrayList<HashMap<String, String>> path = dataProcessor.getFilePath(mapping.getURI());
+   					
+               	  if (path.size()>0) {
+               		 mapping.setPath (path.get(0).get("path"));
+   					 }
+                	 newact.getInputs().add(mapping);
+				 }
 			 }
 			 
 			 ArrayList<HashMap<String, String>> outputs = dataProcessor.getActivityOutputs(activityURI);
@@ -193,6 +206,18 @@ public class ActivityListImpl implements ActivityListInterface {
 	                	 Database database = new Database (outputs.get(j).get("output")); 
 	                	 database.setEntityL(outputs.get(j).get("outputL"));
 						 newact.getOutputs().add(database);
+					 }
+	                 
+                      if (outputs.get(j).get("outputType").contains("UidMapping")) {
+ 
+                    	  UidMapping mapping = new UidMapping (outputs.get(j).get("output")); 
+                    	  mapping.setEntityL(outputs.get(j).get("outputL"));
+                    	  ArrayList<HashMap<String, String>> path = dataProcessor.getFilePath(mapping.getURI());
+      					
+                    	  if (path.size()>0) {
+	                		 mapping.setPath (path.get(0).get("path"));
+	    					 }
+						 newact.getOutputs().add(mapping);
 					 }
 			 
 			 

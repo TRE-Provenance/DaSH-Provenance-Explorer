@@ -100,7 +100,7 @@ public ArrayList<HashMap<String, String>> getVariablesInPlan () {
  
 
 public ArrayList<HashMap<String, String>>  getVariableStatsForFile(String fileIRI) {
-	String query = Constants.PREFIXES + " SELECT ?minValue ?maxValue ?variableL ?completePct ?complete ?sdn ?dataType   WHERE {<"+fileIRI+"> schema:exifData ?item. ?item a shp:EntityCharacteristic; shp:targetFile <"+fileIRI+">; shp:targetFeature/rdfs:label ?variableL. Optional { ?item shp:minValue ?minValue} Optional {?item shp:maxValue ?maxValue} Optional {?item shp:dataType ?dataType} Optional {?item shp:notNull ?complete} Optional {?item shp:notNullPct ?completePct}  Optional {?item shp:smallestDistinctNumber ?sdn}.  } Order by ?variableL" ;    	
+	String query = Constants.PREFIXES + " SELECT ?minValue ?maxValue ?variableL ?completePct ?complete ?sdn ?dataType ?uniqueChi   WHERE {<"+fileIRI+"> schema:exifData ?item. ?item a shp:EntityCharacteristic; shp:targetFile <"+fileIRI+">; shp:targetFeature/rdfs:label ?variableL. Optional { ?item shp:minValue ?minValue} Optional { ?item shp:uniqueChiCount ?uniqueChi} Optional {?item shp:maxValue ?maxValue} Optional {?item shp:dataType ?dataType} Optional {?item shp:notNull ?complete} Optional {?item shp:notNullPct ?completePct}  Optional {?item shp:smallestDistinctNumber ?sdn}.  } Order by ?variableL" ;    	
 	System.out.println (query);
 	// Execute SPARQL query
 	ArrayList<HashMap<String, String>>  list = SPARQLUtils.executeSparqlQuery(model, query);    	

@@ -67,7 +67,7 @@ public JPanel getSimpleResult (String [] args, Model model)  {
 	ArrayList<Entity> hashMatches =  (ArrayList<Entity>) new ExpectedChangeOfHash ().getViolations(args, model);
     
 	
-    return ValidationUtils.entityResult(getName(), hashMatches);
+    return ValidationUtils.entityResult(getName()+ " ("+hashMatches.size()+")", hashMatches);
 }
 
 

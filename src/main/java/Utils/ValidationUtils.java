@@ -26,7 +26,7 @@ public class ValidationUtils {
 	
 	public static JPanel entityResult (String validationName,  ArrayList <Entity> result) {
 		 if (result.size()==0) {
-			 return GuiUtils.wrapTextWithLabel (validationName+": ", "OK", Color.BLACK);
+			 return GuiUtils.wrapTextWithLabel (validationName+": ", "PASS", Color.BLACK);
         }
         else {
         	JPanel panel = new JPanel (); 
@@ -41,7 +41,7 @@ public class ValidationUtils {
 	
 	public static JPanel entityResultNoColor (String validationName,  ArrayList <Entity> result) {
 		 if (result.size()==0) {
-			 return GuiUtils.wrapTextWithLabel (validationName+": ", "OK", Color.BLACK);
+			 return GuiUtils.wrapTextWithLabel (validationName+": ", "PASS", Color.BLACK);
        }
        else {
        	JPanel panel = new JPanel (); 

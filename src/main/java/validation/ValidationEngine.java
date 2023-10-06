@@ -50,6 +50,7 @@ ArrayList<ValidationRuleInterface> releaseChecks = new ArrayList <ValidationRule
         datasetChecks.add(new CheckMinConstraintsInFile());
         datasetChecks.add(new CheckMaxConstraintsInFile());
         datasetChecks.add(new CheckForSensitiveVariablesInFile());
+        datasetChecks.add(new ContainsVariablesNotPresentInLinkagePlan());
       
 		
 		

@@ -25,6 +25,7 @@ import Utils.IconTextListRenderer;
 import gui.DatabaseFrame;
 import gui.DatasetFrame;
 import gui.LinkagePlanFrame;
+import gui.UidMappingFrame;
 import guiInterface.ActivityView;
 import guiInterface.EntityListInterface;
 import semantic.parser.Activity;
@@ -33,6 +34,7 @@ import semantic.parser.Database;
 import semantic.parser.Dataset;
 import semantic.parser.Entity;
 import semantic.parser.LinkagePlan;
+import semantic.parser.UidMapping;
 
 public class EntityListImpl implements EntityListInterface {
 	
@@ -89,6 +91,9 @@ public class EntityListImpl implements EntityListInterface {
                         if (selectedItem.getEntity() instanceof LinkagePlan) {
                       	   new LinkagePlanFrame ();
                          }
+                        if (selectedItem.getEntity() instanceof UidMapping) {
+                       	   new UidMappingFrame ((UidMapping) selectedItem.getEntity(),commentsJsonLdProcessor);
+                          }
                     }
                 }
             }
