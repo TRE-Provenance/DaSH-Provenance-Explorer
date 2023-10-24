@@ -82,6 +82,9 @@ public class SPARQLUtils {
 				
 					catch ( org.apache.jena.riot.RiotException ex) {
 						System.out.println ("File is empty or not in JSON-LD format"); 
+						System.out.println (ex.getStackTrace());
+						System.out.println (ex.getMessage());
+						ex.printStackTrace(System.out);
 				}
 	        
 	        
