@@ -35,7 +35,7 @@ Note: the app will expect comments.jsonld file to be present in the same directo
 
 ## Binary distributions 
 
-See releases
+See [releases](https://github.com/TRE-Provenance/TRE-Provenance-Explorer/releases)
 
 ## Demo
 
